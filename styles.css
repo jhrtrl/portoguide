@@ -47,53 +47,51 @@ header .countdown {
 
 /* Carousel */
 .carousel {
-    position: relative;
+    position: relative; /* Establishes a containing block for absolute positioning */
     width: 100%;
-    overflow: hidden; /* Hide images outside the visible area */
-    margin: 0 auto; /* Center the carousel */
+    overflow: hidden; /* Ensures images outside the visible area are hidden */
+    margin: 0 auto; /* Centers the carousel */
 }
 
 .carousel-wrapper {
-    display: flex;
-    transition: transform 0.5s ease;
+    display: flex; /* Aligns images horizontally */
+    transition: transform 0.5s ease; /* Smooth transition for sliding */
 }
 
 .carousel-wrapper picture {
-    flex: 0 0 100%; /* Each image takes up 100% of the carousel width */
-    position: relative; /* Required for layering child elements if necessary */
+    flex: 0 0 100%; /* Each image takes up full width */
 }
 
 .carousel img {
-    width: 100%; /* Ensure the image stretches to fill its container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent inline spacing issues */
+    width: 100%; /* Ensures images stretch to fit the container */
+    height: auto; /* Maintains the image's aspect ratio */
+    display: block; /* Prevents inline spacing issues */
 }
 
 .carousel-controls {
-    position: absolute;
+    position: absolute; /* Position relative to the .carousel container */
     top: 50%; /* Center vertically */
     width: 100%; /* Stretch across the carousel */
-    display: flex;
-    justify-content: space-between; /* Align buttons at the edges */
-    transform: translateY(-50%); /* Adjust for centering */
-    z-index: 10; /* Ensure controls are above the images */
-    pointer-events: none; /* Prevent blocking clicks on the images */
+    display: flex; /* Align the buttons horizontally */
+    justify-content: space-between; /* Place buttons at the left and right edges */
+    transform: translateY(-50%); /* Adjusts the centering of the buttons */
+    z-index: 10; /* Ensures the buttons are on top of the images */
 }
 
 .carousel-controls button {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    color: white; /* White text */
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-size: 1.5rem; /* Larger font for visibility */
-    pointer-events: auto; /* Allow button clicks */
-    z-index: 11; /* Keep buttons above other elements */
-    transition: background-color 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* White arrow text */
+    border: none; /* Removes the default border */
+    cursor: pointer; /* Indicates the buttons are clickable */
+    padding: 0.5rem 1rem; /* Adds space inside the buttons */
+    font-size: 1.5rem; /* Makes the arrows larger for visibility */
+    z-index: 11; /* Ensures the buttons are above other elements */
+    pointer-events: auto; /* Ensures buttons are clickable */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
 }
 
 .carousel-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+    background-color: rgba(0, 0, 0, 0.8); /* Darkens the background on hover */
 }
 
 /* Fade-In */
