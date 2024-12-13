@@ -89,7 +89,7 @@ document.getElementById('next').addEventListener('click', () => {
     startAutoSwipe(); // Restart auto-swipe
 });
 
-// Add event listeners to check image loading
+// Add Event Listeners to Check Image Loading
 items.forEach((item, index) => {
     const img = item.querySelector('img'); // Select the <img> inside each <picture>
     if (img) {
