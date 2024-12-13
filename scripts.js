@@ -86,3 +86,4 @@ document.getElementById('next').addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % items.length;
     updateCarousel();
 });
+
