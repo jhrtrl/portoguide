@@ -93,6 +93,20 @@ header .countdown {
 .carousel-controls button:hover {
     background-color: rgba(0, 0, 0, 0.8); /* Darkens the background on hover */
 }
+@media (max-width: 768px) {
+    .carousel-controls {
+        top: 50%; /* Keep the buttons vertically centered */
+        width: 100%; /* Stretch the controls across the carousel */
+        justify-content: space-between; /* Align buttons to edges */
+        padding: 0 1rem; /* Add some padding for touch accessibility */
+    }
+
+    .carousel-controls button {
+        font-size: 2rem; /* Increase button size for better touch usability */
+        padding: 0.8rem 1.2rem; /* Add more padding for larger tap areas */
+        background-color: rgba(0, 0, 0, 0.6); /* Make the buttons more visible */
+    }
+}
 
 /* Fade-In */
 .fade-in {
