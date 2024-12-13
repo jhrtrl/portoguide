@@ -21,83 +21,89 @@ function startCountdown(endDate, elementId) {
 }
 
 // Initialize Countdown
-const customStartDate = new Date("2024-12-15T00:00:00"); // Set your desired start date
-const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 * 1000).getTime();
-startCountdown(promotionEndDate, "main-countdown");
-startCountdown(promotionEndDate, "sticky-countdown");
+const carousel = document.querySelector('.carousel-wrapper');
+const items = Array.from(carousel.querySelectorAll('picture')); // Get all picture elements
+let currentIndex = 0;
+let autoSwipeInterval;
 
-// Scroll Events: Sticky Header and Fade-In
-window.addEventListener('scroll', () => {
-    const stickyHeader = document.getElementById('sticky-header');
-    const fadeIns = document.querySelectorAll('.fade-in');
-
-    // Sticky Header Behavior
-    if (window.scrollY > 200) {
-        stickyHeader.classList.add('active');
-    } else {
-        stickyHeader.classList.remove('active');
-    }
-
-    // Fade-In Animations
-    fadeIns.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            element.classList.add('active');
+// Initialize the carousel layout
+function initializeCarousel() {
+    items.forEach((item, index) => {
+        if (index === currentIndex) {
+            item.style.display = 'block'; // Show only the active image
+        } else {
+            item.style.display = 'none'; // Hide others
         }
     });
-});
-
-// Function to handle fade-in animations
-function handleFadeIn() {
-    // Select all fade-in elements
-    const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
-    fadeItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect(); // Get the position relative to the viewport
-
-        // Check if the element is near the viewport
-        if (rect.top < window.innerHeight - 100) {
-            // Add the active class to trigger animation
-            setTimeout(() => {
-                item.classList.add('active');
-            }, index * 200); // Optional: Stagger animations for better effect
-        }
-    });
+    console.log('Carousel Initialized');
 }
 
-// Initial check to activate items already in view
-handleFadeIn();
-
-// Add scroll event listener to trigger animations
-window.addEventListener('scroll', handleFadeIn);
-
-// Carousel Functionality
-const carousel = document.querySelector('.carousel-wrapper');
-const items = Array.from(carousel.querySelectorAll('picture'));
-let currentIndex = 0;
-
-// Function to update the carousel for fade effect
+// Update the carousel when navigating
 function updateCarousel() {
     items.forEach((item, index) => {
         if (index === currentIndex) {
-            item.style.opacity = 1; // Fully visible
-            item.style.zIndex = 1; // Bring the active slide to the front
+            item.style.display = 'block'; // Show the current image
         } else {
-            item.style.opacity = 0; // Hide non-active slides
-            item.style.zIndex = 0; // Send non-active slides to the back
+            item.style.display = 'none'; // Hide all other images
         }
     });
+    console.log('Current Index:', currentIndex); // Debug log for current index
 }
 
-// Event listeners for navigation
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length; // Wrap to last slide
+// Move to the next image
+function goToNextImage() {
+    currentIndex = (currentIndex + 1) % items.length; // Wrap around to the first item
+    console.log('Next Image - New Index:', currentIndex); // Debug log: New index after Next
     updateCarousel();
+}
+
+// Move to the previous image
+function goToPreviousImage() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length; // Wrap around to the last item
+    console.log('Previous Image - New Index:', currentIndex); // Debug log: New index after Previous
+    updateCarousel();
+}
+
+// Start auto-swipe functionality
+function startAutoSwipe() {
+    autoSwipeInterval = setInterval(goToNextImage, 3000); // Change images every 3 seconds
+    console.log('Auto-swipe started.');
+}
+
+// Stop auto-swipe functionality
+function stopAutoSwipe() {
+    clearInterval(autoSwipeInterval);
+    console.log('Auto-swipe stopped.');
+}
+
+// Add event listeners for buttons
+document.getElementById('prev').addEventListener('click', () => {
+    stopAutoSwipe(); // Stop auto-swipe on manual navigation
+    goToPreviousImage();
+    startAutoSwipe(); // Restart auto-swipe
 });
 
 document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % items.length; // Wrap to first slide
-    updateCarousel();
+    stopAutoSwipe(); // Stop auto-swipe on manual navigation
+    goToNextImage();
+    startAutoSwipe(); // Restart auto-swipe
 });
 
-// Initialize carousel
-updateCarousel();
+// Add event listeners to check image loading
+items.forEach((item, index) => {
+    const img = item.querySelector('img'); // Select the <img> inside each <picture>
+    if (img) {
+        img.addEventListener('load', () => {
+            console.log(`Image ${index} loaded successfully.`);
+        });
+        img.addEventListener('error', () => {
+            console.error(`Image ${index} failed to load.`);
+        });
+    } else {
+        console.warn(`No <img> found for item ${index}`);
+    }
+});
+
+// Initialize the carousel
+initializeCarousel();
+startAutoSwipe(); // Start auto-swipe when the page loads
