@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porto Photography Guide - Self-Guided Maps</title>
+    <link rel="stylesheet" href="../portoguide/styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Porto Photography Guiiiide</h1>
+    <p>Your ultimate self-guided map to capture Porto's beauty.</p>
+    <div class="countdown" id="main-countdown">Loading countdown...</div>
+    <a href="purchase.html" class="button">Buy Now for €9.99</a>
+</header>
+
+<div class="sticky-header" id="sticky-header">
+    <div>Porto Photography Guide</div>
+    <div class="countdown" id="sticky-countdown"></div>
+    <a href="purchase.html" class="button buy-button">Buy Now</a>
+</div>
+
+<main>
+    <section class="promo fade-in">
+        <h2>Limited Time Offer</h2>
+        <p>Launch Price: €9.99 <del>€14.99</del></p>
+    </section>
+
+    <section class="advantages fade-in">
+        <h2>Why Choose This Guide?</h2>
+        <ul>
+            <li>Uses Google Maps for easy navigation.</li>
+            <li>77 points with descriptions in English, Spanish, French, and Portuguese.</li>
+            <li>Tailored for photographers with the best times and seasons to shoot.</li>
+            <li>Includes example photos for inspiration at each location.</li>
+            <li>Custom paths to remote spots created by the author.</li>
+            <li>Lifetime access and free updates.</li>
+        </ul>
+    </section>
+
+    <section class="carousel fade-in">
+        <h2>Photo Highlights</h2>
+        <div class="carousel-wrapper">
+            <picture>
+                <source srcset="portoguide/images/large1.png" media="(min-width: 768px)">
+                <source srcset="portoguide/images/small1.png" media="(max-width: 767px)">
+                <img src="portoguide/images/large1.png" alt="Responsive Example1">
+            </picture>
+            <picture>
+                <source srcset="portoguide/images/large2.png" media="(min-width: 768px)">
+                <source srcset="portoguide/images/small2.png" media="(max-width: 767px)">
+                <img src="portoguide/images/large2.png" alt="Responsive Example2">
+            </picture>
+            <picture>
+                <source srcset="portoguide/images/large3.png" media="(min-width: 768px)">
+                <source srcset="portoguide/images/small3.png" media="(max-width: 767px)">
+                <img src="portoguide/images/large3.png" alt="Responsive Example3">
+            </picture>
+        </div>
+        <div class="carousel-controls">
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
+        </div>
+    </section>
+
+    <section class="highlights fade-in">
+        <h2>Example Highlights</h2>
+        <p>See a sneak peek of the maps and descriptions included in the guide:</p>
+        <img src="images/map-preview.jpg" alt="Map Preview">
+        <img src="images/highlight-preview.jpg" alt="Highlight Preview">
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Julian Harter. All rights reserved.</p>
+</footer>
+
+<script src="../portoguide/scripts.js"></script>
+
+</body>
+</html>
