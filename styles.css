@@ -49,7 +49,8 @@ header .countdown {
 .carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: hidden; /* Hide images outside the visible area */
+    margin: 0 auto; /* Center the carousel */
 }
 
 .carousel-wrapper {
@@ -58,12 +59,41 @@ header .countdown {
 }
 
 .carousel-wrapper picture {
-    flex: 0 0 100%;
+    flex: 0 0 100%; /* Each image takes up 100% of the carousel width */
+    position: relative; /* Required for layering child elements if necessary */
 }
 
 .carousel img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ensure the image stretches to fill its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    width: 100%; /* Stretch across the carousel */
+    display: flex;
+    justify-content: space-between; /* Align buttons at the edges */
+    transform: translateY(-50%); /* Adjust for centering */
+    z-index: 10; /* Ensure controls are above the images */
+    pointer-events: none; /* Prevent blocking clicks on the images */
+}
+
+.carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white; /* White text */
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem; /* Larger font for visibility */
+    pointer-events: auto; /* Allow button clicks */
+    z-index: 11; /* Keep buttons above other elements */
+    transition: background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
 }
 
 /* Fade-In */
