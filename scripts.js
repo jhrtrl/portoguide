@@ -75,21 +75,29 @@ const carousel = document.querySelector('.carousel-wrapper');
 const items = Array.from(carousel.querySelectorAll('picture'));
 let currentIndex = 0;
 
+// Function to update the carousel for fade effect
 function updateCarousel() {
     items.forEach((item, index) => {
-        item.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+        if (index === currentIndex) {
+            item.style.opacity = 1; // Fully visible
+            item.style.zIndex = 1; // Bring the active slide to the front
+        } else {
+            item.style.opacity = 0; // Hide non-active slides
+            item.style.zIndex = 0; // Send non-active slides to the back
+        }
     });
 }
 
+// Event listeners for navigation
 document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    currentIndex = (currentIndex - 1 + items.length) % items.length; // Wrap to last slide
     updateCarousel();
 });
 
 document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % items.length;
+    currentIndex = (currentIndex + 1) % items.length; // Wrap to first slide
     updateCarousel();
 });
 
-// Initialize Carousel
+// Initialize carousel
 updateCarousel();
