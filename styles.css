@@ -45,6 +45,30 @@ header .countdown {
     color: #e74c3c;
 }
 
+/* Advantages */
+.advantages ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+.advantages ul li {
+    margin: 0.5rem 0;
+    text-align: left;
+    display: flex; /* Align checkmark and text horizontally */
+    align-items: center; /* Vertically align items */
+}
+
+.check-icon {
+    color: green; /* Green color for the checkmark */
+    font-weight: bold; /* Bold for emphasis */
+    margin-right: 0.5rem; /* Space between the icon and text */
+    font-size: 1.2rem; /* Slightly larger than text */
+}
+
+.advantages ul li span:not(.check-icon) {
+    color: inherit; /* Keep the text color unstyled (inherit default color) */
+}
+
 /* Carousel */
 .carousel {
     position: relative; /* Establishes a containing block for absolute positioning */
