@@ -61,40 +61,18 @@ const carousel = document.querySelector('.carousel-wrapper');
 const items = Array.from(carousel.querySelectorAll('picture'));
 let currentIndex = 0;
 
-// Function to update the carousel for fade effect
+// Function to update carousel visibility
 function updateCarousel() {
     items.forEach((item, index) => {
         if (index === currentIndex) {
             item.style.opacity = 1; // Fully visible
-            item.style.zIndex = 1; // Bring the active slide to the front
+            item.style.zIndex = 1; // Bring the active image to the front
         } else {
-            item.style.opacity = 0; // Hide non-active slides
-            item.style.zIndex = 0; // Send non-active slides to the back
+            item.style.opacity = 0; // Hide non-active images
+            item.style.zIndex = 0; // Send non-active images to the back
         }
     });
 }
 
-// Event listeners for navigation
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateCarousel();
-});
-
-document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateCarousel();
-});
-
 // Initialize carousel
 updateCarousel();
-
-// Auto-swipe functionality for the carousel
-function startAutoSwipe() {
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % items.length; // Move to the next slide
-        updateCarousel();
-    }, 3000); // Change slides every 3 seconds
-}
-
-// Start auto-swipe
-startAutoSwipe();
