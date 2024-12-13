@@ -21,42 +21,18 @@ function startCountdown(endDate, elementId) {
 }
 
 // Initialize Countdown
-const customStartDate = new Date("2024-12-15T00:00:00"); // Set your desired start date
+const customStartDate = new Date("2024-12-15T00:00:00");
 const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 * 1000).getTime();
 startCountdown(promotionEndDate, "main-countdown");
 startCountdown(promotionEndDate, "sticky-countdown");
 
-// Scroll Events: Sticky Header and Fade-In
-window.addEventListener('scroll', () => {
-    const stickyHeader = document.getElementById('sticky-header');
-    const fadeIns = document.querySelectorAll('.fade-in');
-
-    // Sticky Header Behavior
-    if (window.scrollY > 200) {
-        stickyHeader.classList.add('active');
-    } else {
-        stickyHeader.classList.remove('active');
-    }
-
-    // Fade-In Animations
-    fadeIns.forEach(element => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            element.classList.add('active');
-        }
-    });
-});
-
-// Function to handle fade-in animations
+// Sticky Header and Fade-In Animations
 function handleFadeIn() {
-    // Select all fade-in elements
     const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
     fadeItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect(); // Get the position relative to the viewport
+        const rect = item.getBoundingClientRect();
 
-        // Check if the element is near the viewport
         if (rect.top < window.innerHeight - 100) {
-            // Add the active class to trigger animation
             setTimeout(() => {
                 item.classList.add('active');
             }, index * 200); // Optional: Stagger animations for better effect
@@ -64,23 +40,41 @@ function handleFadeIn() {
     });
 }
 
+// Sticky Header Toggle
+window.addEventListener('scroll', () => {
+    const stickyHeader = document.getElementById('sticky-header');
+    if (window.scrollY > 200) {
+        stickyHeader.classList.add('active');
+    } else {
+        stickyHeader.classList.remove('active');
+    }
+
+    // Trigger fade-in animations
+    handleFadeIn();
+});
+
 // Initial check to activate items already in view
 handleFadeIn();
 
-// Add scroll event listener to trigger animations
-window.addEventListener('scroll', handleFadeIn);
-
-// Carousel Functionality
+// Carousel with Fade Effect
 const carousel = document.querySelector('.carousel-wrapper');
 const items = Array.from(carousel.querySelectorAll('picture'));
 let currentIndex = 0;
 
+// Function to update the carousel for fade effect
 function updateCarousel() {
     items.forEach((item, index) => {
-        item.style.transform = `translateX(${(index - currentIndex) * 100}%)`;
+        if (index === currentIndex) {
+            item.style.opacity = 1; // Fully visible
+            item.style.zIndex = 1; // Bring the active slide to the front
+        } else {
+            item.style.opacity = 0; // Hide non-active slides
+            item.style.zIndex = 0; // Send non-active slides to the back
+        }
     });
 }
 
+// Event listeners for navigation
 document.getElementById('prev').addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + items.length) % items.length;
     updateCarousel();
@@ -91,5 +85,16 @@ document.getElementById('next').addEventListener('click', () => {
     updateCarousel();
 });
 
-// Initialize Carousel
+// Initialize carousel
 updateCarousel();
+
+// Auto-swipe functionality for the carousel
+function startAutoSwipe() {
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % items.length; // Move to the next slide
+        updateCarousel();
+    }, 3000); // Change slides every 3 seconds
+}
+
+// Start auto-swipe
+startAutoSwipe();
