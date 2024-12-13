@@ -61,18 +61,28 @@ const carousel = document.querySelector('.carousel-wrapper');
 const items = Array.from(carousel.querySelectorAll('picture'));
 let currentIndex = 0;
 
-// Function to update carousel visibility
 function updateCarousel() {
     items.forEach((item, index) => {
         if (index === currentIndex) {
-            item.style.opacity = 1; // Fully visible
-            item.style.zIndex = 1; // Bring the active image to the front
+            item.style.opacity = 1;
+            item.style.zIndex = 1;
         } else {
-            item.style.opacity = 0; // Hide non-active images
-            item.style.zIndex = 0; // Send non-active images to the back
+            item.style.opacity = 0;
+            item.style.zIndex = 0;
         }
     });
 }
 
 // Initialize carousel
 updateCarousel();
+
+// Event listeners for navigation buttons
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateCarousel();
+});
+
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarousel();
+});
