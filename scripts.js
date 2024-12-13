@@ -47,15 +47,19 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Function to handle the fade-in effect
+// Function to handle fade-in animations
 function handleFadeIn() {
-    const fadeItems = document.querySelectorAll('.fade-in-right'); // Select all elements with fade-in-right class
+    // Select all fade-in elements
+    const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
     fadeItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect(); // Get the element's position relative to the viewport
-        if (rect.top < window.innerHeight - 100) { // Trigger when near the viewport
+        const rect = item.getBoundingClientRect(); // Get the position relative to the viewport
+
+        // Check if the element is near the viewport
+        if (rect.top < window.innerHeight - 100) {
+            // Add the active class to trigger animation
             setTimeout(() => {
-                item.classList.add('active'); // Add active class to trigger animation
-            }, index * 200); // Stagger each item's animation
+                item.classList.add('active');
+            }, index * 200); // Optional: Stagger animations for better effect
         }
     });
 }
