@@ -49,21 +49,21 @@ window.addEventListener('scroll', () => {
 
 // Function to handle the fade-in effect
 function handleFadeIn() {
-    const fadeItems = document.querySelectorAll('.fade-in-right');
+    const fadeItems = document.querySelectorAll('.fade-in-right'); // Select all elements with fade-in-right class
     fadeItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect();
+        const rect = item.getBoundingClientRect(); // Get the element's position relative to the viewport
         if (rect.top < window.innerHeight - 100) { // Trigger when near the viewport
             setTimeout(() => {
-                item.classList.add('active'); // Add active class with delay for staggered effect
+                item.classList.add('active'); // Add active class to trigger animation
             }, index * 200); // Stagger each item's animation
         }
     });
 }
 
-// Initial check to handle items already in view
+// Initial check to activate items already in view
 handleFadeIn();
 
-// Add scroll event listener
+// Add scroll event listener to trigger animations
 window.addEventListener('scroll', handleFadeIn);
 
 // Carousel Functionality
