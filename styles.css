@@ -1,22 +1,29 @@
+/* General Styles */
 body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
 header {
-    position: relative;
     background: #3c8dbc;
     color: #fff;
     text-align: center;
     padding: 2rem;
-    z-index: 1000;
+}
+
+header .countdown {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #e74c3c;
 }
 
 .sticky-header {
     position: fixed;
-    top: 0;
+    top: -100px;
     left: 0;
     width: 100%;
     background: #3c8dbc;
@@ -26,196 +33,47 @@ header {
     align-items: center;
     padding: 0.5rem 2rem;
     z-index: 1001;
-    display: flex;
-    transition: all 0.3s ease-in-out;
-}
-
-.sticky-header.hidden #sticky-title {
-    display: none; /* Hide the Porto Photography Guide title when scrolled */
-}
-
-.original-price {
-    color: #e74c3c; /* Red for the original price */
-    font-size: 0.9rem; /* Slightly smaller */
-    text-decoration: line-through; /* Strike-through effect */
-}
-
-.current-price {
-    color: #fff; /* White for the current price */
-    font-size: 1.2rem; /* Prominent size */
-    font-weight: bold; /* Make it stand out */
-}
-
-.button {
-    display: inline-flex; /* Align content horizontally */
-    align-items: center; /* Vertically align text */
-    justify-content: center;
-    gap: 0.5rem; /* Add space between the prices and text */
-    margin: 0.5rem 0;
-    padding: 0.8rem 1.5rem;
-    font-size: 1.2rem;
-    color: #fff;
-    background: #3c8dbc;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    position: relative;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background: #2d6fa6; /* Slightly darker on hover */
-}
-
-
-.original-price {
-    color: #e74c3c; /* Red for the original price */
-    font-size: 0.9rem; /* Slightly smaller */
-    text-decoration: line-through; /* Strike-through effect */
-}
-
-.current-price {
-    color: #fff; /* White for the current price */
-    font-size: 1.2rem; /* Prominent size */
-    font-weight: bold; /* Make it stand out */
+    transition: top 0.3s ease-in-out;
 }
 
 .sticky-header.active {
-    display: flex; /* Show sticky header when active */
+    top: 0;
 }
 
-        .sticky-header .countdown {
-            font-size: 1rem;
-            color: #e74c3c;
-        }
-        main {
-            padding: 2rem;
-            text-align: center;
-        }
-        .countdown {
-            font-size: 2rem;
-            margin: 1rem 0;
-            color: #e74c3c;
-        }
-        .promo {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .button {
-            display: inline-block;
-            margin: 1rem 0;
-            padding: 1rem 2rem;
-            font-size: 1.2rem;
-            color: #fff;
-            background: #3c8dbc;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        section {
-            margin: 2rem 0;
-            text-align: left;
-        }
-        .advantages {
-            margin: 2rem auto;
-            max-width: 800px;
-            text-align: center;
-        }
-        .advantages ul {
-            list-style: none;
-            padding: 0;
-        }
-        .advantages ul li {
-            margin: 0.5rem 0;
-            text-align: left;
-        }
-
-.check-icon {
-    color: green; /* Green check icon */
-    font-weight: bold; /* Bold for emphasis */
-    margin-right: 0.5rem; /* Space between icon and text */
-    font-size: 1.2rem; /* Slightly larger than text */
+.sticky-header .countdown {
+    font-size: 1rem;
+    color: #e74c3c;
 }
 
-.fade-in-right {
-    opacity: 0; /* Start invisible */
-    transform: translateX(50px); /* Start offset to the right */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth transition */
-}
-
-.fade-in-right.active {
-    opacity: 1; /* Fully visible */
-    transform: translateX(0); /* Reset transform when active */
-}
-
+/* Carousel */
 .carousel {
     position: relative;
-    width: 100%; /* Full width of the viewport */
-    overflow: hidden; /* Hide anything outside the visible area */
+    width: 100%;
+    overflow: hidden;
 }
 
 .carousel-wrapper {
-    display: flex; /* Align items horizontally */
-    transition: transform 0.5s ease; /* Smooth slide transition */
-    width: 100%; /* Ensure wrapper matches the container size */
-    height: auto; /* Adjust height automatically */
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .carousel-wrapper picture {
-    flex: 0 0 100%; /* Each item takes exactly 100% of the carousel width */
-    width: 100%; /* Ensure each picture fits the wrapper */
-    height: auto; /* Match content height */
-    box-sizing: border-box; /* Ensure padding/border are included in dimensions */
+    flex: 0 0 100%;
 }
 
 .carousel img {
-    width: 100%; /* Ensure the image stretches to fill its container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent inline spacing issues */
-}
-
-.carousel-controls {
-    position: absolute;
-    top: 50%;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+    height: auto;
 }
 
-.carousel-controls button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+/* Fade-In */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-        .buy-button {
-            margin-right: 1rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #222;
-            color: #fff;
-            margin-top: 2rem;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        @media (max-width: 768px) {
-            .sticky-header {
-                padding: 0.5rem 1rem;
-            }
-            .buy-button {
-                margin-right: 0;
-            }
-        }
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
