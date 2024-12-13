@@ -1,29 +1,58 @@
-// Sticky Header Toggle on Scroll
-window.addEventListener('scroll', () => {
-    const stickyHeader = document.getElementById('sticky-header');
-    const scrollPosition = window.scrollY;
+    function startCountdown(endDate, elementId) {
+        const timer = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = endDate - now;
 
-    if (scrollPosition > 200) { // Adjust threshold as needed
-        stickyHeader.classList.add('active'); // Show sticky header
-    } else {
-        stickyHeader.classList.remove('active'); // Hide sticky header
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById(elementId).innerHTML = "Promotion has ended!";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const countdownString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById(elementId).innerHTML = countdownString;
+        }, 1000);
     }
-});
 
-// Carousel Functionality
+    const customStartDate = new Date("2024-12-15T00:00:00"); // Set your desired start date
+    const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 * 1000).getTime();
+    startCountdown(promotionEndDate, "main-countdown");
+    startCountdown(promotionEndDate, "sticky-countdown");
+
+    window.addEventListener('scroll', function () {
+        const stickyHeader = document.getElementById('sticky-header');
+        if (window.scrollY > 200) {
+            stickyHeader.classList.add('active');
+        } else {
+            stickyHeader.classList.remove('active');
+        }
+
+        const fadeIns = document.querySelectorAll('.fade-in');
+        fadeIns.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                element.classList.add('active');
+            }
+        });
+    });
+
+
+// Select carousel elements
 const carousel = document.querySelector('.carousel-wrapper');
 const items = Array.from(carousel.querySelectorAll('picture')); // Get all picture elements
 let currentIndex = 0;
+let autoSwipeInterval;
 
 // Initialize the carousel layout
 function initializeCarousel() {
     items.forEach((item, index) => {
-        item.style.position = 'absolute'; // Position all items absolutely
-        item.style.top = '0'; // Align all items to the top
-        item.style.left = `${index * 100}%`; // Position items sequentially
-        item.style.transition = 'transform 0.5s ease'; // Smooth transition
         if (index === currentIndex) {
-            item.style.display = 'block'; // Show only the current image
+            item.style.display = 'block'; // Show only the active image
         } else {
             item.style.display = 'none'; // Hide others
         }
@@ -36,7 +65,6 @@ function updateCarousel() {
     items.forEach((item, index) => {
         if (index === currentIndex) {
             item.style.display = 'block'; // Show the current image
-            item.style.transform = 'translateX(0)'; // Reset transform for the active image
         } else {
             item.style.display = 'none'; // Hide all other images
         }
@@ -47,32 +75,57 @@ function updateCarousel() {
 // Move to the next image
 function goToNextImage() {
     currentIndex = (currentIndex + 1) % items.length; // Wrap around to the first item
-    updateCarousel();
     console.log('Next Image - New Index:', currentIndex); // Debug log: New index after Next
+    updateCarousel();
 }
 
 // Move to the previous image
 function goToPreviousImage() {
     currentIndex = (currentIndex - 1 + items.length) % items.length; // Wrap around to the last item
-    updateCarousel();
     console.log('Previous Image - New Index:', currentIndex); // Debug log: New index after Previous
+    updateCarousel();
 }
 
 // Start auto-swipe functionality
 function startAutoSwipe() {
-    setInterval(goToNextImage, 3000); // Change images every 3 seconds
+    autoSwipeInterval = setInterval(goToNextImage, 3000); // Change images every 3 seconds
     console.log('Auto-swipe started.');
 }
 
-// Add Event Listeners for Carousel Controls
+// Stop auto-swipe functionality
+function stopAutoSwipe() {
+    clearInterval(autoSwipeInterval);
+    console.log('Auto-swipe stopped.');
+}
+
+// Add event listeners for buttons
 document.getElementById('prev').addEventListener('click', () => {
+    stopAutoSwipe(); // Stop auto-swipe on manual navigation
     goToPreviousImage();
+    startAutoSwipe(); // Restart auto-swipe
 });
 
 document.getElementById('next').addEventListener('click', () => {
+    stopAutoSwipe(); // Stop auto-swipe on manual navigation
     goToNextImage();
+    startAutoSwipe(); // Restart auto-swipe
 });
 
-// Initialize the carousel and auto-swipe
+// Add event listeners to check image loading
+items.forEach((item, index) => {
+    const img = item.querySelector('img'); // Select the <img> inside each <picture>
+    if (img) {
+        img.addEventListener('load', () => {
+            console.log(`Image ${index} loaded successfully.`);
+        });
+        img.addEventListener('error', () => {
+            console.error(`Image ${index} failed to load.`);
+        });
+    } else {
+        console.warn(`No <img> found for item ${index}`);
+    }
+});
+
+// Initialize the carousel
 initializeCarousel();
-startAutoSwipe();
+startAutoSwipe(); // Start auto-swipe when the page loads
