@@ -81,12 +81,26 @@ header .countdown {
 }
 
 .carousel-wrapper {
-    display: flex; /* Aligns images horizontally */
-    transition: transform 0.5s ease; /* Smooth transition for sliding */
+    position: relative; /* Position slides relative to their container */
 }
 
 .carousel-wrapper picture {
-    flex: 0 0 100%; /* Each image takes up full width */
+    position: absolute; /* Stack all slides on top of each other */
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.6s ease; /* Smooth fade transition */
+}
+
+.carousel-wrapper picture img {
+    width: 100%; /* Ensure images stretch to fit the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.carousel-wrapper picture:first-child {
+    opacity: 1; /* Ensure the first slide is visible initially */
+    z-index: 1;
 }
 
 .carousel img {
