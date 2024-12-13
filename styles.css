@@ -7,6 +7,11 @@ body {
     color: #333;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Header */
 header {
     background: #3c8dbc;
@@ -21,9 +26,28 @@ header .countdown {
     color: #e74c3c;
 }
 
+header .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #2d6fa6;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header .button:hover {
+    background: #225480;
+}
+
+/* Sticky Header */
 .sticky-header {
     position: fixed;
-    top: -100px;
+    top: -100px; /* Hidden initially */
     left: 0;
     width: 100%;
     background: #3c8dbc;
@@ -37,7 +61,7 @@ header .countdown {
 }
 
 .sticky-header.active {
-    top: 0;
+    top: 0; /* Slide into view */
 }
 
 .sticky-header .countdown {
@@ -45,7 +69,93 @@ header .countdown {
     color: #e74c3c;
 }
 
-/* Advantages */
+/* Fade-In Animations */
+.fade-in {
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Offset slightly below */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0); /* Reset position */
+}
+
+.fade-in-right {
+    opacity: 0; /* Start invisible */
+    transform: translateX(50px); /* Offset to the right */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.active {
+    opacity: 1;
+    transform: translateX(0); /* Reset position */
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden; /* Hide anything outside the visible area */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+}
+
+.carousel-wrapper {
+    position: relative; /* Stack slides on top of each other */
+    height: auto; /* Adjust height to content */
+}
+
+.carousel-wrapper picture {
+    position: absolute; /* Stack all images */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the carousel */
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.6s ease; /* Smooth fade */
+    z-index: 0; /* Default stacking order */
+}
+
+.carousel-wrapper picture img {
+    width: 100%; /* Stretch to fit container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.carousel-wrapper picture:first-child {
+    opacity: 1; /* First image visible initially */
+    z-index: 1; /* Bring the active image to the front */
+}
+
+/* Carousel Controls */
+.carousel-controls {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    width: 100%; /* Stretch across the carousel */
+    display: flex;
+    justify-content: space-between; /* Align buttons to edges */
+    transform: translateY(-50%); /* Perfect vertical alignment */
+    z-index: 10; /* Above the images */
+    pointer-events: none; /* Avoid blocking clicks */
+}
+
+.carousel-controls button {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    font-size: 1.5rem; /* Larger arrows for visibility */
+    pointer-events: auto; /* Ensure buttons are clickable */
+    z-index: 11;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+}
+
+/* Advantages Section */
 .advantages ul {
     list-style: none; /* Remove default bullet points */
     padding: 0;
@@ -54,123 +164,36 @@ header .countdown {
 .advantages ul li {
     margin: 0.5rem 0;
     text-align: left;
-    display: flex; /* Align icon and text horizontally */
-    align-items: center; /* Vertically align icon and text */
-    opacity: 0; /* Initially invisible for animation */
-    transform: translateX(50px); /* Offset to the right */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth animation */
-}
-
-.advantages ul li.active {
-    opacity: 1; /* Fully visible */
-    transform: translateX(0); /* Reset to original position */
+    display: flex; /* Align check icon and text horizontally */
+    align-items: center; /* Vertically align */
 }
 
 .check-icon {
-    color: green; /* Green color for the checkmark */
-    font-size: 1.2rem; /* Slightly larger than text */
-    margin-right: 0.5rem; /* Space between the icon and text */
+    color: green; /* Green color for the Font Awesome check icon */
+    font-size: 1.2rem; /* Slightly larger for visibility */
+    margin-right: 0.5rem; /* Space between icon and text */
 }
 
-/* Carousel */
-.carousel {
-    position: relative; /* Establishes a containing block for absolute positioning */
-    width: 100%;
-    overflow: hidden; /* Ensures images outside the visible area are hidden */
-    margin: 0 auto; /* Centers the carousel */
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    color: #fff;
 }
 
-.carousel-wrapper {
-    position: relative; /* Position slides relative to their container */
-}
-
-.carousel-wrapper picture {
-    position: absolute; /* Stack all slides on top of each other */
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0; /* Initially invisible */
-    transition: opacity 0.6s ease; /* Smooth fade transition */
-}
-
-.carousel-wrapper picture img {
-    width: 100%; /* Ensure images stretch to fit the container */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.carousel-wrapper picture:first-child {
-    opacity: 1; /* Ensure the first slide is visible initially */
-    z-index: 1;
-}
-
-.carousel img {
-    width: 100%; /* Ensures images stretch to fit the container */
-    height: auto; /* Maintains the image's aspect ratio */
-    display: block; /* Prevents inline spacing issues */
-}
-
-.carousel-controls {
-    position: absolute; /* Position relative to the .carousel container */
-    top: 50%; /* Center vertically */
-    width: 100%; /* Stretch across the carousel */
-    display: flex; /* Align the buttons horizontally */
-    justify-content: space-between; /* Place buttons at the left and right edges */
-    transform: translateY(-50%); /* Adjusts the centering of the buttons */
-    z-index: 10; /* Ensures the buttons are on top of the images */
-}
-
-.carousel-controls button {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    color: white; /* White arrow text */
-    border: none; /* Removes the default border */
-    cursor: pointer; /* Indicates the buttons are clickable */
-    padding: 0.5rem 1rem; /* Adds space inside the buttons */
-    font-size: 1.5rem; /* Makes the arrows larger for visibility */
-    z-index: 11; /* Ensures the buttons are above other elements */
-    pointer-events: auto; /* Ensures buttons are clickable */
-    transition: background-color 0.3s ease; /* Smooth hover effect */
-}
-
-.carousel-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Darkens the background on hover */
-}
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .carousel-controls {
-        top: 50%; /* Keep the buttons vertically centered */
-        width: 100%; /* Stretch the controls across the carousel */
-        justify-content: space-between; /* Align buttons to edges */
-        padding: 0 1rem; /* Add some padding for touch accessibility */
+    .sticky-header {
+        padding: 0.5rem 1rem;
     }
 
     .carousel-controls button {
-        font-size: 2rem; /* Increase button size for better touch usability */
-        padding: 0.8rem 1.2rem; /* Add more padding for larger tap areas */
-        background-color: rgba(0, 0, 0, 0.6); /* Make the buttons more visible */
+        font-size: 1.2rem; /* Smaller buttons on mobile */
+        padding: 0.5rem 0.8rem; /* Adjust padding for touch accessibility */
     }
-}
 
-/* Fade-In */
-/* General Fade-In Animation */
-/* General Fade-In Animation */
-.fade-in {
-    opacity: 0; /* Start invisible */
-    transform: translateY(20px); /* Start slightly below its position */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth animation */
-}
-
-.fade-in.active {
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Reset position */
-}
-
-/* Fade-In Right to Left Animation */
-.fade-in-right {
-    opacity: 0; /* Start invisible */
-    transform: translateX(50px); /* Start offset to the right */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth animation */
-}
-
-.fade-in-right.active {
-    opacity: 1; /* Fully visible */
-    transform: translateX(0); /* Reset position */
+    .advantages ul li {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
 }
