@@ -54,19 +54,22 @@ header .countdown {
 .advantages ul li {
     margin: 0.5rem 0;
     text-align: left;
-    display: flex; /* Align checkmark and text horizontally */
-    align-items: center; /* Vertically align items */
+    display: flex; /* Align icon and text horizontally */
+    align-items: center; /* Vertically align icon and text */
+    opacity: 0; /* Initially invisible for animation */
+    transform: translateX(50px); /* Offset to the right */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Smooth animation */
+}
+
+.advantages ul li.active {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Reset to original position */
 }
 
 .check-icon {
     color: green; /* Green color for the checkmark */
-    font-weight: bold; /* Bold for emphasis */
-    margin-right: 0.5rem; /* Space between the icon and text */
     font-size: 1.2rem; /* Slightly larger than text */
-}
-
-.advantages ul li span:not(.check-icon) {
-    color: inherit; /* Keep the text color unstyled (inherit default color) */
+    margin-right: 0.5rem; /* Space between the icon and text */
 }
 
 /* Carousel */
