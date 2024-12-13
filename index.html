@@ -5,40 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porto Photography Guide - Self-Guided Maps</title>
     <link rel="stylesheet" href="../portoguide/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
 <header>
-    <h1>Porto Photography Guide</h1>
+    <h1 id="header-title">Porto Photography Guide</h1>
     <p>Your ultimate self-guided map to capture Porto's beauty.</p>
-    <div class="countdown" id="main-countdown">Loading countdown...</div>
-    <a href="purchase.html" class="button">Buy Now for €9.99</a>
+    <div class="countdown" id="main-countdown">€9.99 <del>€14.99</del></div>
+    <a href="purchase.html" class="button">
+        <span class="original-price"><del>€14.99</del></span>
+        <span class="current-price">€9.99</span> Buy Now
+    </a>
 </header>
 
 <div class="sticky-header" id="sticky-header">
-    <div>Porto Photography Guide</div>
-    <div class="countdown" id="sticky-countdown"></div>
-    <a href="purchase.html" class="button buy-button">Buy Now</a>
+    <div id="sticky-title">Porto Photography Guide</div>
+    <div class="countdown" id="sticky-countdown">€9.99 <del>€14.99</del></div>
+    <a href="purchase.html" class="button">
+        <span class="original-price"><del>€14.99</del></span>
+        <span class="current-price">€9.99</span> Buy Now
+    </a>
 </div>
-
-<main>
-    <section class="promo fade-in">
-        <h2>Limited Time Offer</h2>
-        <p>Launch Price: €9.99 <del>€14.99</del></p>
-    </section>
 
 <section class="advantages fade-in">
     <h2>Why Choose This Guide?</h2>
     <ul>
-        <li><span class="check-icon">✔</span> Uses Google Maps for easy navigation.</li>
-        <li><span class="check-icon">✔</span> 77 points with descriptions in English, Spanish, French, and Portuguese.</li>
-        <li><span class="check-icon">✔</span> Tailored for photographers with the best times and seasons to shoot.</li>
-        <li><span class="check-icon">✔</span> Includes example photos for inspiration at each location.</li>
-        <li><span class="check-icon">✔</span> Custom paths to remote spots created by the author.</li>
-        <li><span class="check-icon">✔</span> Lifetime access and free updates.</li>
+        <li class="fade-in-right">
+            <span class="check-icon">✔</span> Uses Google Maps for easy navigation.
+        </li>
+        <li class="fade-in-right">
+            <span class="check-icon">✔</span> 77 points with descriptions in English, Spanish, French, and Portuguese.
+        </li>
+        <li class="fade-in-right">
+            <span class="check-icon">✔</span> Tailored for photographers with the best times and seasons to shoot.
+        </li>
+        <li class="fade-in-right">
+            <span class="check-icon">✔</span> Includes example photos for inspiration at each location.
+        </li>
+        <li class="fade-in-right">
+            <span class="check-icon">✔</span> Custom paths to remote spots created by the author.
+        </li>
+        <li class="fade-in-right">
+            <span class="check-icon">✔</span> Lifetime access and free updates.
+        </li>
     </ul>
 </section>
-
     <section class="carousel fade-in">
         <h2>Photo Highlights</h2>
         <div class="carousel-wrapper">
