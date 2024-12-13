@@ -47,6 +47,25 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Function to handle the fade-in effect
+function handleFadeIn() {
+    const fadeItems = document.querySelectorAll('.fade-in-right');
+    fadeItems.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) { // Trigger when near the viewport
+            setTimeout(() => {
+                item.classList.add('active'); // Add active class with delay for staggered effect
+            }, index * 200); // Stagger each item's animation
+        }
+    });
+}
+
+// Initial check to handle items already in view
+handleFadeIn();
+
+// Add scroll event listener
+window.addEventListener('scroll', handleFadeIn);
+
 // Carousel Functionality
 const carousel = document.querySelector('.carousel-wrapper');
 const items = Array.from(carousel.querySelectorAll('picture'));
