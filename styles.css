@@ -111,20 +111,20 @@ header .button:hover {
     position: absolute; /* Stack all images */
     top: 0;
     left: 0;
-    width: 100%; /* Full width of the carousel */
+    width: 100%; /* Ensure images fill the carousel */
     opacity: 0; /* Start invisible */
-    transition: opacity 0.6s ease; /* Smooth fade */
-    z-index: 0; /* Default stacking order */
+    transition: opacity 0.6s ease; /* Smooth fade effect */
+    z-index: 0; /* Ensure inactive images are below the active one */
 }
 
 .carousel-wrapper picture img {
-    width: 100%; /* Stretch to fit container */
+    width: 100%; /* Make images responsive */
     height: auto; /* Maintain aspect ratio */
 }
 
 .carousel-wrapper picture:first-child {
-    opacity: 1; /* First image visible initially */
-    z-index: 1; /* Bring the active image to the front */
+    opacity: 1; /* Make the first image visible by default */
+    z-index: 1; /* Bring the first image to the front */
 }
 
 /* Carousel Controls */
