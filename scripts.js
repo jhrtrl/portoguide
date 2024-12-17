@@ -57,23 +57,27 @@ window.addEventListener('scroll', () => {
 handleFadeIn();
 
 // Carousel Navigation
-const carouselImages = document.querySelector('.carousel-images');
-const images = Array.from(carouselImages.querySelectorAll('img'));
+const carouselItems = document.querySelectorAll('.carousel-item');
 let currentIndex = 0;
 
+// Function to update the carousel and show the active image
 function updateCarousel() {
-    const offset = -currentIndex * 100; // Move carousel by 100% for each image
-    carouselImages.style.transform = `translateX(${offset}%)`;
+    // Hide all items
+    carouselItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    // Show the current item
+    carouselItems[currentIndex].classList.add('active');
 }
 
 // Event listeners for navigation buttons
 document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
     updateCarousel();
 });
 
 document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
+    currentIndex = (currentIndex + 1) % carouselItems.length;
     updateCarousel();
 });
 
