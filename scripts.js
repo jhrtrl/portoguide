@@ -56,39 +56,26 @@ window.addEventListener('scroll', () => {
 // Initial check to activate items already in view
 handleFadeIn();
 
-// Carousel with Fade Effect
-const carousel = document.querySelector('.carousel-wrapper');
-const items = Array.from(carousel.querySelectorAll('picture'));
+// Carousel Navigation
+const carouselImages = document.querySelector('.carousel-images');
+const images = Array.from(carouselImages.querySelectorAll('img'));
 let currentIndex = 0;
 
 function updateCarousel() {
-    items.forEach((item, index) => {
-        if (index === currentIndex) {
-            item.style.opacity = 1;
-            item.style.zIndex = 1;
-        } else {
-            item.style.opacity = 0;
-            item.style.zIndex = 0;
-        }
-    });
+    const offset = -currentIndex * 100; // Move carousel by 100% for each image
+    carouselImages.style.transform = `translateX(${offset}%)`;
 }
-
-// Forçar a atualização da visibilidade das imagens na inicialização
-window.addEventListener('load', () => {
-    updateCarousel();
-});
-
-// Initialize carousel
-updateCarousel();
 
 // Event listeners for navigation buttons
 document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateCarousel();
 });
 
 document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % items.length;
+    currentIndex = (currentIndex + 1) % images.length;
     updateCarousel();
 });
 
+// Initialize the carousel
+updateCarousel();
