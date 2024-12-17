@@ -113,12 +113,14 @@ header .button:hover {
     left: 0;
     width: 100%;
     opacity: 0;
-    transition: opacity 0.6s ease;
+    visibility: hidden; /* Adicionar visibilidade para controle melhor */
+    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Atraso de visibilidade */
     z-index: 0;
 }
 
 .carousel-wrapper picture:first-child {
     opacity: 1;
+    visibility: visible;
     z-index: 1;
 }
 
