@@ -93,7 +93,6 @@ header .button:hover {
 }
 
 /* Carousel */
-/* Carousel */
 .carousel-container {
     position: relative;
     width: 100%;
@@ -110,16 +109,21 @@ header .button:hover {
 
 .carousel-images {
     display: flex;
-    transition: transform 0.5s ease;
+    justify-content: center;
+    align-items: center;
 }
 
-.carousel-images img {
+.carousel-item {
+    display: none; /* Esconde todas as imagens inicialmente */
     width: 100%;
     height: auto;
-    object-fit: cover; /* Ensures images are cropped properly */
 }
 
-/* Carousel Controls */
+/* Show the first image */
+.carousel-item.active {
+    display: block; /* Mostra a imagem ativa */
+}
+
 .carousel-controls {
     position: absolute;
     top: 50%;
