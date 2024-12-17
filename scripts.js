@@ -73,6 +73,11 @@ function updateCarousel() {
     });
 }
 
+// Forçar a atualização da visibilidade das imagens na inicialização
+window.addEventListener('load', () => {
+    updateCarousel();
+});
+
 // Initialize carousel
 updateCarousel();
 
