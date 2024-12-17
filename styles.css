@@ -97,7 +97,7 @@ header .button:hover {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 100%;
     margin: 2rem auto;
     text-align: center;
 }
@@ -116,7 +116,7 @@ header .button:hover {
 .carousel-images img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* For better image cropping */
+    object-fit: cover; /* Ensures images are cropped properly */
 }
 
 /* Carousel Controls */
@@ -143,6 +143,25 @@ header .button:hover {
 
 .carousel-controls button:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1023px) {
+    .carousel-container {
+        max-width: 100%; /* Full width on smaller devices */
+    }
+
+    .carousel-controls button {
+        font-size: 1.2rem; /* Smaller buttons for mobile */
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-controls button {
+        font-size: 1rem; /* Even smaller for very small devices */
+        padding: 0.6rem;
+    }
 }
 
 /* Advantages Section */
