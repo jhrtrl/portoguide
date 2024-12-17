@@ -93,68 +93,56 @@ header .button:hover {
 }
 
 /* Carousel */
-.carousel {
+/* Carousel */
+.carousel-container {
     position: relative;
     width: 100%;
     max-width: 800px;
     margin: 2rem auto;
-    overflow: hidden; /* Hide anything outside the visible area */
-    border-radius: 8px; /* Rounded corners for aesthetics */
+    text-align: center;
 }
 
-.carousel-wrapper {
-    position: relative; /* Stack slides on top of each other */
-    height: auto; /* Adjust height to content */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-.carousel-wrapper picture {
-    position: absolute;
-    top: 0;
-    left: 0;
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-images img {
     width: 100%;
-    opacity: 0;
-    visibility: hidden; /* Adicionar visibilidade para controle melhor */
-    transition: opacity 0.6s ease, visibility 0s 0.6s; /* Atraso de visibilidade */
-    z-index: 0;
-}
-
-.carousel-wrapper picture:first-child {
-    opacity: 1;
-    visibility: visible;
-    z-index: 1;
-}
-
-.carousel-wrapper picture img {
-    width: 100%; /* Make images responsive */
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
+    object-fit: cover; /* For better image cropping */
 }
 
 /* Carousel Controls */
 .carousel-controls {
     position: absolute;
-    top: 50%; /* Center vertically */
-    width: 100%; /* Stretch across the carousel */
+    top: 50%;
+    width: 100%;
     display: flex;
-    justify-content: space-between; /* Align buttons to edges */
-    transform: translateY(-50%); /* Perfect vertical alignment */
-    z-index: 10; /* Above the images */
-    pointer-events: none; /* Avoid blocking clicks */
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
 .carousel-controls button {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     cursor: pointer;
-    padding: 0.8rem 1rem;
-    font-size: 1.5rem; /* Larger arrows for visibility */
-    pointer-events: auto; /* Ensure buttons are clickable */
+    padding: 1rem;
+    font-size: 1.5rem;
     z-index: 11;
     transition: background-color 0.3s ease;
 }
 
 .carousel-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker on hover */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Advantages Section */
