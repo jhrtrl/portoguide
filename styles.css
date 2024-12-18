@@ -143,7 +143,7 @@ header .button:hover {
 /* Ajustes para Laptop */
 @media (min-width: 1024px) {
     .sticky-header .sticky-prices {
-        margin-right: 25px; /* Margem maior para evitar que o preço seja escondido */
+        margin-right: 20px; /* Margem maior para evitar que o preço seja escondido */
     }
 
     .sticky-header .sticky-buy-now {
@@ -163,6 +163,10 @@ header .button:hover {
         align-items: center;
     }
 
+    .sticky-header .sticky-prices {
+        margin-right: 20px; /* Margem maior para evitar que o preço seja escondido */
+    }
+    
     .sticky-header .sticky-buy-now {
         right: 40px; /* Margem ajustada para evitar a barra de rolagem */
     }
