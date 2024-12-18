@@ -63,8 +63,12 @@ let currentIndex = 0;
 
 // Function to update the carousel and show the active image
 function updateCarousel() {
-    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
-    carouselImages.style.transform = `translateX(${offset}%)`;
+    // Esconde todas as imagens
+    carouselItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    // Mostra a imagem ativa
+    carouselItems[currentIndex].classList.add('active');
 }
 
 // Event listeners for navigation buttons
@@ -81,5 +85,3 @@ document.getElementById('next').addEventListener('click', () => {
 // Initialize the carousel
 updateCarousel();
 
-// Initialize the carousel
-updateCarousel();
