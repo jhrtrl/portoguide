@@ -57,8 +57,12 @@ header .button:hover {
     background: #3c8dbc;
     color: #fff;
     display: flex;
+    align-items: center; /* Centraliza os itens verticalmente */
+    justify-content: space-between; /* Mantém o espaçamento horizontal */
+    height: auto; /* Ou defina uma altura fixa, como 80px */
     flex-direction: column;
     padding: 0.5rem 1rem;
+    box-sizing: border-box; /* Garante que o padding seja considerado na altura total */
     z-index: 1001;
     transition: top 0.3s ease-in-out;
     visibility: hidden; /* Escondido por padrão */
