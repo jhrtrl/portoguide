@@ -331,6 +331,51 @@ header .button:hover {
     margin-right: 0.5rem; /* Space between icon and text */
 }
 
+/* Example Photos Section */
+.example-photos {
+    padding: 2rem 1rem;
+    background-color: #fff; /* Fundo branco para contraste */
+    text-align: center;
+}
+
+.example-photos h2 {
+    font-size: 1.8rem;
+    color: #3c8dbc;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
+    gap: 1.5rem; /* Espaço entre as fotos */
+    padding: 0 1rem;
+}
+
+.photo-item {
+    text-align: center;
+    overflow: hidden;
+}
+
+.photo-item img {
+    width: 100%; /* Faz com que a imagem ocupe todo o espaço do grid */
+    height: auto; /* Mantém o aspect ratio */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: transform 0.3s ease; /* Animação ao passar o mouse */
+}
+
+.photo-item img:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.photo-item p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+    font-weight: normal;
+}
+
 /* Footer */
 footer {
     text-align: center;
