@@ -94,11 +94,30 @@ header .button:hover {
 
 /* Carousel */
 .carousel-container {
-    position: relative;
-    width: 100%;
     max-width: 100%;
-    margin: 2rem auto;
+    margin: auto;
     text-align: center;
+}
+
+.swiper-container {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #000; /* Cor dos botões */
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #000; /* Cor dos indicadores ativos */
 }
 
 .carousel {
