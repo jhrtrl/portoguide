@@ -105,18 +105,24 @@ header .button:hover {
     position: relative;
     overflow: hidden; /* Esconde as imagens fora da área visível */
     width: 100%;
-    max-width: 100%;
 }
 
 .carousel-images {
-    display: flex; /* Usar flexbox para empilhar as imagens */
-    transition: transform 0.5s ease; /* Suaviza a transição entre as imagens */
+    display: grid; /* Usamos grid para controlar a exibição */
+    grid-template-columns: 1fr; /* Uma imagem por vez */
+    transition: visibility 0s 0.5s, opacity 0.5s ease-in-out; /* Controla a transição */
+    width: 100%;
 }
 
 .carousel-item {
-    min-width: 100%; /* Cada item ocupa 100% da largura da tela */
-    height: auto;
-    object-fit: cover; /* Ajusta as imagens para cobrir o contêiner sem distorcer */
+    visibility: hidden; /* Inicialmente todas as imagens estão invisíveis */
+    opacity: 0; /* Tornar a imagem invisível */
+    transition: visibility 0s 0.5s, opacity 0.5s ease-in-out; /* Controla a transição */
+}
+
+.carousel-item.active {
+    visibility: visible; /* Torna a imagem visível */
+    opacity: 1; /* Tornar a imagem visível com opacidade */
 }
 
 /* Carousel Controls */
@@ -155,11 +161,6 @@ header .button:hover {
         font-size: 1.2rem; /* Botões menores para dispositivos móveis */
         padding: 0.8rem;
     }
-
-    /* Ajustar tamanho das imagens para telas menores */
-    .carousel-images img {
-        width: 100%; /* As imagens ocupam 100% da largura da tela */
-    }
 }
 
 /* Ajustes para telas muito pequenas, como smartphones */
@@ -169,6 +170,7 @@ header .button:hover {
         padding: 0.6rem;
     }
 }
+
 /* Advantages Section */
 .advantages ul {
     list-style: none; /* Remove default bullet points */
