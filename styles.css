@@ -174,7 +174,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-prices {
-        margin-right: 10px; /* Margem maior para evitar que o preço seja escondido */
+        margin-right: 5px; /* Margem maior para evitar que o preço seja escondido */
     }
     
     .sticky-header .sticky-buy-now {
