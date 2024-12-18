@@ -147,7 +147,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-buy-now {
-        right: 40px; /* Margem maior para o botão */
+        right: 50px; /* Margem maior para o botão */
     }
 }
 
@@ -164,7 +164,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-buy-now {
-        right: 10px; /* Margem ajustada para evitar a barra de rolagem */
+        right: 40px; /* Margem ajustada para evitar a barra de rolagem */
     }
 }
 
