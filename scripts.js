@@ -43,14 +43,14 @@ function handleFadeIn() {
 // Sticky Header Toggle
 window.addEventListener('scroll', () => {
     const stickyHeader = document.getElementById('sticky-header');
-    if (window.scrollY > 200) {
+    const mainHeader = document.querySelector('header');
+
+    // Mostrar o Sticky Header apenas quando o usuário passar pelo cabeçalho principal
+    if (window.scrollY > mainHeader.offsetHeight) {
         stickyHeader.classList.add('active');
     } else {
         stickyHeader.classList.remove('active');
     }
-
-    // Trigger fade-in animations
-    handleFadeIn();
 });
 
 // Initial check to activate items already in view
