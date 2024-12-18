@@ -58,21 +58,27 @@ header .button:hover {
     color: #fff;
     display: flex;
     flex-direction: column; /* Alinhar itens verticalmente */
-    align-items: flex-start; /* Alinhar ao lado esquerdo */
-    padding: 0.5rem 1rem; /* Espaçamento interno */
-    z-index: 1001; /* Garante que esteja acima do conteúdo */
-    transition: top 0.3s ease-in-out; /* Transição suave */
-    gap: 0.5rem; /* Espaço entre os itens */
+    align-items: stretch; /* Ocupa toda a largura */
+    padding: 0.5rem 1rem;
+    z-index: 1001; /* Fica acima do conteúdo */
+    transition: top 0.3s ease-in-out;
+    gap: 0.5rem; /* Espaçamento entre as seções */
     visibility: hidden; /* Escondido por padrão */
 }
 
-/* Ativar o Sticky Header */
 .sticky-header.active {
-    top: 0; /* Tornar visível */
-    visibility: visible; /* Mostrar o Sticky Header */
+    top: 0;
+    visibility: visible;
 }
 
-/* Título */
+/* Linha superior: título e countdown */
+.sticky-header .sticky-top-row {
+    display: flex;
+    justify-content: space-between; /* Espaçar itens horizontalmente */
+    align-items: center; /* Alinhar verticalmente */
+    width: 100%;
+}
+
 .sticky-header #sticky-title {
     font-size: 1rem;
     font-weight: bold;
@@ -81,58 +87,66 @@ header .button:hover {
     text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
 }
 
-/* Contagem regressiva */
 .sticky-header .countdown {
     font-size: 0.9rem;
     color: #e74c3c;
-    white-space: nowrap; /* Evita quebra de linha */
+    white-space: nowrap;
 }
 
 /* Preços */
 .sticky-header .sticky-prices {
     display: flex;
-    justify-content: space-between;
-    width: 100%; /* Ocupa toda a largura */
+    justify-content: flex-end; /* Alinha os preços à direita */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 0.5rem; /* Espaçamento entre os preços */
     font-size: 0.9rem;
 }
 
 /* Botão "Buy Now" */
 .sticky-header .sticky-buy-now {
-    display: none; /* Botão escondido por padrão */
     background: #e74c3c;
     color: #fff;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: bold;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;
     border-radius: 5px;
     text-align: center;
     text-decoration: none;
-    width: 100%; /* Botão ocupa toda a largura */
+    width: auto; /* Botão pequeno */
+    align-self: flex-end; /* Posicionado à direita */
     margin-top: 0.2rem;
     transition: background 0.3s ease;
-}
-
-/* Mostrar botão apenas quando ativo */
-.sticky-header.active .sticky-buy-now {
-    display: block; /* Botão visível apenas quando o Sticky Header está ativo */
 }
 
 .sticky-header .sticky-buy-now:hover {
     background: #c0392b;
 }
 
-/* Ajuste para laptop */
+/* Ajuste para Laptop */
 @media (min-width: 1024px) {
     .sticky-header {
-        flex-direction: row; /* Itens alinhados horizontalmente */
-        align-items: center; /* Centralizar itens verticalmente */
-        justify-content: space-between;
-        padding: 0.5rem 2rem;
+        padding: 0.5rem 2rem; /* Margem lateral maior */
     }
 
     .sticky-header .sticky-buy-now {
-        width: auto; /* Botão ajusta largura automaticamente */
-        margin-left: 1rem; /* Espaçamento extra para evitar esconder */
+        margin-right: 0; /* Ajusta o botão ao layout */
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .sticky-header {
+        flex-direction: column; /* Itens alinhados verticalmente */
+        gap: 0.3rem; /* Espaçamento reduzido */
+    }
+
+    .sticky-header .sticky-buy-now {
+        width: 100%; /* Botão ocupa toda a largura no mobile */
+        align-self: center; /* Centraliza no mobile */
+    }
+
+    .sticky-header .sticky-prices {
+        justify-content: space-between; /* Preços alinhados no mobile */
     }
 }
 
