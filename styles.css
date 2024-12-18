@@ -145,69 +145,6 @@ header .button:hover {
     background: #333;
 }
 
-.carousel {
-    position: relative;
-    overflow: hidden; /* Esconde imagens fora da área visível */
-    width: 100%;
-}
-
-.carousel-images {
-    display: flex; /* Flexbox para exibir as imagens horizontalmente */
-    transition: transform 0.5s ease; /* Suaviza a transição */
-}
-
-.carousel-item {
-    min-width: 100%; /* Cada item ocupa 100% da largura da tela */
-    height: auto;
-    object-fit: cover; /* Garante que as imagens não deformem */
-}
-
-/* Carousel Controls */
-.carousel-controls {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.carousel-controls button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 1rem;
-    font-size: 1.5rem;
-    z-index: 11;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-controls button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Ajustes para dispositivos móveis */
-@media (max-width: 1023px) {
-    .carousel-container {
-        max-width: 100%; /* A largura da tela será 100% em dispositivos móveis */
-    }
-
-    .carousel-controls button {
-        font-size: 1.2rem; /* Botões menores para dispositivos móveis */
-        padding: 0.8rem;
-    }
-}
-
-/* Ajustes para telas muito pequenas, como smartphones */
-@media (max-width: 600px) {
-    .carousel-controls button {
-        font-size: 1rem; /* Botões ainda menores em telas muito pequenas */
-        padding: 0.6rem;
-    }
-}
-
 /* Advantages Section */
 .advantages ul {
     list-style: none; /* Remove default bullet points */
