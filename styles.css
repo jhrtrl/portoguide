@@ -153,6 +153,22 @@ header .button:hover {
 
 /* Ajustes para Laptop */
 @media (min-width: 1024px) {
+    .sticky-header {
+        display: flex;
+        justify-content: center; /* Centraliza os elementos no header */
+        align-items: center; /* Alinha verticalmente */
+        position: relative;
+    }
+    
+    .sticky-header .countdown {
+        position: absolute; /* Posiciona centralmente sem ser afetado pelos outros elementos */
+        left: 50%; /* Move o texto para o centro horizontal */
+        transform: translateX(-50%); /* Ajusta para centralização exata */
+        text-align: center;
+        margin: 0; /* Remove margens extras */
+        flex: none; /* Garante que não seja redimensionado */
+    }
+    
     .sticky-header .sticky-prices {
         margin-right: 15px; /* Margem maior para evitar que o preço seja escondido */
     }
