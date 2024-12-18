@@ -130,7 +130,7 @@ header .button:hover {
     text-decoration: none;
     position: absolute; /* Posicionado em relação aos preços */
     top: calc(100% + 0.5rem); /* Abaixo dos preços */
-    right: 0; /* Alinhado à direita */
+    right: 20px; /* Adiciona margem à direita para evitar a barra de rolagem */
     transition: background 0.3s ease;
 }
 
