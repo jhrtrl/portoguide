@@ -80,3 +80,26 @@ document.getElementById('next').addEventListener('click', () => {
 
 // Inicializa o carrossel mostrando a primeira imagem
 updateCarousel();
+
+// Configuração do Swiper
+const swiper = new Swiper('.swiper-container', {
+    loop: true, // Loop infinito
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    autoplay: {
+        delay: 3000, // Troca automática a cada 3 segundos
+    },
+    allowTouchMove: true, // Permite rolagem no mobile
+    touchStartPreventDefault: false, // Corrige o congelamento ao tocar
+});
+
+// Garante que a rolagem funcione corretamente no mobile
+document.addEventListener('touchmove', (e) => {
+    e.stopPropagation();
+}, { passive: false });
