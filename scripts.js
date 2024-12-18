@@ -58,30 +58,22 @@ handleFadeIn();
 
 // Carousel Navigation
 const carouselItems = document.querySelectorAll('.carousel-item');
+const carouselImages = document.querySelector('.carousel-images');
 let currentIndex = 0;
 
 // Function to update the carousel and show the active image
 function updateCarousel() {
-    // Esconde todas as imagens
-    carouselItems.forEach((item) => {
-        item.style.visibility = 'hidden';
-        item.style.opacity = 0;
-    });
-    
-    // Mostra a imagem ativa
-    carouselItems[currentIndex].style.visibility = 'visible';
-    carouselItems[currentIndex].style.opacity = 1;
+    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
+    carouselImages.style.transform = `translateX(${offset}%)`;
 }
 
 // Event listeners for navigation buttons
 document.getElementById('prev').addEventListener('click', () => {
-    // Navegação para a imagem anterior
     currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
     updateCarousel();
 });
 
 document.getElementById('next').addEventListener('click', () => {
-    // Navegação para a próxima imagem
     currentIndex = (currentIndex + 1) % carouselItems.length;
     updateCarousel();
 });
