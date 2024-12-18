@@ -120,8 +120,8 @@
     <script src="scripts.js"></script>
     <!-- Swiper.js JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-    // Inicialização do Swiper
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
     const swiper = new Swiper('.swiper-container', {
         loop: true, // Loop infinito
         navigation: {
@@ -133,16 +133,15 @@
             clickable: true,
         },
         autoplay: {
-            delay: 3000, // Troca automática de imagens a cada 3 segundos
+            delay: 3000, // Troca automática a cada 3 segundos
         },
-        preventInteractionOnTransition: true, // Evita rolagem acidental
+        allowTouchMove: true, // Garante rolagem no mobile
+        touchStartPreventDefault: false, // Corrige o congelamento ao tocar
     });
 
-    // Impede rolagem horizontal do conteúdo principal
-    document.addEventListener('touchmove', function (e) {
-        if (swiper.isBeginning || swiper.isEnd) {
-            e.preventDefault();
-        }
+    // Garante que a rolagem funcione corretamente no mobile
+    document.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
     }, { passive: false });
 </script>
 </body>
