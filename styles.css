@@ -7,6 +7,8 @@ body {
     background-color: #f4f4f4;
     color: #333;
     overflow-x: hidden; /* Impede rolagem horizontal */
+    overflow-y: auto; /* Garante que a rolagem funcione */
+    overscroll-behavior: none; /* Previne congelamento */
 }
 
 a {
@@ -95,54 +97,53 @@ header .button:hover {
 }
 
 /* Carousel */
-/* Geral */
 .carousel-container {
     position: relative;
-    max-width: 800px;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
-    overflow: hidden; /* Impede vazamento de elementos */
+    overflow: hidden; /* Evita rolagem */
 }
 
 .swiper-container {
     width: 100%;
     height: auto;
-    margin-top: 1rem;
 }
 
 .swiper-slide img {
     width: 100%;
     height: auto;
-    display: block;
-    object-fit: cover;
+    object-fit: cover; /* Mantém o aspect ratio */
 }
 
-/* Botões de navegação */
-.swiper-button-prev,
-.swiper-button-next {
-    color: #fff; /* Botões brancos */
-    background: rgba(0, 0, 0, 0.5);
+/* Botões personalizados */
+.custom-button {
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro e transparente */
+    color: #ddd; /* Cor das setas */
     width: 50px;
     height: 50px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px; /* Borda levemente arredondada */
     transition: background 0.3s ease;
 }
 
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-    background: rgba(0, 0, 0, 0.8);
+.custom-button::after {
+    font-size: 1.5rem; /* Tamanho das setas */
+    color: #ddd; /* Cor clara */
 }
 
-/* Paginação */
-.swiper-pagination-bullet {
-    background: #aaa;
+.custom-button:hover {
+    background: rgba(0, 0, 0, 0.8); /* Fundo mais escuro ao passar o mouse */
 }
 
-.swiper-pagination-bullet-active {
-    background: #333;
+/* Tamanho da imagem em laptop - ocupar largura total */
+@media (min-width: 1024px) {
+    .swiper-slide img {
+        width: 100vw; /* Ocupa toda a largura da viewport */
+        height: auto;
+    }
 }
 
 /* Advantages Section */
