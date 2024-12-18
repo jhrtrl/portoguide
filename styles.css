@@ -60,12 +60,19 @@ header .button:hover {
     flex-direction: column; /* Alinhar itens verticalmente */
     align-items: flex-start; /* Alinhar ao lado esquerdo */
     padding: 0.5rem 1rem; /* Espaçamento interno */
-    z-index: 1001;
-    transition: top 0.3s ease-in-out;
-    gap: 0.5rem; /* Espaçamento entre os itens */
+    z-index: 1001; /* Garante que esteja acima do conteúdo */
+    transition: top 0.3s ease-in-out; /* Transição suave */
+    gap: 0.5rem; /* Espaço entre os itens */
+    visibility: hidden; /* Escondido por padrão */
 }
 
-/* Texto do título */
+/* Ativar o Sticky Header */
+.sticky-header.active {
+    top: 0; /* Tornar visível */
+    visibility: visible; /* Mostrar o Sticky Header */
+}
+
+/* Título */
 .sticky-header #sticky-title {
     font-size: 1rem;
     font-weight: bold;
@@ -78,7 +85,7 @@ header .button:hover {
 .sticky-header .countdown {
     font-size: 0.9rem;
     color: #e74c3c;
-    white-space: nowrap;
+    white-space: nowrap; /* Evita quebra de linha */
 }
 
 /* Preços */
@@ -91,6 +98,7 @@ header .button:hover {
 
 /* Botão "Buy Now" */
 .sticky-header .sticky-buy-now {
+    display: none; /* Botão escondido por padrão */
     background: #e74c3c;
     color: #fff;
     font-size: 0.9rem;
@@ -104,6 +112,11 @@ header .button:hover {
     transition: background 0.3s ease;
 }
 
+/* Mostrar botão apenas quando ativo */
+.sticky-header.active .sticky-buy-now {
+    display: block; /* Botão visível apenas quando o Sticky Header está ativo */
+}
+
 .sticky-header .sticky-buy-now:hover {
     background: #c0392b;
 }
@@ -111,7 +124,7 @@ header .button:hover {
 /* Ajuste para laptop */
 @media (min-width: 1024px) {
     .sticky-header {
-        flex-direction: row; /* Alinhar itens horizontalmente */
+        flex-direction: row; /* Itens alinhados horizontalmente */
         align-items: center; /* Centralizar itens verticalmente */
         justify-content: space-between;
         padding: 0.5rem 2rem;
