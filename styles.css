@@ -157,10 +157,11 @@ header .button:hover {
         display: flex;
         justify-content: space-between; /* Mantém os elementos espacados horizontalmente */
         align-items: center;
-        padding: 0 20px; /* Espaçamento lateral */
+        padding: 1rem 20px; /* Espaçamento lateral */
         position: fixed; /* Continua fixo no topo */
         top: 0;
         width: 100%;
+        height: 80px;
         z-index: 1000;
     }
 
@@ -184,6 +185,8 @@ header .button:hover {
 @media (max-width: 768px) {
     .sticky-header {
         flex-direction: column; /* Alinha itens verticalmente */
+        height: auto;
+        padding: 1.5rem 10px;
     }
 
     .sticky-header .sticky-top-row {
