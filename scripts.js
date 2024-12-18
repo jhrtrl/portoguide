@@ -1,6 +1,6 @@
 // Countdown Timer Function
 function startCountdown(endDate, elementId) {
-    const timer = setInterval(function () {
+    const timer = setInterval(() => {
         const now = new Date().getTime();
         const distance = endDate - now;
 
@@ -26,64 +26,38 @@ const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 *
 startCountdown(promotionEndDate, "main-countdown");
 startCountdown(promotionEndDate, "sticky-countdown");
 
-// Sticky Header and Fade-In Animations
-function handleFadeIn() {
-    const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
-    fadeItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect();
-
-        if (rect.top < window.innerHeight - 100) {
-            setTimeout(() => {
-                item.classList.add('active');
-            }, index * 200); // Optional: Stagger animations for better effect
-        }
-    });
-}
-
 // Sticky Header Toggle
 window.addEventListener('scroll', () => {
     const stickyHeader = document.getElementById('sticky-header');
-    if (window.scrollY > 200) {
+    const mainHeader = document.querySelector('header');
+
+    if (window.scrollY > mainHeader.offsetHeight) {
         stickyHeader.classList.add('active');
     } else {
         stickyHeader.classList.remove('active');
     }
-
-    // Trigger fade-in animations
-    handleFadeIn();
 });
 
-// Initial check to activate items already in view
-handleFadeIn();
-
-// Carousel Navigation
-const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselImages = document.querySelector('.carousel-images');
-let currentIndex = 0;
-
-// Function to update the carousel and show the active image
-function updateCarousel() {
-    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
-    carouselImages.style.transform = `translateX(${offset}%)`;
+// Handle Fade-In
+function handleFadeIn() {
+    const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
+    fadeItems.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            setTimeout(() => {
+                item.classList.add('active');
+            }, index * 200);
+        }
+    });
 }
 
-// Event listeners for navigation buttons
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-    updateCarousel();
-});
+// Initial check for fade-in items
+handleFadeIn();
+window.addEventListener('scroll', handleFadeIn);
 
-document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % carouselItems.length;
-    updateCarousel();
-});
-
-// Inicializa o carrossel mostrando a primeira imagem
-updateCarousel();
-
-// Configuração do Swiper
+// Swiper.js Initialization
 const swiper = new Swiper('.swiper-container', {
-    loop: true, // Loop infinito
+    loop: true,
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -93,13 +67,8 @@ const swiper = new Swiper('.swiper-container', {
         clickable: true,
     },
     autoplay: {
-        delay: 3000, // Troca automática a cada 3 segundos
+        delay: 3000,
     },
-    allowTouchMove: true, // Permite rolagem no mobile
-    touchStartPreventDefault: false, // Corrige o congelamento ao tocar
+    allowTouchMove: true,
+    touchStartPreventDefault: false,
 });
-
-// Garante que a rolagem funcione corretamente no mobile
-document.addEventListener('touchmove', (e) => {
-    e.stopPropagation();
-}, { passive: false });
