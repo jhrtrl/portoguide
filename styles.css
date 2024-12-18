@@ -140,12 +140,12 @@ header .button:hover {
 
 /* Ajustes para Laptop */
 @media (min-width: 1024px) {
-    .sticky-header {
-        padding: 0.5rem 2rem;
+    .sticky-header .sticky-prices {
+        margin-right: 40px; /* Margem maior para evitar que o preço seja escondido */
     }
 
     .sticky-header .sticky-buy-now {
-        right: 20px; /* Ajuste fino para laptops */
+        right: 40px; /* Margem maior para o botão */
     }
 }
 
