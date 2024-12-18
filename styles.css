@@ -103,7 +103,7 @@ header .button:hover {
     gap: 0.5rem; /* Espaço entre os preços */
     font-size: 0.9rem;
     position: relative; /* Necessário para posicionar o botão */
-    margin-right: 20px; /* Espaço para evitar a barra de rolagem */
+    right: 20px; /* Espaço para evitar a barra de rolagem */
 }
 
 /* Preço antigo */
