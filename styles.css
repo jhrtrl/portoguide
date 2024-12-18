@@ -51,47 +51,50 @@ header .button:hover {
 /* Sticky Header */
 .sticky-header {
     position: fixed;
-    top: 0;
+    top: -100px; /* Escondido inicialmente */
     left: 0;
     width: 100%;
     background: #3c8dbc;
     color: #fff;
     display: flex;
-    flex-direction: column; /* Alinhar itens verticalmente no mobile */
-    padding: 0.5rem 2rem;
+    flex-direction: row; /* Alinhar horizontalmente */
+    align-items: center;
+    justify-content: space-between; /* Espaçar os itens */
+    padding: 0.5rem 1rem;
     z-index: 1001;
-    gap: 0.2rem; /* Espaço entre os itens */
+    gap: 0.5rem;
+    transition: top 0.3s ease-in-out;
 }
 
 .sticky-header.active {
-    top: 0;
+    top: 0; /* Torna visível o Sticky Header */
 }
 
 .sticky-header #sticky-title {
-    font-size: 1.2rem; /* Texto menor para caber no mobile */
+    font-size: 1.2rem;
     font-weight: bold;
     white-space: nowrap; /* Impede quebra de linha */
     overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona "..." caso necessário */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
 }
 
 .sticky-header .countdown {
-    font-size: 0.9rem; /* Texto menor para caber */
-    white-space: nowrap; /* Não permite quebra de linha */
+    font-size: 0.9rem; /* Texto menor para caber no mobile */
+    white-space: nowrap;
 }
 
 .sticky-header .sticky-prices {
     display: flex;
     justify-content: space-between;
-    font-size: 0.9rem; /* Texto compacto */
-    gap: 0.5rem; /* Espaço entre os preços */
+    font-size: 0.9rem;
+    gap: 0.5rem;
     margin-top: 0.2rem;
 }
 
 .sticky-header .sticky-buy-now {
     display: block;
     text-align: center;
-    background: #e74c3c; /* Cor chamativa para o botão */
+    background: #e74c3c;
     color: #fff;
     font-size: 0.9rem;
     font-weight: bold;
@@ -103,58 +106,59 @@ header .button:hover {
 }
 
 .sticky-header .sticky-buy-now:hover {
-    background: #c0392b; /* Cor mais escura no hover */
+    background: #c0392b;
 }
 
-/* Laptop - Espaço extra no botão */
+/* Laptop */
 @media (min-width: 1024px) {
-    .sticky-header {
-        flex-direction: row; /* Itens alinhados horizontalmente */
-        align-items: center; /* Centralizar verticalmente */
-        justify-content: space-between;
-    }
-
     .sticky-header .sticky-buy-now {
-        margin-left: 1rem; /* Espaço extra para evitar esconder na barra de scroll */
+        margin-left: 1rem; /* Evita que o botão fique escondido na barra de rolagem */
     }
 }
 
-/* Mobile - Ajustes para evitar quebras */
+/* Mobile */
 @media (max-width: 768px) {
     .sticky-header {
-        padding: 0.5rem 1rem; /* Margem reduzida */
+        flex-direction: column; /* Alinha os itens verticalmente */
+        gap: 0.2rem;
+    }
+
+    .sticky-header #sticky-title {
+        font-size: 1rem;
+    }
+
+    .sticky-header .countdown {
+        font-size: 0.9rem;
     }
 
     .sticky-header .sticky-buy-now {
-        width: 100%; /* Botão ocupa toda a largura no mobile */
-    }
-
-    .sticky-header .sticky-prices {
-        justify-content: space-between;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.2rem;
     }
 }
 
 /* Fade-In Animations */
 .fade-in {
-    opacity: 0; /* Start invisible */
-    transform: translateY(20px); /* Offset slightly below */
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in.active {
     opacity: 1;
-    transform: translateY(0); /* Reset position */
+    transform: translateY(0);
 }
 
 .fade-in-right {
-    opacity: 0; /* Start invisible */
-    transform: translateX(50px); /* Offset to the right */
+    opacity: 0;
+    transform: translateX(50px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .fade-in-right.active {
     opacity: 1;
-    transform: translateX(0); /* Reset position */
+    transform: translateX(0);
 }
 
 /* Carousel */
@@ -163,7 +167,7 @@ header .button:hover {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    overflow: hidden; /* Evita rolagem */
+    overflow: hidden;
 }
 
 .swiper-container {
@@ -174,98 +178,36 @@ header .button:hover {
 .swiper-slide img {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Mantém o aspect ratio */
+    object-fit: cover;
 }
 
 /* Botões personalizados */
 .custom-button {
-    background: rgba(200, 200, 200, 0.2); /* Fundo cinza suave */
-    color: rgba(255, 255, 255, 0.7); /* Seta branca com transparência */
-    width: 30px; /* Botão menor */
-    height: 30px; /* Botão menor */
+    background: rgba(200, 200, 200, 0.2);
+    color: rgba(255, 255, 255, 0.7);
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 4px; /* Cantos levemente arredondados */
+    border-radius: 4px;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Ícone da seta */
 .custom-button i {
-    font-size: 0.9rem; /* Ícone menor */
-    color: rgba(255, 255, 255, 0.7); /* Transparência da seta */
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* Efeito hover */
 .custom-button:hover {
-    background: rgba(200, 200, 200, 0.4); /* Fundo mais visível no hover */
-    color: rgba(255, 255, 255, 0.9); /* Seta mais visível */
+    background: rgba(200, 200, 200, 0.4);
 }
 
 .custom-button:hover i {
-    color: rgba(255, 255, 255, 0.9); /* Ícone mais visível no hover */
+    color: rgba(255, 255, 255, 0.9);
 }
 
-/* Esconder botões padrão do Swiper */
 .swiper-button-prev::after,
 .swiper-button-next::after {
-    display: none; /* Remove as setas padrão */
-}
-
-/* Posição dos botões (para alinhá-los verticalmente ao centro) */
-.swiper-button-prev,
-.swiper-button-next {
-    top: 50%; /* Centralizado verticalmente */
-    transform: translateY(-50%);
-}
-
-/* Tamanho da imagem em laptop - ocupar largura total */
-@media (min-width: 1024px) {
-    .swiper-slide img {
-        width: 100vw; /* Ocupa toda a largura da viewport */
-        height: auto;
-    }
-}
-
-/* Advantages Section */
-.advantages ul {
-    list-style: none; /* Remove default bullet points */
-    padding: 0;
-}
-
-.advantages ul li {
-    margin: 0.5rem 0;
-    text-align: left;
-    display: flex; /* Align check icon and text horizontally */
-    align-items: center; /* Vertically align */
-}
-
-.check-icon {
-    color: green; /* Green color for the Font Awesome check icon */
-    font-size: 1.2rem; /* Slightly larger for visibility */
-    margin-right: 0.5rem; /* Space between icon and text */
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #222;
-    color: #fff;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .sticky-header {
-        padding: 0.5rem 1rem;
-    }
-
-    .carousel-controls button {
-        font-size: 1.2rem; /* Smaller buttons on mobile */
-        padding: 0.5rem 0.8rem; /* Adjust padding for touch accessibility */
-    }
-
-    .advantages ul li {
-        font-size: 1rem; /* Adjust font size for smaller screens */
-    }
+    display: none;
 }
