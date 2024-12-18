@@ -26,15 +26,14 @@
     </header>
 
     <!-- Sticky Header -->
-<div class="sticky-header" id="sticky-header">
-    <div id="sticky-title">Porto Photo Guide</div> <!-- Texto reduzido -->
-    <div class="countdown" id="sticky-countdown"></div>
-    <div class="sticky-prices">
-        <span class="original-price"><del>€14.99</del></span>
-        <span class="current-price">€9.99</span>
+    <div class="sticky-header" id="sticky-header">
+        <div id="sticky-title">Porto Photography Guide</div>
+        <div class="countdown" id="sticky-countdown">€9.99 <del>€14.99</del></div>
+        <a href="purchase.html" class="button">
+            <span class="original-price"><del>€14.99</del></span>
+            <span class="current-price">€9.99</span> Buy Now
+        </a>
     </div>
-    <a href="purchase.html" class="sticky-buy-now button">Buy Now</a>
-</div>
 
     <!-- Main Content -->
     <main>
@@ -126,5 +125,28 @@
     <!-- Swiper.js JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Loop infinito
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000, // Troca automática a cada 3 segundos
+        },
+        allowTouchMove: true, // Garante rolagem no mobile
+        touchStartPreventDefault: false, // Corrige o congelamento ao tocar
+    });
+
+    // Garante que a rolagem funcione corretamente no mobile
+    document.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+    }, { passive: false });
+</script>
 </body>
 </html>
