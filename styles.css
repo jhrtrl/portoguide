@@ -103,24 +103,20 @@ header .button:hover {
 
 .carousel {
     position: relative;
-    overflow: hidden;
-    border-radius: 8px;
+    overflow: hidden; /* Esconde as imagens fora da área visível */
+    width: 100%;
+    max-width: 100%;
 }
 
 .carousel-images {
-    display: block; /* Garantir que todas as imagens fiquem empilhadas */
+    display: flex; /* Usar flexbox para empilhar as imagens */
+    transition: transform 0.5s ease; /* Suaviza a transição entre as imagens */
 }
 
 .carousel-item {
-    display: none; /* Inicialmente todas as imagens estão escondidas */
-    width: 100%;
+    min-width: 100%; /* Cada item ocupa 100% da largura da tela */
     height: auto;
-    object-fit: cover; /* Para ajustar o conteúdo da imagem */
-}
-
-/* Mostrar a imagem ativa */
-.carousel-item.active {
-    display: block; /* Torna visível a imagem ativa */
+    object-fit: cover; /* Ajusta as imagens para cobrir o contêiner sem distorcer */
 }
 
 /* Carousel Controls */
@@ -173,7 +169,6 @@ header .button:hover {
         padding: 0.6rem;
     }
 }
-
 /* Advantages Section */
 .advantages ul {
     list-style: none; /* Remove default bullet points */
