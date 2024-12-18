@@ -118,20 +118,21 @@ header .button:hover {
     font-weight: bold;
 }
 
-/* Botão "Buy Now" abaixo dos preços e alinhado à direita */
+/* Botão "Buy Now" */
 .sticky-header .sticky-buy-now {
     background: #e74c3c;
     color: #fff;
     font-size: 0.8rem;
     font-weight: bold;
     padding: 0.4rem 1rem;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px; /* Apenas as bordas inferiores são arredondadas */
     text-align: center;
     text-decoration: none;
     position: absolute; /* Posicionado em relação aos preços */
-    top: calc(100% + 0.5rem); /* Abaixo dos preços */
-    margin-right: 20px; /* Adiciona margem à direita para evitar a barra de rolagem */
+    top: 100%; /* Exatamente junto ao Sticky Header */
+    right: 40px; /* Margem ajustada */
     transition: background 0.3s ease;
+    margin-top: 0; /* Remove qualquer margem extra superior */
 }
 
 .sticky-header .sticky-buy-now:hover {
