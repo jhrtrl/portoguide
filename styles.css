@@ -51,26 +51,87 @@ header .button:hover {
 /* Sticky Header */
 .sticky-header {
     position: fixed;
-    top: -100px; /* Hidden initially */
+    top: 0;
     left: 0;
     width: 100%;
     background: #3c8dbc;
     color: #fff;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Alinhar itens verticalmente no mobile */
     padding: 0.5rem 2rem;
     z-index: 1001;
-    transition: top 0.3s ease-in-out;
+    gap: 0.2rem; /* Espaço entre os itens */
 }
 
 .sticky-header.active {
-    top: 0; /* Slide into view */
+    top: 0;
+}
+
+.sticky-header #sticky-title {
+    font-size: 1.2rem; /* Texto menor para caber no mobile */
+    font-weight: bold;
+    white-space: nowrap; /* Impede quebra de linha */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona "..." caso necessário */
 }
 
 .sticky-header .countdown {
-    font-size: 1rem;
-    color: #e74c3c;
+    font-size: 0.9rem; /* Texto menor para caber */
+    white-space: nowrap; /* Não permite quebra de linha */
+}
+
+.sticky-header .sticky-prices {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem; /* Texto compacto */
+    gap: 0.5rem; /* Espaço entre os preços */
+    margin-top: 0.2rem;
+}
+
+.sticky-header .sticky-buy-now {
+    display: block;
+    text-align: center;
+    background: #e74c3c; /* Cor chamativa para o botão */
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-top: 0.2rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.sticky-header .sticky-buy-now:hover {
+    background: #c0392b; /* Cor mais escura no hover */
+}
+
+/* Laptop - Espaço extra no botão */
+@media (min-width: 1024px) {
+    .sticky-header {
+        flex-direction: row; /* Itens alinhados horizontalmente */
+        align-items: center; /* Centralizar verticalmente */
+        justify-content: space-between;
+    }
+
+    .sticky-header .sticky-buy-now {
+        margin-left: 1rem; /* Espaço extra para evitar esconder na barra de scroll */
+    }
+}
+
+/* Mobile - Ajustes para evitar quebras */
+@media (max-width: 768px) {
+    .sticky-header {
+        padding: 0.5rem 1rem; /* Margem reduzida */
+    }
+
+    .sticky-header .sticky-buy-now {
+        width: 100%; /* Botão ocupa toda a largura no mobile */
+    }
+
+    .sticky-header .sticky-prices {
+        justify-content: space-between;
+    }
 }
 
 /* Fade-In Animations */
