@@ -130,7 +130,7 @@ header .button:hover {
     text-decoration: none;
     position: absolute; /* Posicionado em relação aos preços */
     top: calc(100% + 0.5rem); /* Abaixo dos preços */
-    right: 20px; /* Adiciona margem à direita para evitar a barra de rolagem */
+    margin-right: 20px; /* Adiciona margem à direita para evitar a barra de rolagem */
     transition: background 0.3s ease;
 }
 
@@ -145,7 +145,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-buy-now {
-        right: 20px; /* Ajuste fino para laptops */
+        margin-right: 20px; /* Ajuste fino para laptops */
     }
 }
 
@@ -163,7 +163,7 @@ header .button:hover {
 
     .sticky-header .sticky-buy-now {
         top: calc(100% + 0.5rem); /* Garante que o botão fique abaixo dos preços */
-        right: 10px; /* Ajusta para o mobile */
+        margin-right: 10px; /* Ajusta para o mobile */
     }
 }
 
