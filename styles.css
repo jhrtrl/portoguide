@@ -108,16 +108,14 @@ header .button:hover {
 }
 
 .carousel-images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block; /* Garantir que todas as imagens fiquem empilhadas */
 }
 
 .carousel-item {
-    display: none; /* Esconde todas as imagens inicialmente */
+    display: none; /* Inicialmente todas as imagens estão escondidas */
     width: 100%;
-    max-width: 100%; /* Garante que as imagens não saiam do limite */
-    height: auto; /* Ajusta a altura das imagens para manter a proporção */
+    height: auto;
+    object-fit: cover; /* Para ajustar o conteúdo da imagem */
 }
 
 /* Mostrar a imagem ativa */
