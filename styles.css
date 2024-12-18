@@ -116,14 +116,16 @@ header .button:hover {
 .carousel-item {
     display: none; /* Esconde todas as imagens inicialmente */
     width: 100%;
-    height: auto;
+    max-width: 100%; /* Garante que as imagens não saiam do limite */
+    height: auto; /* Ajusta a altura das imagens para manter a proporção */
 }
 
-/* Show the first image */
+/* Mostrar a imagem ativa */
 .carousel-item.active {
-    display: block; /* Mostra a imagem ativa */
+    display: block; /* Torna visível a imagem ativa */
 }
 
+/* Carousel Controls */
 .carousel-controls {
     position: absolute;
     top: 50%;
@@ -149,21 +151,27 @@ header .button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Responsive Adjustments */
+/* Ajustes para dispositivos móveis */
 @media (max-width: 1023px) {
     .carousel-container {
-        max-width: 100%; /* Full width on smaller devices */
+        max-width: 100%; /* A largura da tela será 100% em dispositivos móveis */
     }
 
     .carousel-controls button {
-        font-size: 1.2rem; /* Smaller buttons for mobile */
+        font-size: 1.2rem; /* Botões menores para dispositivos móveis */
         padding: 0.8rem;
+    }
+
+    /* Ajustar tamanho das imagens para telas menores */
+    .carousel-images img {
+        width: 100%; /* As imagens ocupam 100% da largura da tela */
     }
 }
 
-@media (max-width: 768px) {
+/* Ajustes para telas muito pequenas, como smartphones */
+@media (max-width: 600px) {
     .carousel-controls button {
-        font-size: 1rem; /* Even smaller for very small devices */
+        font-size: 1rem; /* Botões ainda menores em telas muito pequenas */
         padding: 0.6rem;
     }
 }
