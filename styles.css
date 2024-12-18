@@ -50,12 +50,23 @@ header .button:hover {
 
 /* Sticky Header */
 .sticky-header {
-    display: flex; /* Ativa o Flexbox */
+    position: fixed;
+    top: -100px; /* Escondido inicialmente */
+    left: 0;
+    width: 100%;
+    background: #3c8dbc;
+    color: #fff;
+    display: flex;
     align-items: center; /* Centraliza os itens verticalmente */
-    justify-content: space-between; /* Mantém espaçamento horizontal */
+    justify-content: space-between; /* Mantém o espaçamento horizontal */
     height: auto; /* Ou defina uma altura fixa, como 80px */
-    padding: 0; /* Remova padding vertical que pode interferir */
-    box-sizing: border-box; /* Inclui o padding na altura total */
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box; /* Garante que o padding seja considerado na altura total */
+    z-index: 1001;
+    transition: top 0.3s ease-in-out;
+    visibility: hidden; /* Escondido por padrão */
+    gap: 0.5rem;
 }
 
 .sticky-header.active {
@@ -65,11 +76,11 @@ header .button:hover {
 
 /* Linha superior: Título, Countdown e Preços */
 .sticky-header .sticky-top-row {
-    display: flex; /* Alinha os itens horizontalmente */
-    align-items: center; /* Centraliza verticalmente dentro da linha */
-    justify-content: space-between;
-    width: 100%; /* Garante que a linha ocupe toda a largura */
-    padding: 0 20px; /* Adicione espaçamento horizontal, se necessário */
+    display: flex;
+    justify-content: space-between; /* Espaçar itens horizontalmente */
+    align-items: center; /* Alinhar verticalmente */
+    width: 100%;
+    gap: 1rem;
 }
 
 .sticky-header #sticky-title {
@@ -147,8 +158,15 @@ header .button:hover {
 /* Ajustes para Laptop */
 @media (min-width: 1024px) {
     .sticky-header {
-        height: 80px; /* Altura fixa para laptops */
-        padding: 0; /* Remova padding vertical */
+        display: flex;
+        justify-content: space-between; /* Mantém os elementos espacados horizontalmente */
+        align-items: center;
+        padding: 1rem 20px; /* Espaçamento lateral */
+        position: fixed; /* Continua fixo no topo */
+        top: 0;
+        width: 100%;
+        height: 80px;
+        z-index: 1000;
     }
 
     .sticky-header .countdown {
@@ -170,12 +188,15 @@ header .button:hover {
 /* Ajustes para Mobile */
 @media (max-width: 768px) {
     .sticky-header {
-        height: auto; /* Ajusta ao conteúdo no mobile */
-        padding: 0; /* Remova padding vertical */
+        flex-direction: column; /* Alinha itens verticalmente */
+        height: auto;
+        padding: 1.5rem 10px;
     }
 
     .sticky-header .sticky-top-row {
-        padding: 0 10px; /* Espaçamento horizontal menor no mobile */
+        flex-direction: row; /* Mantém horizontal no mobile */
+        justify-content: space-between;
+        align-items: center;
     }
 
     .sticky-header .countdown {
