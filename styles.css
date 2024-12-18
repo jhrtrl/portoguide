@@ -145,6 +145,12 @@ header .button:hover {
     color: rgba(255, 255, 255, 0.9); /* Ícone mais visível no hover */
 }
 
+/* Esconder botões padrão do Swiper */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    display: none; /* Remove as setas padrão */
+}
+
 /* Posição dos botões (para alinhá-los verticalmente ao centro) */
 .swiper-button-prev,
 .swiper-button-next {
