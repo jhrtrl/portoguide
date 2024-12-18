@@ -50,13 +50,23 @@ header .button:hover {
 
 /* Sticky Header */
 .sticky-header {
-    display: flex; /* Ativa o Flexbox */
+    position: fixed;
+    top: -100px; /* Escondido inicialmente */
+    left: 0;
+    width: 100%;
+    background: #3c8dbc;
+    color: #fff;
+    display: flex;
     align-items: center; /* Centraliza os itens verticalmente */
     justify-content: space-between; /* Mantém o espaçamento horizontal */
-    height: auto; /* Ajusta dinamicamente ao conteúdo */
-    flex-direction: row; /* Organiza os itens horizontalmente */
-    padding: 0 1rem; /* Apenas espaçamento lateral */
-    gap: 1rem; /* Espaço uniforme entre elementos */
+    height: auto; /* Ou defina uma altura fixa, como 80px */
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box; /* Garante que o padding seja considerado na altura total */
+    z-index: 1001;
+    transition: top 0.3s ease-in-out;
+    visibility: hidden; /* Escondido por padrão */
+    gap: 0.5rem;
 }
 
 .sticky-header.active {
@@ -66,11 +76,11 @@ header .button:hover {
 
 /* Linha superior: Título, Countdown e Preços */
 .sticky-header .sticky-top-row {
-    display: flex; /* Flexbox horizontal */
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: space-between;
-    width: 100%; /* Garante que ocupe toda a largura */
-    gap: 1rem; /* Espaço uniforme entre os elementos */
+    display: flex;
+    justify-content: space-between; /* Espaçar itens horizontalmente */
+    align-items: center; /* Alinhar verticalmente */
+    width: 100%;
+    gap: 1rem;
 }
 
 .sticky-header #sticky-title {
@@ -93,16 +103,22 @@ header .button:hover {
 }
 
 .sticky-header .countdown {
-    margin: 0; /* Remove margens extras */
+    font-size: 0.9rem;
+    color: #e74c3c;
+    white-space: nowrap;
     text-align: center;
-    flex: 1; /* Permite que ocupe espaço proporcional */
+    flex: 1; /* Centralizar no espaço disponível */
+    margin-right: 0;
 }
 
 .sticky-header .sticky-prices {
-    margin: 0; /* Remove margens extras */
-    display: flex; /* Mantém os preços lado a lado */
-    align-items: center; /* Centraliza verticalmente */
+    display: flex;
+    justify-content: flex-end; /* Alinha os preços à direita */
+    align-items: center;
     gap: 0.5rem; /* Espaço entre os preços */
+    font-size: 0.9rem;
+    position: relative; /* Necessário para posicionar o botão */
+    right: 20px; /* Espaço para evitar a barra de rolagem */
 }
 
 /* Preço antigo */
@@ -142,19 +158,15 @@ header .button:hover {
 /* Ajustes para Laptop */
 @media (min-width: 1024px) {
     .sticky-header {
-        height: 80px; /* Altura fixa para laptops */
-        display: flex; /* Ativa Flexbox */
-        align-items: center; /* Centraliza verticalmente os itens */
-        justify-content: space-between; /* Mantém espaçamento horizontal */
-        padding: 0 20px; /* Espaçamento lateral */
-    }
-
-    .sticky-header .sticky-top-row {
         display: flex;
-        align-items: center; /* Centraliza verticalmente */
-        justify-content: space-between;
-        gap: 1rem; /* Espaçamento entre os elementos */
+        justify-content: space-between; /* Mantém os elementos espacados horizontalmente */
+        align-items: center;
+        padding: 1rem 20px; /* Espaçamento lateral */
+        position: fixed; /* Continua fixo no topo */
+        top: 0;
         width: 100%;
+        height: 40px;
+        z-index: 1000;
     }
 
     .sticky-header .countdown {
