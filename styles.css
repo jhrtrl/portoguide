@@ -88,6 +88,16 @@ header .button:hover {
     flex: 1; /* Ocupar espaço proporcional */
 }
 
+/* Título para telas maiores */
+#sticky-title {
+    display: block;
+}
+
+/* Título alternativo para mobile */
+#sticky-title-mobile {
+    display: none; /* Escondido por padrão */
+}
+
 .sticky-header .countdown {
     font-size: 0.9rem;
     color: #e74c3c;
@@ -169,6 +179,13 @@ header .button:hover {
     
     .sticky-header .sticky-buy-now {
         right: 40px; /* Margem ajustada para evitar a barra de rolagem */
+    }
+    #sticky-title {
+        display: none; /* Esconde o título completo no mobile */
+    }
+
+    #sticky-title-mobile {
+        display: block; /* Exibe o título curto no mobile */
     }
 }
 
