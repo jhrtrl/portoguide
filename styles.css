@@ -145,7 +145,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-buy-now {
-        margin-right: 20px; /* Ajuste fino para laptops */
+        right: 20px; /* Ajuste fino para laptops */
     }
 }
 
@@ -163,7 +163,7 @@ header .button:hover {
 
     .sticky-header .sticky-buy-now {
         top: calc(100% + 0.5rem); /* Garante que o botão fique abaixo dos preços */
-        margin-right: 10px; /* Ajusta para o mobile */
+        right: 10px; /* Ajusta para o mobile */
     }
 }
 
