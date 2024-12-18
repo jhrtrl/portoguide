@@ -99,14 +99,15 @@ header .button:hover {
 .sticky-header .sticky-prices {
     display: flex;
     justify-content: flex-end; /* Alinha os preços à direita */
-    align-items: center;
+    align-items: center; /* Centraliza verticalmente */
     gap: 0.5rem;
     font-size: 0.9rem;
     flex: 1; /* Ocupar espaço proporcional */
+    position: relative; /* Necessário para posicionar o botão */
     margin-right: 20px; /* Espaço para evitar a barra de rolagem */
 }
 
-/* Botão "Buy Now" */
+/* Botão "Buy Now" centralizado em relação aos dois preços */
 .sticky-header .sticky-buy-now {
     background: #e74c3c;
     color: #fff;
@@ -117,9 +118,10 @@ header .button:hover {
     text-align: center;
     text-decoration: none;
     width: auto; /* Botão pequeno */
-    margin-top: 5px; /* Espaçamento abaixo dos preços */
-    margin-right: 20px; /* Espaçamento lateral para não ser escondido */
-    align-self: flex-end; /* Posicionado no canto direito */
+    position: absolute; /* Posicionado em relação aos preços */
+    top: 100%; /* Abaixo dos preços */
+    left: 50%; /* Centraliza horizontalmente em relação aos preços */
+    transform: translateX(-50%); /* Ajusta para o centro */
     transition: background 0.3s ease;
 }
 
@@ -134,7 +136,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-buy-now {
-        margin-right: 20px; /* Espaçamento adicional no laptop */
+        margin-right: 0;
     }
 }
 
@@ -151,8 +153,7 @@ header .button:hover {
     }
 
     .sticky-header .sticky-buy-now {
-        margin-right: 10px; /* Ajusta o espaçamento no mobile */
-        align-self: flex-end; /* Posicionado abaixo dos preços */
+        top: 100%; /* Garante que o botão fique abaixo dos preços */
     }
 }
 
