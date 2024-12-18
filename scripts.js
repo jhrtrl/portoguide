@@ -58,30 +58,33 @@ handleFadeIn();
 
 // Carousel Navigation
 const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselImages = document.querySelector('.carousel-images');
 let currentIndex = 0;
 
 // Function to update the carousel and show the active image
 function updateCarousel() {
     // Esconde todas as imagens
-    carouselItems.forEach(item => {
-        item.classList.remove('active');
+    carouselItems.forEach((item) => {
+        item.style.visibility = 'hidden';
+        item.style.opacity = 0;
     });
+    
     // Mostra a imagem ativa
-    carouselItems[currentIndex].classList.add('active');
+    carouselItems[currentIndex].style.visibility = 'visible';
+    carouselItems[currentIndex].style.opacity = 1;
 }
 
 // Event listeners for navigation buttons
 document.getElementById('prev').addEventListener('click', () => {
+    // Navegação para a imagem anterior
     currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
     updateCarousel();
 });
 
 document.getElementById('next').addEventListener('click', () => {
+    // Navegação para a próxima imagem
     currentIndex = (currentIndex + 1) % carouselItems.length;
     updateCarousel();
 });
 
-// Initialize the carousel
+// Inicializa o carrossel mostrando a primeira imagem
 updateCarousel();
-
