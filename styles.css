@@ -99,7 +99,7 @@ header .button:hover {
 .sticky-header .sticky-prices {
     display: flex;
     justify-content: flex-end; /* Alinha os preços à direita */
-    align-items: center; /* Centraliza verticalmente */
+    align-items: right; /* Centraliza verticalmente */
     gap: 0.5rem;
     font-size: 0.9rem;
     flex: 1; /* Ocupar espaço proporcional */
