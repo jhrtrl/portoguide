@@ -83,3 +83,4 @@ document.getElementById('next').addEventListener('click', () => {
 
 // Initialize the carousel
 updateCarousel();
+
