@@ -120,5 +120,22 @@
     <script src="scripts.js"></script>
     <!-- Swiper.js JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+    // Inicializa o Swiper.js
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, /* Loop infinito */
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true, /* Permite clicar nos bullets */
+        },
+        autoplay: {
+            delay: 3000, /* Slide automático a cada 3 segundos */
+        },
+    });
+</script>
 </body>
 </html>
