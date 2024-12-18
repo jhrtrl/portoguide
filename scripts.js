@@ -57,26 +57,49 @@ window.addEventListener('scroll', () => {
 handleFadeIn();
 
 // Carousel Navigation
-const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselImages = document.querySelector('.carousel-images');
-let currentIndex = 0;
+//const carouselItems = document.querySelectorAll('.carousel-item');
+//const carouselImages = document.querySelector('.carousel-images');
+//let currentIndex = 0;
 
 // Function to update the carousel and show the active image
-function updateCarousel() {
-    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
-    carouselImages.style.transform = `translateX(${offset}%)`;
-}
+//function updateCarousel() {
+//    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
+  //  carouselImages.style.transform = `translateX(${offset}%)`;
+//}
 
 // Event listeners for navigation buttons
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-    updateCarousel();
-});
+//document.getElementById('prev').addEventListener('click', () => {
+//    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+ //   updateCarousel();
+//});
 
-document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % carouselItems.length;
-    updateCarousel();
-});
+//document.getElementById('next').addEventListener('click', () => {
+ //   currentIndex = (currentIndex + 1) % carouselItems.length;
+   // updateCarousel();
+//});
 
 // Inicializa o carrossel mostrando a primeira imagem
-updateCarousel();
+//updateCarousel();
+
+//Carousel Swiper
+    const swiper = new Swiper('.swiper-container', {
+        loop: true, // Loop infinito
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 3000, // Troca automática a cada 3 segundos
+        },
+        allowTouchMove: true, // Garante rolagem no mobile
+        touchStartPreventDefault: false, // Corrige o congelamento ao tocar
+    });
+
+    // Garante que a rolagem funcione corretamente no mobile
+    document.addEventListener('touchmove', (e) => {
+        e.stopPropagation();
+    }, { passive: false });
