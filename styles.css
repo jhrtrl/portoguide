@@ -117,12 +117,11 @@ header .button:hover {
 }
 
 /* Botões personalizados */
-/* Botões personalizados */
 .custom-button {
-    background: rgba(200, 200, 200, 0.2); /* Fundo cinza suave e transparente */
+    background: rgba(200, 200, 200, 0.2); /* Fundo cinza suave */
     color: rgba(255, 255, 255, 0.7); /* Seta branca com transparência */
-    width: 40px; /* Botão menor */
-    height: 40px; /* Botão menor */
+    width: 30px; /* Botão menor */
+    height: 30px; /* Botão menor */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,16 +129,27 @@ header .button:hover {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Estilização da seta */
-.custom-button::after {
-    font-size: 1.2rem; /* Tamanho da seta */
-    color: rgba(255, 255, 255, 0.7); /* Cor branca com transparência */
+/* Ícone da seta */
+.custom-button i {
+    font-size: 0.9rem; /* Ícone menor */
+    color: rgba(255, 255, 255, 0.7); /* Transparência da seta */
 }
 
-/* Efeito hover - fundo cinza um pouco mais escuro */
+/* Efeito hover */
 .custom-button:hover {
-    background: rgba(200, 200, 200, 0.4); /* Fundo cinza mais visível no hover */
-    color: rgba(255, 255, 255, 0.9); /* Seta branca com menos transparência no hover */
+    background: rgba(200, 200, 200, 0.4); /* Fundo mais visível no hover */
+    color: rgba(255, 255, 255, 0.9); /* Seta mais visível */
+}
+
+.custom-button:hover i {
+    color: rgba(255, 255, 255, 0.9); /* Ícone mais visível no hover */
+}
+
+/* Posição dos botões (para alinhá-los verticalmente ao centro) */
+.swiper-button-prev,
+.swiper-button-next {
+    top: 50%; /* Centralizado verticalmente */
+    transform: translateY(-50%);
 }
 
 /* Tamanho da imagem em laptop - ocupar largura total */
