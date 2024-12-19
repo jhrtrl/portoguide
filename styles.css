@@ -373,7 +373,7 @@ header .button:hover {
     opacity: 0;
     transform: translateY(5px);
     transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    animation-delay: 4.0s;
+    animation-delay: 3.0s;
 }
 
 #faq.active {
@@ -420,6 +420,37 @@ header .button:hover {
 /* Mostra a resposta ao adicionar a classe .show */
 .faq-item p.show {
     max-height: 200px; /* Ajuste conforme necessário */
+    margin-top: 0.5rem;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.accordion:hover,
+.accordion.active {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 1rem;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.panel.show {
+    max-height: 200px;
     margin-top: 0.5rem;
 }
 
