@@ -367,60 +367,14 @@ header .button:hover {
 }
 
 /* FAQ Section */
-#faq {
-    padding: 2rem 1rem;
-    background-color: #f9f9f9;
-    opacity: 0;
-    transform: translateY(5px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    animation-delay: 3.0s;
-}
-
-#faq.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-#faq h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
+.faq-section {
+    padding: 2rem;
+    background-color: #fff;
+    color: #333;
 }
 
 .faq-item {
     margin-bottom: 1rem;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    transition: box-shadow 0.3s ease;
-}
-
-.faq-item:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.faq-item h3 {
-    font-size: 1.2rem;
-    color: #3c8dbc;
-    cursor: pointer;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Esconde as respostas do FAQ inicialmente */
-.faq-item p {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-    margin-top: 0; /* Remove margens adicionais */
-}
-
-/* Mostra a resposta ao adicionar a classe .show */
-.faq-item p.show {
-    max-height: 200px; /* Ajuste conforme necessário */
-    margin-top: 0.5rem;
 }
 
 .accordion {
@@ -446,12 +400,14 @@ header .button:hover {
     background-color: white;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
 }
 
 .panel.show {
     max-height: 200px;
     margin-top: 0.5rem;
+    opacity: 1;
 }
 
 @keyframes fadeIn {
