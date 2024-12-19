@@ -222,8 +222,8 @@ header .button:hover {
 /* Fade-In Animations */
 .fade-in {
     opacity: 0; /* Invisível inicialmente */
-    transform: translateY(20px); /* Leve deslocamento */
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* Duração ajustada para 0.4s */
+    transform: translateY(10px); /* Leve deslocamento */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Transição mais suave e rápida */
 }
 
 .fade-in.active {
@@ -233,13 +233,13 @@ header .button:hover {
 
 .fade-in-right {
     opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transform: translateX(20px); /* Leve deslocamento horizontal */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Transição mais suave e rápida */
 }
 
 .fade-in-right.active {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0); /* Posição final */
 }
 
 /* Carousel */
