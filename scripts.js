@@ -73,15 +73,15 @@ window.addEventListener('scroll', () => {
 handleFadeIn();
 
 // Carousel Navigation
-const carouselItems = document.querySelectorAll('.carousel-item');
-const carouselImages = document.querySelector('.carousel-images');
-let currentIndex = 0;
+//const carouselItems = document.querySelectorAll('.carousel-item');
+//const carouselImages = document.querySelector('.carousel-images');
+//let currentIndex = 0;
 
 // Function to update the carousel and show the active image
-function updateCarousel() {
-    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
-    carouselImages.style.transform = `translateX(${offset}%)`;
-}
+//function updateCarousel() {
+//    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
+//    carouselImages.style.transform = `translateX(${offset}%)`;
+//}
 
 // Event listeners for navigation buttons
 //document.getElementById('prev').addEventListener('click', () => {
@@ -95,7 +95,7 @@ function updateCarousel() {
 //});
 
 // Inicializa o carrossel mostrando a primeira imagem
-updateCarousel();
+//updateCarousel();
 
 // FAQ
 document.addEventListener("DOMContentLoaded", function () {
