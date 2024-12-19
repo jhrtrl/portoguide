@@ -32,7 +32,7 @@ function handleFadeIn() {
     fadeItems.forEach((item, index) => {
         const rect = item.getBoundingClientRect();
 
-        if (rect.top < window.innerHeight - 50) {
+        if (rect.top < window.innerHeight - 300) {
             setTimeout(() => {
                 item.classList.add('active');
             }, index * 200); // Optional: Stagger animations for better effect
