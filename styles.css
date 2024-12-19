@@ -328,6 +328,14 @@ header .button:hover {
     height: auto;
 }
 
+/* Ajustes para Mobile */
+@media (max-width: 768px) {
+    .globe {
+        width: 50px; /* Tamanho menor para mobile */
+        height: 50px;
+    }
+}
+
 /* Bandeiras */
 .flag-item {
     position: absolute;
