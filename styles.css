@@ -315,8 +315,8 @@ header .button:hover {
 /* Globo Central */
 .globe {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     z-index: 10;
 }
 
@@ -346,26 +346,26 @@ header .button:hover {
 
 /* Posicionamento das bandeiras ao redor do globo */
 .flag-item:nth-child(2) { /* Top */
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, 0);
 }
 
 .flag-item:nth-child(3) { /* Left */
     top: 50%;
-    left: 30%;
+    left: 20%;
     transform: translate(0, -50%);
 }
 
 .flag-item:nth-child(4) { /* Right */
     top: 50%;
-    right: 30%;
+    right: 20%;
     transform: translate(0, -50%);
 }
 
 .flag-item:nth-child(5) { /* Bottom */
-    bottom: 10%;
-    left: 30%;
+    bottom: 20%;
+    left: 50%;
     transform: translate(-50%, 0);
 }
 
