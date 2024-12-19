@@ -345,35 +345,80 @@ header .button:hover {
     font-weight: bold;
 }
 
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
-    gap: 1.5rem; /* Espaço entre as fotos */
-    padding: 0 1rem;
-}
-
-.photo-item {
+/* Photo Examples Section */
+#photo-examples {
     text-align: center;
-    overflow: hidden;
+    padding: 2rem 1rem;
+    background-color: #fff;
 }
 
-.photo-item img {
-    width: 100%; /* Faz com que a imagem ocupe todo o espaço do grid */
-    height: auto; /* Mantém o aspect ratio */
-    border-radius: 8px; /* Cantos arredondados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    transition: transform 0.3s ease; /* Animação ao passar o mouse */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.photo-item img:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.photo-item p {
+/* FAQ Section */
+#faq {
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+}
+
+#faq h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.faq-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h3 {
+    font-size: 1.2rem;
+    color: #3c8dbc;
+    cursor: pointer;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-item p {
+    display: none;
     margin-top: 0.5rem;
     font-size: 1rem;
     color: #333;
-    font-weight: normal;
+}
+
+.faq-item p.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 /* Footer */
