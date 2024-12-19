@@ -409,17 +409,18 @@ header .button:hover {
     align-items: center;
 }
 
+/* Esconde as respostas do FAQ inicialmente */
 .faq-item p {
-    display: none;
-    margin-top: 0.5rem;
-    font-size: 1rem;
-    color: #333;
+    max-height: 0;
+    overflow: hidden;
     transition: max-height 0.3s ease-in-out;
+    margin-top: 0; /* Remove margens adicionais */
 }
 
+/* Mostra a resposta ao adicionar a classe .show */
 .faq-item p.show {
-    display: block;
-    animation: fadeIn 0.3s ease-in-out;
+    max-height: 200px; /* Ajuste conforme necessário */
+    margin-top: 0.5rem;
 }
 
 @keyframes fadeIn {
