@@ -284,7 +284,6 @@ header .button:hover {
 }
 
 /* Language Flags Section */
-/* Container principal */
 .language-flags {
     text-align: center;
     padding: 2rem;
@@ -302,22 +301,24 @@ header .button:hover {
     color: #333;
 }
 
-/* Contêiner das bandeiras e do globo */
+/* Contêiner principal para posicionamento */
 .flags-container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    height: 300px; /* Ajuste conforme necessário */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
 }
 
 /* Globo central */
 .globe {
-    width: 80px; /* Tamanho ajustado do globo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
     height: 80px;
-    animation: pulse 2s infinite;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite; /* Efeito de pulso */
+    z-index: 10;
 }
 
 .globe img {
@@ -327,14 +328,15 @@ header .button:hover {
 
 /* Bandeiras */
 .flag-item {
-    width: 80px; /* Tamanho ajustado das bandeiras */
+    position: absolute;
     text-align: center;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+    width: 80px;
+    opacity: 0; /* Invisível no início */
+    animation: expand 1s ease-out forwards; /* Aparece suavemente */
 }
 
 .flag-item img {
-    width: 100%;
+    width: 60px;
     height: auto;
     margin-bottom: 0.5rem;
 }
@@ -345,10 +347,44 @@ header .button:hover {
     font-weight: bold;
 }
 
+/* Posicionamento das bandeiras ao redor do globo */
+.flag-item:nth-child(2) { /* Topo */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0.2s;
+}
+
+.flag-item:nth-child(3) { /* Esquerda */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation-delay: 0.4s;
+}
+
+.flag-item:nth-child(4) { /* Direita */
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-delay: 0.6s;
+}
+
+.flag-item:nth-child(5) { /* Baixo */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0.8s;
+}
+
 /* Animações */
-@keyframes fadeIn {
+@keyframes expand {
+    from {
+        opacity: 0;
+        transform: scale(0.5); /* Começa pequeno no centro */
+    }
     to {
         opacity: 1;
+        transform: scale(1); /* Expande para a posição final */
     }
 }
 
@@ -361,11 +397,11 @@ header .button:hover {
     }
 }
 
-/* Responsividade */
+/* Responsividade para Mobile */
 @media (max-width: 768px) {
     .flags-container {
-        height: auto;
-        gap: 0.5rem;
+        width: 150px;
+        height: 150px;
     }
 
     .globe {
@@ -375,6 +411,10 @@ header .button:hover {
 
     .flag-item {
         width: 60px;
+    }
+
+    .flag-item img {
+        width: 50px;
     }
 
     .flag-item span {
