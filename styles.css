@@ -233,8 +233,8 @@ header .button:hover {
 
 .fade-in-right {
     opacity: 0; /* Start invisible */
-    transform: translateX(50px); /* Offset to the right */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateX(40px); /* Offset to the right */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-in-right.active {
