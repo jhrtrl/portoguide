@@ -304,21 +304,21 @@ header .button:hover {
 /* Contêiner principal */
 .flags-container {
     position: relative;
-    width: 350px; /* Tamanho maior para mais espaçamento */
+    width: 350px;
     height: 350px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Globo Central */
 .globe {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px; /* Tamanho do globo */
-    height: 100px;
-    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    z-index: 10;
     animation: pulse 2s infinite;
-    z-index: 10; /* Sempre acima das bandeiras */
 }
 
 .globe img {
@@ -329,15 +329,14 @@ header .button:hover {
 /* Bandeiras */
 .flag-item {
     position: absolute;
-    text-align: center;
     width: 80px;
+    text-align: center;
     animation: fadeIn 1s ease-in forwards;
 }
 
 .flag-item img {
     width: 60px;
     height: auto;
-    margin-bottom: 0.5rem;
 }
 
 .flag-item span {
@@ -346,36 +345,36 @@ header .button:hover {
     font-weight: bold;
 }
 
-/* Posicionamento das bandeiras */
-.flag-item:nth-child(2) { /* Topo */
-    top: 5%;
+/* Posicionamento das bandeiras ao redor do globo */
+.flag-item:nth-child(2) { /* Top */
+    top: 10%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0);
 }
 
-.flag-item:nth-child(3) { /* Esquerda */
+.flag-item:nth-child(3) { /* Left */
     top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
+    left: 10%;
+    transform: translate(0, -50%);
 }
 
-.flag-item:nth-child(4) { /* Direita */
+.flag-item:nth-child(4) { /* Right */
     top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
+    right: 10%;
+    transform: translate(0, -50%);
 }
 
-.flag-item:nth-child(5) { /* Baixo */
-    bottom: 5%;
+.flag-item:nth-child(5) { /* Bottom */
+    bottom: 10%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0);
 }
 
 /* Animações */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
@@ -395,17 +394,17 @@ header .button:hover {
 /* Responsividade */
 @media (max-width: 768px) {
     .flags-container {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
     }
 
     .globe {
-        width: 80px;
-        height: 80px;
+        width: 90px;
+        height: 90px;
     }
 
     .flag-item {
-        width: 60px;
+        width: 70px;
     }
 
     .flag-item img {
