@@ -221,25 +221,25 @@ header .button:hover {
 
 /* Fade-In Animations */
 .fade-in {
-    opacity: 0; /* Start invisible */
-    transform: translateY(5px); /* Offset slightly below */
-    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    opacity: 0; /* Invisível inicialmente */
+    transform: translateY(20px); /* Leve deslocamento */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out; /* Duração ajustada para 0.4s */
 }
 
 .fade-in.active {
-    opacity: 1;
-    transform: translateY(0); /* Reset position */
+    opacity: 1; /* Totalmente visível */
+    transform: translateY(0); /* Posição final */
 }
 
 .fade-in-right {
-    opacity: 0; /* Start invisible */
-    transform: translateX(40px); /* Offset to the right */
+    opacity: 0;
+    transform: translateX(50px);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
 .fade-in-right.active {
     opacity: 1;
-    transform: translateX(0); /* Reset position */
+    transform: translateX(0);
 }
 
 /* Carousel */
