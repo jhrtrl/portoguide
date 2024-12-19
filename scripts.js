@@ -103,17 +103,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     accordions.forEach(accordion => {
         accordion.addEventListener("click", function () {
-            const panel = this.nextElementSibling;
-
-            // Alterna a classe 'show' para exibir/esconder o painel
-            if (panel.classList.contains("show")) {
-                panel.classList.remove("show");
-            } else {
-                panel.classList.add("show");
-            }
-
-            // Alterna a classe 'active' no título clicado
+            // Toggle 'active' class on the clicked accordion
             this.classList.toggle("active");
+
+            // Toggle the panel associated with the clicked accordion
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                // Close all other panels
+                document.querySelectorAll(".panel").forEach(p => {
+                    p.style.maxHeight = null;
+                    p.previousElementSibling.classList.remove("active");
+                });
+                // Open the clicked panel
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
         });
     });
 });
