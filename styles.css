@@ -341,12 +341,12 @@ header .button:hover {
     position: absolute;
     width: 80px;
     text-align: center;
-    animation: pulseOpacity 2s ease-in-out infinite;
 }
 
 .flag-item img {
     width: 60px;
     height: auto;
+    animation: pulseOpacity 2s ease-in-out infinite;
 }
 
 .flag-item span {
