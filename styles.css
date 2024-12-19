@@ -366,7 +366,6 @@ header .button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* FAQ Section */
 .faq-section {
     padding: 2rem;
     background-color: #fff;
@@ -396,18 +395,14 @@ header .button:hover {
 }
 
 .panel {
-    padding: 0 1rem;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    opacity: 0;
+    display: none; /* Esconde as respostas inicialmente */
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: #333;
 }
 
 .panel.show {
-    max-height: 200px;
-    margin-top: 0.5rem;
-    opacity: 1;
+    display: block; /* Mostra a resposta quando expandida */
 }
 
 @keyframes fadeIn {
