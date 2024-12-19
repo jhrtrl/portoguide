@@ -101,19 +101,19 @@ updateCarousel();
 document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accordion");
 
-    accordions.forEach((accordion) => {
+    accordions.forEach(accordion => {
         accordion.addEventListener("click", function () {
-            // Toggle active class
-            this.classList.toggle("active");
-
-            // Toggle panel visibility
             const panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
+
+            // Alterna a classe 'show' para exibir/esconder o painel
+            if (panel.classList.contains("show")) {
+                panel.classList.remove("show");
             } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("show");
             }
+
+            // Alterna a classe 'active' no título clicado
+            this.classList.toggle("active");
         });
     });
 });
-
