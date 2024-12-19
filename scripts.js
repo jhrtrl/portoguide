@@ -100,6 +100,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// Language animation
+document.addEventListener('DOMContentLoaded', () => {
+    const flagItems = document.querySelectorAll('.fade-in-sequence');
+    flagItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.2}s`; // Aparecem em sequência
+    });
+});
+
 // FAQ
 document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accordion");
