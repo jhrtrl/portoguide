@@ -28,20 +28,24 @@ startCountdown(promotionEndDate, "sticky-countdown");
 
 // Sticky Header and Fade-In Animations
 function handleFadeIn() {
-    const fadeItems = document.querySelectorAll('.fade-in .fade-in-right');
-    fadeItems.forEach((item) => {
+    const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
+    fadeItems.forEach((item, index) => {
         const rect = item.getBoundingClientRect();
-        // Ativar assim que o topo do elemento tocar a tela visível
-        if (rect.top < window.innerHeight) {
-            item.classList.add('active');
+
+        if (rect.top < window.innerHeight - 5) {
+            setTimeout(() => {
+                item.classList.add('active');
+            }, index * 200); // Optional: Stagger animations for better effect
         }
     });
 }
 
-// Certifique-se de ativar todos os elementos visíveis ao carregar a página
-document.addEventListener('DOMContentLoaded', handleFadeIn);
+// Ative todos os elementos visíveis ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    handleFadeIn();
+});
 
-// Monitore o scroll para ativar novos elementos
+// Monitore o scroll para ativar outros elementos
 window.addEventListener('scroll', handleFadeIn);
 
 // Sticky Header Toggle
