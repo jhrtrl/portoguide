@@ -61,6 +61,45 @@ window.addEventListener('scroll', () => {
 // Initial check to activate items already in view
 handleFadeIn();
 
+// Função para animar o contador
+function animateCounter(id, start, end, duration) {
+    const element = document.getElementById(id);
+    const range = end - start;
+    let current = start;
+    const increment = range / (duration / 16); // Aproximadamente 60 frames por segundo
+    const step = () => {
+        current += increment;
+        if (current >= end) {
+            current = end;
+        }
+        element.textContent = Math.floor(current); // Atualiza o número no elemento
+        if (current < end) {
+            requestAnimationFrame(step);
+        }
+    };
+    step();
+}
+
+// Observador para ativar o contador ao rolar até a seção
+document.addEventListener('DOMContentLoaded', () => {
+    const counterSection = document.querySelector('.spot-counter'); // Certifique-se que a classe está correta
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCounter('spot-counter-number', 0, 77, 2000); // Animação de 0 a 77 em 2 segundos
+                    observer.disconnect(); // Evita múltiplas ativações
+                }
+            });
+        },
+        { threshold: 0.5 } // Ativa quando 50% da seção está visível
+    );
+
+    if (counterSection) {
+        observer.observe(counterSection);
+    }
+});
+
 // FAQ
 document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accordion");
