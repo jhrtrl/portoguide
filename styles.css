@@ -290,7 +290,7 @@ header .button:hover {
     background-color: #f9f9f9;
     margin-top: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .language-flags h2 {
@@ -300,54 +300,72 @@ header .button:hover {
 }
 
 .flags-container {
-    display: flex;
-    flex-wrap: wrap; /* Permite que as bandeiras fiquem em linhas no mobile */
-    justify-content: center;
-    gap: 1.5rem; /* Espaço entre as bandeiras */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas na grade */
+    grid-gap: 1rem; /* Espaço entre os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-content: center; /* Centraliza verticalmente */
 }
 
 .flag-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px; /* Tamanho padrão para as bandeiras */
+    position: relative;
+    transform: rotate(45deg); /* Gira o contêiner em losango */
+    width: 100px;
+    height: 100px;
+    background-color: #3c8dbc; /* Fundo azul do tema */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0; /* Inicialmente invisível */
-    transform: scale(0.8); /* Começa menor */
-    animation: pop-up 1s ease forwards; /* Animação para o efeito */
+    transform: scale(0.8) rotate(45deg); /* Menor no início */
 }
 
 .flag-item img {
-    width: 80px; /* Tamanho da imagem da bandeira */
+    transform: rotate(-45deg); /* Reverte a rotação da bandeira */
+    width: 60px;
     height: auto;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
 }
 
 .flag-item span {
-    margin-top: 0.5rem;
+    transform: rotate(-45deg); /* Reverte a rotação do texto */
     font-size: 1rem;
-    color: #555;
+    color: #fff;
+    font-weight: bold;
+}
+
+.flag-item.fade-in-sequence {
+    animation: pop-up 0.6s ease forwards;
 }
 
 @keyframes pop-up {
-    0% {
+    from {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.8) rotate(45deg);
     }
-    100% {
+    to {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) rotate(45deg);
     }
 }
 
-/* Ajustes para mobile */
+/* Responsivo para Mobile */
 @media (max-width: 768px) {
+    .flags-container {
+        grid-template-columns: repeat(2, 1fr); /* Apenas 2 colunas no mobile */
+    }
+
     .flag-item {
-        width: 80px; /* Tamanho reduzido no mobile */
+        width: 80px;
+        height: 80px;
     }
 
     .flag-item img {
-        width: 60px;
+        width: 50px;
     }
 }
 
