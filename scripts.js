@@ -29,32 +29,21 @@ startCountdown(promotionEndDate, "sticky-countdown");
 // Sticky Header and Fade-In Animations
 function handleFadeIn() {
     const fadeItems = document.querySelectorAll('.fade-in, .fade-in-right');
-    fadeItems.forEach((item, index) => {
-        const rect = item.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
 
-        if (rect.top < window.innerHeight +300) {
-            setTimeout(() => {
-                item.classList.add('active');
-            }, index * 200); // Optional: Stagger animations for better effect
+    fadeItems.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        const offset = 300; // Aparece mais cedo (ajuste conforme necessário)
+
+        if (rect.top < windowHeight - offset) {
+            item.classList.add('active');
         }
     });
- // Verifique se o FAQ está visível e ative-o imediatamente
-    const faqSection = document.querySelector('#faq');
-    if (faqSection) {
-        const faqRect = faqSection.getBoundingClientRect();
-        if (faqRect.top < window.innerHeight) { // FAQ ativa assim que entrar na tela
-            faqSection.classList.add('active');
-        }
-    }   
 }
 
-// Ative todos os elementos visíveis ao carregar a página
-document.addEventListener('DOMContentLoaded', () => {
-    handleFadeIn();
-});
-
-// Monitore o scroll para ativar outros elementos
+// Adicione o evento de scroll e inicialização
 window.addEventListener('scroll', handleFadeIn);
+document.addEventListener('DOMContentLoaded', handleFadeIn);
 
 // Sticky Header Toggle
 window.addEventListener('scroll', () => {
