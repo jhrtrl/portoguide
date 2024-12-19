@@ -61,6 +61,43 @@ window.addEventListener('scroll', () => {
 // Initial check to activate items already in view
 handleFadeIn();
 
+\\ Contador spots
+function animateCounter(id, start, end, duration) {
+    const element = document.getElementById(id);
+    const range = end - start;
+    let current = start;
+    const increment = range / (duration / 16); // Aproximadamente 60 frames por segundo
+    const step = () => {
+        current += increment;
+        if (current >= end) {
+            current = end;
+        }
+        element.textContent = Math.floor(current);
+        if (current < end) {
+            requestAnimationFrame(step);
+        }
+    };
+    step();
+}
+
+// Ativar o contador quando a seção entrar na visualização
+document.addEventListener('DOMContentLoaded', () => {
+    const spotCounterSection = document.querySelector('.spot-counter');
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCounter('spot-counter', 0, 77, 2000); // Contar de 0 a 77 em 2 segundos
+                    observer.disconnect(); // Evitar múltiplas ativações
+                }
+            });
+        },
+        { threshold: 0.5 } // Ativar quando 50% da seção estiver visível
+    );
+    observer.observe(spotCounterSection);
+});
+
+
 // FAQ
 document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accordion");
