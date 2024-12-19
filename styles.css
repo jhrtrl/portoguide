@@ -303,10 +303,10 @@ header .button:hover {
 /* Globo Central */
 .globe {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 80px; /* Reduzido o tamanho do globo */
+    height: 80px;
     margin: 0 auto;
-    animation: pulse 2s infinite; /* Animação de "pulso" */
+    animation: pulse 2s infinite; /* Efeito de pulso */
     z-index: 10;
 }
 
@@ -319,7 +319,7 @@ header .button:hover {
 .flags-container {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 200px; /* Ajuste a altura total */
 }
 
 .flag-item {
@@ -331,43 +331,43 @@ header .button:hover {
 }
 
 .flag-item img {
-    width: 80px;
+    width: 60px;
     height: auto;
     margin-bottom: 0.5rem;
 }
 
 .flag-item span {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #555;
     font-weight: bold;
 }
 
-/* Posicionamento em Losango */
+/* Posicionamento em Quadrado */
 .flag-item:nth-child(2) {
-    top: 0; /* Alinhado ao topo */
-    left: 50%; /* Centro horizontal */
-    transform-origin: center;
+    top: 20%; /* Bandeira no topo */
+    left: 50%;
+    transform: translateX(-50%);
     animation-delay: 0.2s;
 }
 
 .flag-item:nth-child(3) {
-    top: 50%; /* Meio vertical */
-    left: 0; /* Alinhado à esquerda */
-    transform-origin: center;
+    top: 50%;
+    left: 20%; /* Bandeira à esquerda */
+    transform: translateY(-50%);
     animation-delay: 0.4s;
 }
 
 .flag-item:nth-child(4) {
-    top: 50%; /* Meio vertical */
-    right: 0; /* Alinhado à direita */
-    transform-origin: center;
+    top: 50%;
+    right: 20%; /* Bandeira à direita */
+    transform: translateY(-50%);
     animation-delay: 0.6s;
 }
 
 .flag-item:nth-child(5) {
-    bottom: 0; /* Alinhado ao fundo */
-    left: 50%; /* Centro horizontal */
-    transform-origin: center;
+    bottom: 20%; /* Bandeira na parte inferior */
+    left: 50%;
+    transform: translateX(-50%);
     animation-delay: 0.8s;
 }
 
@@ -395,11 +395,11 @@ header .button:hover {
 /* Responsivo para Mobile */
 @media (max-width: 768px) {
     .flags-container {
-        height: 200px;
+        height: 150px;
     }
 
     .flag-item img {
-        width: 60px;
+        width: 50px;
     }
 }
 
