@@ -97,29 +97,27 @@ document.getElementById('next').addEventListener('click', () => {
 // Inicializa o carrossel mostrando a primeira imagem
 updateCarousel();
 
+// FAQ
 document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accordion");
 
-    accordions.forEach((accordion) => {
+    accordions.forEach(accordion => {
         accordion.addEventListener("click", function () {
-            const panel = this.nextElementSibling;
-
-            // Alternar a classe 'active' no botão
+            // Alterna a classe 'active' no botão clicado
             this.classList.toggle("active");
 
-            // Alternar a exibição do painel associado
-            if (panel.classList.contains("open")) {
-                panel.classList.remove("open");
-                panel.style.maxHeight = null;
-            } else {
-                // Fechar outros painéis antes de abrir o atual
-                document.querySelectorAll(".panel").forEach((p) => {
-                    p.classList.remove("open");
-                    p.style.maxHeight = null;
-                });
+            // Seleciona o painel associado
+            const panel = this.nextElementSibling;
 
-                panel.classList.add("open");
+            // Verifica se o painel está visível
+            if (panel.style.maxHeight) {
+                // Se estiver visível, oculta-o
+                panel.style.maxHeight = null;
+                panel.classList.remove("show");
+            } else {
+                // Se não estiver visível, exibe-o
                 panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.classList.add("show");
             }
         });
     });
