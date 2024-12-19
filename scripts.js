@@ -40,6 +40,12 @@ function handleFadeIn() {
     });
 }
 
+// Adicione o evento para verificar o scroll e ativar os elementos
+window.addEventListener('scroll', handleFadeIn);
+
+// Certifique-se de ativar os itens que já estão visíveis no carregamento inicial
+document.addEventListener('DOMContentLoaded', handleFadeIn);
+
 // Sticky Header Toggle
 window.addEventListener('scroll', () => {
     const stickyHeader = document.getElementById('sticky-header');
