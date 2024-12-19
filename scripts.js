@@ -32,7 +32,7 @@ function handleFadeIn() {
     fadeItems.forEach((item, index) => {
         const rect = item.getBoundingClientRect();
 
-        if (rect.top < window.innerHeight - 200) {
+        if (rect.top < window.innerHeight - 50) {
             setTimeout(() => {
                 item.classList.add('active');
             }, index * 200); // Optional: Stagger animations for better effect
@@ -40,11 +40,13 @@ function handleFadeIn() {
     });
 }
 
-// Adicione o evento para verificar o scroll e ativar os elementos
-window.addEventListener('scroll', handleFadeIn);
+// Ative todos os elementos visíveis ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
+    handleFadeIn();
+});
 
-// Certifique-se de ativar os itens que já estão visíveis no carregamento inicial
-document.addEventListener('DOMContentLoaded', handleFadeIn);
+// Monitore o scroll para ativar outros elementos
+window.addEventListener('scroll', handleFadeIn);
 
 // Sticky Header Toggle
 window.addEventListener('scroll', () => {
