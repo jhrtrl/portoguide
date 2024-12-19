@@ -99,17 +99,21 @@ updateCarousel();
 
 // FAQ Toggle Functionality
 document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona todos os títulos do FAQ
     const faqItems = document.querySelectorAll('.faq-item h3');
 
     faqItems.forEach(item => {
         item.addEventListener('click', () => {
             const answer = item.nextElementSibling;
 
-            // Alterna a classe que controla a exibição
-            answer.classList.toggle('show');
+            // Verifica se o elemento seguinte é uma resposta válida
+            if (answer && answer.tagName.toLowerCase() === 'p') {
+                // Alterna a classe que controla a exibição
+                answer.classList.toggle('show');
 
-            // Alterna o estado do título clicado (opcional: indicador visual)
-            item.classList.toggle('active');
+                // Opcional: Alterna um indicador de ativo no título
+                item.classList.toggle('active');
+            }
         });
     });
 });
