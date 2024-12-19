@@ -242,6 +242,47 @@ header .button:hover {
     transform: translateX(0); /* Posição final */
 }
 
+
+/* Spot Counter Section */
+.spot-counter {
+    text-align: center;
+    background: #f9f9f9; /* Fundo claro */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Leve sombra */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Efeito de fade-in */
+}
+
+.spot-counter.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.spot-counter.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.counter-wrapper {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.counter-number {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #3c8dbc;
+    transition: transform 0.3s ease-out;
+}
+
+.counter-text {
+    font-size: 1.5rem;
+    color: #333;
+}
+
 /* Carousel */
 .carousel-container {
     position: relative;
