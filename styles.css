@@ -346,25 +346,25 @@ header .button:hover {
 
 /* Posicionamento das bandeiras ao redor do globo */
 .flag-item:nth-child(2) { /* Top */
-    top: 20%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, 0);
 }
 
 .flag-item:nth-child(3) { /* Left */
     top: 50%;
-    left: 20%;
+    left: 25%;
     transform: translate(0, -50%);
 }
 
 .flag-item:nth-child(4) { /* Right */
     top: 50%;
-    right: 20%;
+    right: 25%;
     transform: translate(0, -50%);
 }
 
 .flag-item:nth-child(5) { /* Bottom */
-    bottom: 20%;
+    bottom: 25%;
     left: 50%;
     transform: translate(-50%, 0);
 }
