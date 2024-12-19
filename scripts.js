@@ -98,13 +98,18 @@ document.getElementById('next').addEventListener('click', () => {
 updateCarousel();
 
 // FAQ Toggle Functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const faqItems = document.querySelectorAll('.faq-item h3');
 
     faqItems.forEach(item => {
         item.addEventListener('click', () => {
             const answer = item.nextElementSibling;
+
+            // Alterna a classe que controla a exibição
             answer.classList.toggle('show');
+
+            // Alterna o estado do título clicado (opcional: indicador visual)
+            item.classList.toggle('active');
         });
     });
 });
