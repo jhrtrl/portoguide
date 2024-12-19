@@ -84,15 +84,15 @@ function updateCarousel() {
 }
 
 // Event listeners for navigation buttons
-document.getElementById('prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-    updateCarousel();
-});
+//document.getElementById('prev').addEventListener('click', () => {
+//    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+//    updateCarousel();
+//});
 
-document.getElementById('next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % carouselItems.length;
-    updateCarousel();
-});
+//document.getElementById('next').addEventListener('click', () => {
+//    currentIndex = (currentIndex + 1) % carouselItems.length;
+//    updateCarousel();
+//});
 
 // Inicializa o carrossel mostrando a primeira imagem
 updateCarousel();
