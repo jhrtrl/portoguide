@@ -342,6 +342,7 @@ header .button:hover {
     width: 80px;
     text-align: center;
     animation: fadeIn 1s ease-in forwards;
+    animation: pulse 2s ease-in-out infinite; /* Animação de pulse */
 }
 
 .flag-item img {
@@ -360,18 +361,21 @@ header .button:hover {
     top: 2%;
     left: 50%;
     transform: translate(-50%, 0);
+    animation-delay: 0s;
 }
 
 .flag-item:nth-child(3) { /* Left */
     top: 50%;
     left: 2%;
     transform: translate(0, -50%);
+    animation-delay: 0.5s;
 }
 
 .flag-item:nth-child(4) { /* Right */
     top: 50%;
     right: 2%;
     transform: translate(0, -50%);
+    animation-delay: 1.5s;
 }
 
 .flag-item:nth-child(5) { /* Bottom */
