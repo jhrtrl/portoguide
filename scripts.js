@@ -38,6 +38,14 @@ function handleFadeIn() {
             }, index * 200); // Optional: Stagger animations for better effect
         }
     });
+ // Verifique se o FAQ está visível e ative-o imediatamente
+    const faqSection = document.querySelector('#faq');
+    if (faqSection) {
+        const faqRect = faqSection.getBoundingClientRect();
+        if (faqRect.top < window.innerHeight) { // FAQ ativa assim que entrar na tela
+            faqSection.classList.add('active');
+        }
+    }   
 }
 
 // Ative todos os elementos visíveis ao carregar a página
