@@ -301,10 +301,12 @@ header .button:hover {
 
 .flags-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas na grade */
-    grid-gap: 1rem; /* Espaço entre os itens */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    align-content: center; /* Centraliza verticalmente */
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colunas */
+    grid-template-rows: 1fr 1fr 1fr; /* 3 linhas */
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .flag-item {
@@ -312,32 +314,48 @@ header .button:hover {
     flex-direction: column;
     align-items: center;
     position: relative;
-    transform: rotate(45deg); /* Gira o contêiner em losango */
-    width: 100px;
-    height: 100px;
-    background-color: #3c8dbc; /* Fundo azul do tema */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0; /* Inicialmente invisível */
-    transform: scale(0.8) rotate(45deg); /* Menor no início */
 }
 
+/* Posicionamento específico em forma de losango */
+.flag-item:nth-child(1) {
+    grid-column: 2; /* Coluna central */
+    grid-row: 1;    /* Primeira linha */
+}
+
+.flag-item:nth-child(2) {
+    grid-column: 1; /* Coluna esquerda */
+    grid-row: 2;    /* Segunda linha */
+}
+
+.flag-item:nth-child(3) {
+    grid-column: 3; /* Coluna direita */
+    grid-row: 2;    /* Segunda linha */
+}
+
+.flag-item:nth-child(4) {
+    grid-column: 2; /* Coluna central */
+    grid-row: 3;    /* Terceira linha */
+}
+
+/* Estilo das Imagens */
 .flag-item img {
-    transform: rotate(-45deg); /* Reverte a rotação da bandeira */
-    width: 60px;
+    width: 80px;
     height: auto;
-    border-radius: 5px;
     margin-bottom: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .flag-item span {
-    transform: rotate(-45deg); /* Reverte a rotação do texto */
     font-size: 1rem;
-    color: #fff;
+    color: #555;
     font-weight: bold;
 }
 
+/* Efeito de Aparecimento */
 .flag-item.fade-in-sequence {
     animation: pop-up 0.6s ease forwards;
 }
@@ -345,23 +363,23 @@ header .button:hover {
 @keyframes pop-up {
     from {
         opacity: 0;
-        transform: scale(0.8) rotate(45deg);
+        transform: scale(0.8);
     }
     to {
         opacity: 1;
-        transform: scale(1) rotate(45deg);
+        transform: scale(1);
     }
 }
 
 /* Responsivo para Mobile */
 @media (max-width: 768px) {
     .flags-container {
-        grid-template-columns: repeat(2, 1fr); /* Apenas 2 colunas no mobile */
+        grid-template-columns: 1fr 1fr; /* Reduz para 2 colunas no mobile */
+        grid-template-rows: auto;
     }
 
     .flag-item {
-        width: 80px;
-        height: 80px;
+        width: 60px;
     }
 
     .flag-item img {
