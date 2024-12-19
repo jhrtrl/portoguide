@@ -98,22 +98,22 @@ document.getElementById('next').addEventListener('click', () => {
 updateCarousel();
 
 // FAQ Toggle Functionality
-document.addEventListener('DOMContentLoaded', function () {
-    // Seleciona todos os títulos do FAQ
-    const faqItems = document.querySelectorAll('.faq-item h3');
+document.addEventListener("DOMContentLoaded", function () {
+    const accordions = document.querySelectorAll(".accordion");
 
-    faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const answer = item.nextElementSibling;
+    accordions.forEach((accordion) => {
+        accordion.addEventListener("click", function () {
+            // Toggle active class
+            this.classList.toggle("active");
 
-            // Verifica se o elemento seguinte é uma resposta válida
-            if (answer && answer.tagName.toLowerCase() === 'p') {
-                // Alterna a classe que controla a exibição
-                answer.classList.toggle('show');
-
-                // Opcional: Alterna um indicador de ativo no título
-                item.classList.toggle('active');
+            // Toggle panel visibility
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
             }
         });
     });
 });
+
