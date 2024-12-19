@@ -370,6 +370,14 @@ header .button:hover {
 #faq {
     padding: 2rem 1rem;
     background-color: #f9f9f9;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+#faq.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #faq h2 {
