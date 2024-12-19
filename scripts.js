@@ -80,3 +80,15 @@ document.getElementById('next').addEventListener('click', () => {
 
 // Inicializa o carrossel mostrando a primeira imagem
 updateCarousel();
+
+// FAQ Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item h3');
+
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            answer.classList.toggle('show');
+        });
+    });
+});
