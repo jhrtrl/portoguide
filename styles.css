@@ -304,8 +304,8 @@ header .button:hover {
 /* Contêiner principal */
 .flags-container {
     position: relative;
-    width: 300px; /* Tamanho ajustado */
-    height: 300px; /* Tamanho ajustado */
+    width: 350px; /* Tamanho ajustado para afastar mais as bandeiras */
+    height: 350px; /* Tamanho ajustado para afastar mais as bandeiras */
     margin: 0 auto;
 }
 
@@ -318,7 +318,7 @@ header .button:hover {
     height: 100px;
     transform: translate(-50%, -50%);
     animation: pulse 2s infinite; /* Efeito de pulso */
-    z-index: 10;
+    z-index: 10; /* Mantém o globo acima */
 }
 
 .globe img {
@@ -348,25 +348,25 @@ header .button:hover {
 
 /* Posicionamento das bandeiras */
 .flag-item:nth-child(2) { /* Topo */
-    top: 0;
+    top: -10%; /* Afastado do globo */
     left: 50%;
     transform: translateX(-50%);
 }
 
 .flag-item:nth-child(3) { /* Esquerda */
     top: 50%;
-    left: 0;
+    left: -10%; /* Afastado do globo */
     transform: translateY(-50%);
 }
 
 .flag-item:nth-child(4) { /* Direita */
     top: 50%;
-    right: 0;
+    right: -10%; /* Afastado do globo */
     transform: translateY(-50%);
 }
 
 .flag-item:nth-child(5) { /* Baixo */
-    bottom: 0;
+    bottom: -10%; /* Afastado do globo */
     left: 50%;
     transform: translateX(-50%);
 }
@@ -395,8 +395,8 @@ header .button:hover {
 /* Responsividade */
 @media (max-width: 768px) {
     .flags-container {
-        width: 200px;
-        height: 200px;
+        width: 250px;
+        height: 250px;
     }
 
     .globe {
