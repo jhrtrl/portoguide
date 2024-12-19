@@ -72,31 +72,6 @@ window.addEventListener('scroll', () => {
 // Initial check to activate items already in view
 handleFadeIn();
 
-// Carousel Navigation
-//const carouselItems = document.querySelectorAll('.carousel-item');
-//const carouselImages = document.querySelector('.carousel-images');
-//let currentIndex = 0;
-
-// Function to update the carousel and show the active image
-//function updateCarousel() {
-//    const offset = -currentIndex * 100; // Move o carrossel para a esquerda
-//    carouselImages.style.transform = `translateX(${offset}%)`;
-//}
-
-// Event listeners for navigation buttons
-//document.getElementById('prev').addEventListener('click', () => {
-//    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-//    updateCarousel();
-//});
-
-//document.getElementById('next').addEventListener('click', () => {
-//    currentIndex = (currentIndex + 1) % carouselItems.length;
-//    updateCarousel();
-//});
-
-// Inicializa o carrossel mostrando a primeira imagem
-//updateCarousel();
-
 // FAQ
 document.addEventListener("DOMContentLoaded", function () {
     const accordions = document.querySelectorAll(".accordion");
