@@ -94,9 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         { threshold: 0.5 } // Ativar quando 50% da seção estiver visível
     );
-    observer.observe(spotCounterSection);
+    if (spotCounterSection) {
+        observer.observe(spotCounterSection);
+    }
 });
-
 
 // FAQ
 document.addEventListener("DOMContentLoaded", function () {
