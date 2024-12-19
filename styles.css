@@ -306,7 +306,8 @@ header .button:hover {
     width: 120px;
     height: 120px;
     margin: 0 auto;
-    animation: pulse 2s infinite; /* Efeito de pulso */
+    animation: pulse 2s infinite; /* Animação de "pulso" */
+    z-index: 10;
 }
 
 .globe img {
@@ -318,16 +319,15 @@ header .button:hover {
 .flags-container {
     position: relative;
     width: 100%;
-    height: 300px; /* Ajusta a altura do contêiner */
+    height: 300px;
 }
 
 .flag-item {
     position: absolute;
-    width: 100px;
     text-align: center;
     opacity: 0; /* Invisível no início */
-    transform: translate(0, 0) scale(0.5); /* Começa no centro */
-    animation: expand 1.2s ease-out forwards; /* Animação de expansão */
+    transform: scale(0.5); /* Começa no centro */
+    animation: expand 1s ease-out forwards; /* Animação de expansão */
 }
 
 .flag-item img {
@@ -344,29 +344,29 @@ header .button:hover {
 
 /* Posicionamento em Losango */
 .flag-item:nth-child(2) {
-    top: 10%;
-    left: 50%;
+    top: 0; /* Alinhado ao topo */
+    left: 50%; /* Centro horizontal */
     transform-origin: center;
-    animation-delay: 0.2s; /* Delay para surgir sequencialmente */
+    animation-delay: 0.2s;
 }
 
 .flag-item:nth-child(3) {
-    top: 50%;
-    left: 10%;
+    top: 50%; /* Meio vertical */
+    left: 0; /* Alinhado à esquerda */
     transform-origin: center;
     animation-delay: 0.4s;
 }
 
 .flag-item:nth-child(4) {
-    top: 50%;
-    right: 10%;
+    top: 50%; /* Meio vertical */
+    right: 0; /* Alinhado à direita */
     transform-origin: center;
     animation-delay: 0.6s;
 }
 
 .flag-item:nth-child(5) {
-    bottom: 10%;
-    left: 50%;
+    bottom: 0; /* Alinhado ao fundo */
+    left: 50%; /* Centro horizontal */
     transform-origin: center;
     animation-delay: 0.8s;
 }
@@ -375,11 +375,11 @@ header .button:hover {
 @keyframes expand {
     from {
         opacity: 0;
-        transform: translate(0, 0) scale(0.5); /* No centro */
+        transform: scale(0.5); /* Começa pequeno no centro */
     }
     to {
         opacity: 1;
-        transform: translate(0, 0) scale(1); /* Na posição final */
+        transform: scale(1); /* Expande para a posição final */
     }
 }
 
@@ -396,10 +396,6 @@ header .button:hover {
 @media (max-width: 768px) {
     .flags-container {
         height: 200px;
-    }
-
-    .flag-item {
-        width: 80px;
     }
 
     .flag-item img {
