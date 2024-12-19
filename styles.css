@@ -331,7 +331,6 @@ header .button:hover {
     width: 80px;
     text-align: center;
     animation: fadeIn 1s ease-in forwards;
-    animation: pulse 2s infinite;
 }
 
 .flag-item img {
