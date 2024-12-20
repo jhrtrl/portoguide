@@ -293,6 +293,27 @@ header .button:hover {
 }
 
 /* Language Flags Section */
+.typing-area {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    min-height: 50px; /* Define uma altura mínima para o texto */
+    white-space: nowrap; /* Garante que o texto não quebre linhas */
+}
+
+.blinking-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background-color: #333;
+    animation: blink 0.6s steps(2) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 .language-flags {
     text-align: center;
     padding: 2rem;
