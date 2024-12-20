@@ -629,110 +629,39 @@ header .button:hover {
     margin-right: 0.5rem; /* Space between icon and text */
 }
 
-/* Guide Preview Section */
-/* Section Styles */
+/* Example Photos Section */
+.example-photos {
+    padding: 2rem 1rem;
+    background-color: #fff; /* Fundo branco para contraste */
+    text-align: center;
+}
+
+.example-photos h2 {
+    font-size: 1.8rem;
+    color: #3c8dbc;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+/* Photo Examples Section */
 #photo-examples {
     text-align: center;
-    position: relative;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
+    background-color: #fff;
 }
 
-/* Phone Mockup Container */
-.phone-mockup {
-    position: absolute;
-    top: 50%; /* Centraliza verticalmente */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta para alinhar o centro do elemento */
-    max-width: 300px; /* Tamanho máximo para o mockup */
-    z-index: 2; /* Garante que o mockup fique acima do vídeo */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-/* Phone Mockup Image */
-.phone-mockup-image {
+.photo-grid img {
     width: 100%;
     height: auto;
-    display: block;
-}
-
-/* Guide Preview Wrapper */
-.guide-preview-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.guide-preview-wrapper {
-    position: absolute;
-    top: 5%; /* Move up/down within the mockup */
-    left: 30%; /* Move left/right within the mockup */
-    width: 55%; /* Adjust the width of the screen */
-    height: 51%; /* Adjust the height of the screen */
-    overflow: hidden;
-    border-radius: 15px; /* Matches phone screen shape */
-}
-
-/* Espaçamento padrão entre seções */
-section {
-    margin: 50px 0; /* Adiciona espaço entre as seções */
-    text-align: center; /* Centraliza o conteúdo */
-}
-
-/* Contêiner para o mockup e o guia */
-.guide-preview-container {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Vídeo */
-#guide-preview {
-    position: absolute;
-    width: 90%;
-    height: auto;
-    z-index: 1; /* Por trás do mockup */
-    border-radius: 16px; /* Faz com que o vídeo acompanhe o design do mockup */
-}
-
-/* Mockup do telefone */
-.phone-mockup {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    z-index: 2; /* No topo */
-    pointer-events: none; /* Impede interações no mockup */
-}
-
-/* Título da seção */
-#photo-examples h2 {
-    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
-    font-size: 2rem; /* Ajusta o tamanho da fonte */
-    text-align: center;
-}
-
-/* Adiciona espaçamento entre o título e o conteúdo */
-#photo-examples .guide-preview-container {
-    margin-top: 20px;
-}
-
-/* Fade-in animation */
-@keyframes fade-in {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* FAQ Section */

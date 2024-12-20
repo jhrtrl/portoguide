@@ -39,7 +39,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Fade-In/Fade-Out Animations
-const fadeSections = document.querySelectorAll('.fade-in, .fade-in-right, .guide-preview');
+const fadeSections = document.querySelectorAll('.fade-in, .fade-in-right');
 
 const fadeObserverOptions = {
     root: null,
