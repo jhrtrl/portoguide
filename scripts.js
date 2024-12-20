@@ -140,7 +140,7 @@ let currentCharIndex = 0;
 let isDeleting = false;
 let typingSpeed = 150;
 let deletingSpeed = 80;
-let pauseBetweenTexts = 1500;
+let pauseBetweenTexts = 2500;
 
 function typeLanguages() {
     const currentText = languageTexts[currentTextIndex];
