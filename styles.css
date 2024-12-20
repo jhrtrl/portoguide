@@ -643,57 +643,55 @@ header .button:hover {
     font-weight: bold;
 }
 
-/* Section Styles */
-#guide-preview {
+/* Guide Preview Section */
+#guide-preview-section {
     text-align: center;
-    margin: 3rem 0;
-    position: relative;
+    padding: 2rem;
 }
 
-#guide-preview h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-/* Phone Mockup Styles */
-/* Container for the mockup */
-.mockup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
-    position: relative;
-}
-
-/* Phone mockup image */
-/* Estilo para o phone-mockup */
 .phone-mockup {
-    width: 300px;
-    height: 600px;
-    margin: 0 auto;
-    background: url('images/phone-mockup.png') no-repeat center center;
-    background-size: contain;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Para garantir que o conteúdo do guia não vaze */
+    width: 300px; /* Adjust size as needed */
+    margin: 0 auto;
+    display: inline-block;
 }
 
-/* Estilo para o guia (webp dentro do mockup) */
+.mockup-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    z-index: 2;
+}
+
+.guide-preview-wrapper {
+    position: absolute;
+    top: 12%; /* Adjust to fit inside the screen of the mockup */
+    left: 10%; /* Adjust margins for better placement */
+    width: 80%; /* Scale preview image to fit inside the mockup */
+    height: 76%; /* Match mockup screen size */
+    overflow: hidden;
+    border-radius: 15px; /* Mimics screen corners */
+    z-index: 1;
+}
+
 .guide-preview {
-    width: 90%; /* Adapta ao tamanho interno do mockup */
-    height: 90%; /* Adapta ao tamanho interno do mockup */
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transform: translateY(20px); /* Para aplicar o efeito fade-in */
-    transition: opacity 1s ease, transform 1s ease;
+    display: block;
+    animation: fade-in 1s ease-in-out;
 }
 
-/* Quando a classe 'active' é adicionada, o fade-in ocorre */
-.guide-preview.active {
-    opacity: 1;
-    transform: translateY(0);
+/* Fade-in animation */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* FAQ Section */
