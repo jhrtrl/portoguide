@@ -451,7 +451,7 @@ header .button:hover {
         opacity: 1;
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.40);
         opacity: 0.9; /* Reduz ligeiramente a opacidade */
     }
 }
