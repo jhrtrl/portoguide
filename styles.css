@@ -655,6 +655,16 @@ header .button:hover {
 }
 
 /* Guide Preview Wrapper */
+/* Contêiner para o mockup e o guia */
+.guide-preview-container {
+    position: relative;
+    width: 100%; /* Ajuste conforme necessário */
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .guide-preview-wrapper {
     position: absolute;
     top: 5%; /* Move up/down within the mockup */
