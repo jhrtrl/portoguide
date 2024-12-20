@@ -138,19 +138,21 @@ const typingElement = document.querySelector(".language-flags h2");
 let currentTextIndex = 0;
 let currentCharIndex = 0;
 let isDeleting = false;
-let typingSpeed = 300;
-let deletingSpeed = 150;
-let pauseBetweenTexts = 2500;
+let typingSpeed = 150; // Speed of typing
+let deletingSpeed = 100; // Speed of deleting
+let pauseBetweenTexts = 2000; // Pause after fully typing a word
 
 function typeLanguages() {
     const currentText = languageTexts[currentTextIndex];
 
     if (isDeleting) {
         // Remove one character
-        typingElement.textContent = currentText.slice(0, currentCharIndex--);
+        currentCharIndex--;
+        typingElement.textContent = currentText.slice(0, currentCharIndex);
     } else {
         // Add one character
-        typingElement.textContent = currentText.slice(0, currentCharIndex++);
+        typingElement.textContent = currentText.slice(0, currentCharIndex + 1);
+        currentCharIndex++;
     }
 
     // If the word is fully typed
@@ -173,5 +175,6 @@ function typeLanguages() {
 
 // Start the animation
 if (typingElement) {
+    typingElement.textContent = ""; // Ensure initial text is empty
     typeLanguages();
 }
