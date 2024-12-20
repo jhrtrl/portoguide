@@ -645,7 +645,7 @@ header .button:hover {
 .guide-preview-container {
     position: relative;
     width: 100%; /* Ocupa a largura total */
-    height: auto; /* Ajusta automaticamente a altura */
+    /* height: auto;  Ajusta automaticamente a altura */
     display: flex; /* Alinha itens dentro do contêiner */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
