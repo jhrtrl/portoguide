@@ -629,20 +629,6 @@ header .button:hover {
     margin-right: 0.5rem; /* Space between icon and text */
 }
 
-/* Example Photos Section */
-.example-photos {
-    padding: 2rem 1rem;
-    background-color: #fff; /* Fundo branco para contraste */
-    text-align: center;
-}
-
-.example-photos h2 {
-    font-size: 1.8rem;
-    color: #3c8dbc;
-    margin-bottom: 1.5rem;
-    font-weight: bold;
-}
-
 /* Guide Preview Section */
 #guide-preview-section {
     text-align: center;
@@ -651,7 +637,7 @@ header .button:hover {
 
 .phone-mockup {
     position: relative;
-    width: 300px; /* Adjust size as needed */
+    width: 320px; /* Adjust based on mockup image dimensions */
     margin: 0 auto;
     display: inline-block;
 }
@@ -665,21 +651,20 @@ header .button:hover {
 
 .guide-preview-wrapper {
     position: absolute;
-    top: 12%; /* Adjust to fit inside the screen of the mockup */
-    left: 10%; /* Adjust margins for better placement */
-    width: 80%; /* Scale preview image to fit inside the mockup */
-    height: 76%; /* Match mockup screen size */
+    top: 15%; /* Adjust based on your mockup's screen position */
+    left: 11%; /* Adjust to horizontally center within mockup */
+    width: 78%; /* Scale to fit the screen size */
+    height: 70%; /* Match mockup screen size */
     overflow: hidden;
-    border-radius: 15px; /* Mimics screen corners */
+    border-radius: 12px; /* Rounded corners for the screen */
     z-index: 1;
 }
 
 .guide-preview {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures the WebP scales correctly */
     display: block;
-    animation: fade-in 1s ease-in-out;
 }
 
 /* Fade-in animation */
