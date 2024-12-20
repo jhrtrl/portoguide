@@ -127,53 +127,55 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Typing Animation
-const languageTexts = [
-    "Languages Available",
-    "Idiomas Disponibles",
-    "Langues Disponibles",
-    "Idiomas Disponíveis"
-];
+document.addEventListener('DOMContentLoaded', () => {
+    const languageTexts = [
+        "Languages Available",
+        "Idiomas Disponibles",
+        "Langues Disponibles",
+        "Idiomas Disponíveis"
+    ];
 
-const typedTextElement = document.querySelector(".typed-text");
-const cursorElement = document.querySelector(".cursor");
+    const typedTextElement = document.querySelector(".typed-text");
+    const cursorElement = document.querySelector(".cursor");
 
-let currentTextIndex = 0;
-let currentCharIndex = 0;
-let isDeleting = false;
-let typingSpeed = 70; // Velocidade de digitação
-let deletingSpeed = 20; // Velocidade de apagar
-let pauseBetweenTexts = 1500; // Pausa antes de apagar o texto completo
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100; // Velocidade de digitação
+    let deletingSpeed = 50; // Velocidade de apagar
+    let pauseBetweenTexts = 1500; // Pausa antes de apagar o texto completo
 
-function typeLanguages() {
-    const currentText = languageTexts[currentTextIndex];
+    function typeLanguages() {
+        const currentText = languageTexts[currentTextIndex];
 
-    if (isDeleting) {
-        // Remove one character
-        typedTextElement.textContent = currentText.slice(0, currentCharIndex--);
-    } else {
-        // Add one character
-        typedTextElement.textContent = currentText.slice(0, currentCharIndex++);
+        if (isDeleting) {
+            // Remove one character
+            typedTextElement.textContent = currentText.slice(0, currentCharIndex--);
+        } else {
+            // Add one character
+            typedTextElement.textContent = currentText.slice(0, currentCharIndex++);
+        }
+
+        // If the word is fully typed
+        if (!isDeleting && currentCharIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
+            return;
+        }
+
+        // If the word is fully deleted
+        if (isDeleting && currentCharIndex === 0) {
+            isDeleting = false;
+            currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Move to the next text
+        }
+
+        // Adjust speed for typing or deleting
+        const delay = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(typeLanguages, delay);
     }
 
-    // If the word is fully typed
-    if (!isDeleting && currentCharIndex === currentText.length) {
-        isDeleting = true;
-        setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
-        return;
+    // Start the animation
+    if (typedTextElement) {
+        typeLanguages();
     }
-
-    // If the word is fully deleted
-    if (isDeleting && currentCharIndex === 0) {
-        isDeleting = false;
-        currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Move to the next text
-    }
-
-    // Adjust speed for typing or deleting
-    const delay = isDeleting ? deletingSpeed : typingSpeed;
-    setTimeout(typeLanguages, delay);
-}
-
-// Start the animation
-if (typedTextElement) {
-    typeLanguages();
-}
+});
