@@ -178,11 +178,15 @@
 <!-- Guide -->
 <section id="photo-examples" class="fade-in">
     <h2>Explore the Guide</h2>
-    <div class="phone-mockup">
-        <img src="images/phone-mockup.png" alt="Phone Mockup" class="phone-mockup-image">
-        <div class="guide-preview-wrapper">
-            <img src="images/maps-guide.webp" alt="Maps Guide Preview" class="guide-preview">
-        </div>
+    <div class="guide-preview-container">
+        <!-- Vídeo ou Pré-visualização do Guia -->
+        <video id="guide-preview" autoplay loop muted>
+            <source src="images/maps-guide.webp" type="video/webp">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Mockup do Telefone -->
+        <img class="phone-mockup" src="images/phone-mockup.png" alt="Phone Mockup">
     </div>
 </section>
 
