@@ -345,6 +345,31 @@ header .button:hover {
     border: none;
 }
 
+/* Posicionamento das bandeiras ao redor do globo */
+.flag-item:nth-child(2) { /* Top */
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.flag-item:nth-child(3) { /* Left */
+    top: 50%;
+    left: 2%;
+    transform: translate(0, -50%);
+}
+
+.flag-item:nth-child(4) { /* Right */
+    top: 50%;
+    right: 2%;
+    transform: translate(0, -50%);
+}
+
+.flag-item:nth-child(5) { /* Bottom */
+    bottom: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 .flag-item img {
     width: 60px;
     border: none;
@@ -353,39 +378,26 @@ header .button:hover {
     background-color: transparent !important;
 }
 
+.flag-item:nth-child(1) img {
+    animation-delay: 0s; /* Começa imediatamente */
+}
+
+.flag-item:nth-child(2) img {
+    animation-delay: 1s; /* Atraso de 1 segundo */
+}
+
+.flag-item:nth-child(3) img {
+    animation-delay: 2s; /* Atraso de 2 segundos */
+}
+
+.flag-item:nth-child(4) img {
+    animation-delay: 3s; /* Atraso de 3 segundos */
+}
+
 .flag-item span {
     font-size: 0.9rem;
     color: #555;
     font-weight: bold;
-}
-
-/* Posicionamento das bandeiras ao redor do globo */
-.flag-item:nth-child(2) { /* Top */
-    top: 2%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    animation-delay: 0s;
-}
-
-.flag-item:nth-child(3) { /* Left */
-    top: 50%;
-    left: 2%;
-    transform: translate(0, -50%);
-    animation-delay: 2s;
-}
-
-.flag-item:nth-child(4) { /* Right */
-    top: 50%;
-    right: 2%;
-    transform: translate(0, -50%);
-    animation-delay: 4s;
-}
-
-.flag-item:nth-child(5) { /* Bottom */
-    bottom: 2%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    animation-delay: 6s;
 }
 
 /* Animações */
