@@ -383,15 +383,15 @@ header .button:hover {
 }
 
 .flag-item:nth-child(2) img {
-    animation-delay: 1s; /* Atraso de 1 segundo */
+    animation-delay: 2s; /* Atraso de 1 segundo */
 }
 
 .flag-item:nth-child(3) img {
-    animation-delay: 2s; /* Atraso de 2 segundos */
+    animation-delay: 4s; /* Atraso de 2 segundos */
 }
 
 .flag-item:nth-child(4) img {
-    animation-delay: 3s; /* Atraso de 3 segundos */
+    animation-delay: 6s; /* Atraso de 3 segundos */
 }
 
 .flag-item span {
