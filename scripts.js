@@ -151,20 +151,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentText = languageTexts[currentTextIndex];
 
         if (isDeleting) {
-            typingElement.textContent = currentText.slice(0, currentCharIndex--);
+            typingElement.textContent = currentText.slice(0, currentCharIndex);
+            currentCharIndex--;
         } else {
-            typingElement.textContent = currentText.slice(0, currentCharIndex++);
+            typingElement.textContent = currentText.slice(0, currentCharIndex + 1);
+            currentCharIndex++;
         }
 
         if (!isDeleting && currentCharIndex === currentText.length) {
+            // Pause at the end of the word
             isDeleting = true;
-            setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
+            setTimeout(typeLanguages, pauseBetweenTexts);
             return;
         }
 
         if (isDeleting && currentCharIndex === 0) {
+            // Move to the next word
             isDeleting = false;
-            currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Cycle to next text
+            currentTextIndex = (currentTextIndex + 1) % languageTexts.length;
         }
 
         const delay = isDeleting ? deletingSpeed : typingSpeed;
