@@ -422,6 +422,7 @@ header .button:hover {
 
     .flag-item img {
         width: 50px;
+        background-color: transparent;
     }
 
     .flag-item span {
