@@ -345,6 +345,7 @@ header .button:hover {
 
 .flag-item img {
     width: 60px;
+    border: none;
     height: auto;
     animation: pulseOpacity 2s ease-in-out infinite;
     background-color: transparent !important;
