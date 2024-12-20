@@ -655,16 +655,16 @@ header .button:hover {
 }
 
 /* Guide Preview Wrapper */
-/* Contêiner para o mockup e o guia */
 .guide-preview-container {
     position: relative;
-    width: 100%; /* Ajuste conforme necessário */
+    width: 100%;
     max-width: 400px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .guide-preview-wrapper {
     position: absolute;
     top: 5%; /* Move up/down within the mockup */
@@ -675,15 +675,52 @@ header .button:hover {
     border-radius: 15px; /* Matches phone screen shape */
 }
 
-/* Guide Preview Image */
-#guide-preview {
-    max-width: 100%;
-    width: 300px; /* Ajuste para corresponder ao tamanho do mockup */
-    height: auto;
+/* Espaçamento padrão entre seções */
+section {
+    margin: 50px 0; /* Adiciona espaço entre as seções */
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+/* Contêiner para o mockup e o guia */
+.guide-preview-container {
     position: relative;
-    z-index: 1; /* O vídeo ficará abaixo do mockup */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    display: block; /* Certifica-se de que o elemento é tratado como bloco */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Vídeo */
+#guide-preview {
+    position: absolute;
+    width: 90%;
+    height: auto;
+    z-index: 1; /* Por trás do mockup */
+    border-radius: 16px; /* Faz com que o vídeo acompanhe o design do mockup */
+}
+
+/* Mockup do telefone */
+.phone-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    z-index: 2; /* No topo */
+    pointer-events: none; /* Impede interações no mockup */
+}
+
+/* Título da seção */
+#photo-examples h2 {
+    margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+    font-size: 2rem; /* Ajusta o tamanho da fonte */
+    text-align: center;
+}
+
+/* Adiciona espaçamento entre o título e o conteúdo */
+#photo-examples .guide-preview-container {
+    margin-top: 20px;
 }
 
 /* Fade-in animation */
