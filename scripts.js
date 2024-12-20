@@ -60,29 +60,7 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 fadeSections.forEach((section) => fadeObserver.observe(section));
 
-// Rotate Effect on Scroll
-const sections = document.querySelectorAll('.section');
-
-const rotateObserverOptions = {
-    root: null,
-    threshold: 0.5, // Trigger at the middle of the section
-};
-
-const rotateObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('rotate-visible');
-            entry.target.classList.remove('rotate-hidden');
-        } else {
-            entry.target.classList.remove('rotate-visible');
-            entry.target.classList.add('rotate-hidden');
-        }
-    });
-}, rotateObserverOptions);
-
-sections.forEach((section) => rotateObserver.observe(section));
-
-// Efeito de seções vindo por cima ao rolar o scroll
+// Section Scroll Effect
 document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll(".section");
     let lastScrollY = 0;
@@ -91,18 +69,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
         lastScrollY = window.scrollY;
 
-        sections.forEach((section) => {
+        sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
 
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
+            if (isVisible) {
                 if (scrollDirection === "down") {
-                    section.style.zIndex = 1;
-                    section.style.transform = "translateY(0)";
-                    section.style.opacity = 1;
-                } else if (scrollDirection === "up") {
-                    section.style.zIndex = 0;
-                    section.style.transform = "translateY(50px)";
+                    section.style.transform = `translateY(${50 * (index + 1)}px) scale(0.9)`;
                     section.style.opacity = 0.8;
+                    section.style.zIndex = index;
+                } else if (scrollDirection === "up") {
+                    section.style.transform = "translateY(0px) scale(1)";
+                    section.style.opacity = 1;
+                    section.style.zIndex = sections.length - index;
                 }
             }
         });
