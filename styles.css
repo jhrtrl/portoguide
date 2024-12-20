@@ -630,43 +630,43 @@ header .button:hover {
 }
 
 /* Guide Preview Section */
-#guide-preview-section {
+/* Section Styles */
+#photo-examples {
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 1rem;
 }
 
+/* Phone Mockup Container */
 .phone-mockup {
     position: relative;
-    width: 320px; /* Adjust based on your mockup's size */
-    height: 640px; /* Ensure consistent proportions */
-    margin: 0 auto;
-    display: block;
-    background: url('images/phone-mockup.png') no-repeat center;
-    background-size: contain;
+    width: 320px; /* Set the width of the phone mockup */
+    height: 640px; /* Set the height of the phone mockup */
+    margin: 0 auto; /* Center the mockup horizontally */
 }
 
-.mockup-image {
+/* Phone Mockup Image */
+.phone-mockup-image {
     width: 100%;
     height: auto;
     display: block;
-    z-index: 2;
 }
 
+/* Guide Preview Wrapper */
 .guide-preview-wrapper {
     position: absolute;
-    top: 16%; /* Fine-tune to fit the screen area */
-    left: 11%; /* Adjust to center horizontally */
-    width: 78%; /* Fit the screen width */
-    height: 68%; /* Match the screen's height */
+    top: 12%; /* Adjust to align with the phone screen */
+    left: 10%; /* Adjust to horizontally center the screen */
+    width: 80%; /* Match the screen dimensions */
+    height: 76%; /* Match the screen dimensions */
     overflow: hidden;
-    border-radius: 10px; /* Match the screen's rounded corners */
-    z-index: 1;
+    border-radius: 15px; /* Add rounded corners to match phone screen */
 }
 
+/* Guide Preview Image */
 .guide-preview {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Scale the WebP properly */
+    object-fit: cover; /* Ensure the image scales properly */
 }
 
 /* Fade-in animation */
