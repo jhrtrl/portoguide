@@ -219,6 +219,26 @@ header .button:hover {
     }
 }
 
+/* Efeito base para as seções */
+.section {
+    transform: rotateX(90deg); /* Inicialmente invisível */
+    transform-origin: center;
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Seção visível */
+.section.visible {
+    transform: rotateX(0deg);
+    opacity: 1;
+}
+
+/* Seção saindo de vista */
+.section.hidden {
+    transform: rotateX(-90deg);
+    opacity: 0;
+}
+
 /* Fade-In Animations */
 .fade-in {
     opacity: 0; /* Invisível inicialmente */
