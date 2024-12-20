@@ -629,6 +629,48 @@ header .button:hover {
     margin-right: 0.5rem; /* Space between icon and text */
 }
 
+/* Guide Preview Section */
+#guide-preview {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #f4f4f4;
+}
+
+#guide-preview h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.guide-preview-container {
+    position: relative;
+    display: inline-block;
+    width: 300px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+.phone-mockup {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.phone-mockup-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.guide-preview-content {
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    width: 84%;
+    height: 80%;
+    object-fit: cover;
+    border-radius: 12px; /* Ajuste conforme necessário */
+}
+
 /* Example Photos Section */
 .example-photos {
     padding: 2rem 1rem;
