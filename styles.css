@@ -656,38 +656,44 @@ header .button:hover {
 }
 
 /* Phone Mockup Styles */
-.phone-mockup {
-    position: relative;
-    display: inline-block;
-    width: 300px; /* Adjust size as needed */
-    aspect-ratio: 9 / 18; /* Keeps the mockup's proportion */
-    overflow: hidden;
-}
-
-.phone-frame {
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 2;
-}
-
-.phone-screen {
-    position: absolute;
-    top: 10%; /* Adjust based on mockup */
-    left: 10%; /* Adjust based on mockup */
-    width: 80%; /* Adjust based on mockup */
-    height: 80%; /* Adjust based on mockup */
-    overflow: hidden;
-    z-index: 1;
+/* Container for the mockup */
+.mockup-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 2rem 0;
+    position: relative;
 }
 
-.guide-preview-gif {
-    width: 100%;
-    height: auto;
+/* Phone mockup image */
+/* Estilo para o phone-mockup */
+.phone-mockup {
+    width: 300px;
+    height: 600px;
+    margin: 0 auto;
+    background: url('images/phone-mockup.png') no-repeat center center;
+    background-size: contain;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Para garantir que o conteúdo do guia não vaze */
+}
+
+/* Estilo para o guia (webp dentro do mockup) */
+.guide-preview {
+    width: 90%; /* Adapta ao tamanho interno do mockup */
+    height: 90%; /* Adapta ao tamanho interno do mockup */
     object-fit: cover;
+    opacity: 0;
+    transform: translateY(20px); /* Para aplicar o efeito fade-in */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Quando a classe 'active' é adicionada, o fade-in ocorre */
+.guide-preview.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* FAQ Section */
