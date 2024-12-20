@@ -294,14 +294,14 @@ header .button:hover {
 
 /* Title Styling */
 .moments-title {
-    font-size: 1.8rem; /* Smaller size */
+    font-size: 1.8rem; /* Adjust size */
     font-weight: bold;
     text-align: center;
     opacity: 0;
     transform: scale(0.95); /* Slightly smaller on load */
-    animation: fadeZoomIn 0.8s ease forwards, underlineSlide 0.8s ease 0.8s forwards;
     position: relative;
-    color: #3c8dbc; /* Matches your site color scheme */
+    color: #3c8dbc;
+    animation: fadeZoomIn 0.8s ease forwards; /* Initial animation */
 }
 
 /* Fade-In with Zoom Animation */
@@ -316,26 +316,42 @@ header .button:hover {
     }
 }
 
-/* Underline Animation */
+/* Underline Styling */
 .moments-title::after {
     content: '';
     position: absolute;
     bottom: -5px; /* Adjust spacing */
     left: 0;
-    width: 0;
-    height: 2px; /* Thin underline */
-    background: #3c8dbc; /* Same color as title */
-    transition: width 0.8s ease; /* Smooth animation */
-    animation: underlineSlide 0.8s ease 0.8s forwards;
+    width: 0; /* Starts hidden */
+    height: 3px;
+    background: linear-gradient(to right, #3c8dbc, transparent); /* Gradient fade */
+    animation: underlineSlide 0.8s ease forwards; /* Slide animation */
+    animation-delay: 0.5s; /* Starts after title animation */
 }
 
-/* Underline Animation Keyframes */
+/* Underline Slide Animation */
 @keyframes underlineSlide {
     0% {
         width: 0;
     }
     100% {
         width: 100%; /* Matches title width */
+    }
+}
+
+/* Fade-Out Animation */
+.fade-out .moments-title {
+    animation: fadeZoomOut 0.8s ease forwards; /* Fade-out animation */
+}
+
+@keyframes fadeZoomOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.95);
     }
 }
 
