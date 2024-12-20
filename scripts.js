@@ -125,3 +125,53 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Typing Animation
+const languageTexts = [
+    "Languages Available", 
+    "Idiomas Disponibles", 
+    "Langues Disponibles", 
+    "Idiomas Disponíveis"
+];
+
+const typingElement = document.querySelector(".language-flags h2");
+let currentTextIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+let typingSpeed = 150;
+let deletingSpeed = 80;
+let pauseBetweenTexts = 1500;
+
+function typeLanguages() {
+    const currentText = languageTexts[currentTextIndex];
+
+    if (isDeleting) {
+        // Remove one character
+        typingElement.textContent = currentText.slice(0, currentCharIndex--);
+    } else {
+        // Add one character
+        typingElement.textContent = currentText.slice(0, currentCharIndex++);
+    }
+
+    // If the word is fully typed
+    if (!isDeleting && currentCharIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
+        return;
+    }
+
+    // If the word is fully deleted
+    if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+        currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Move to the next text
+    }
+
+    // Adjust speed for typing or deleting
+    const delay = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(typeLanguages, delay);
+}
+
+// Start the animation
+if (typingElement) {
+    typeLanguages();
+}
