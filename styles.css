@@ -645,7 +645,7 @@ header .button:hover {
 .guide-preview-container {
     position: relative;
     width: 100%; /* Ocupa a largura total */
-    /* height: auto;  Ajusta automaticamente a altura */
+    height: auto;  /* Ajusta automaticamente a altura */
     display: flex; /* Alinha itens dentro do contêiner */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
@@ -656,7 +656,7 @@ header .button:hover {
 .guide-preview-content {
     position: absolute;
     width: 40%; /* Ajuste a largura para encaixar no mockup */
-    height: 82%; /* Ajuste a altura para encaixar no mockup */
+    height: 60% !important; /* Ajuste a altura para encaixar no mockup */
     object-fit: fill; /* Permite distorcer a imagem, ignorando proporções */
     border-radius: 12px; /* Arredondar os cantos, se necessário */
     z-index: 1; /* Certifica-se de que está visível dentro do mockup */
