@@ -645,7 +645,7 @@ header .button:hover {
 .guide-preview-container {
     position: relative;
     display: inline-block;
-    width: 280px; /* Default size for mobile */
+    width: 280px;
     height: auto;
 }
 
@@ -659,7 +659,6 @@ header .button:hover {
 .phone-mockup-image {
     width: 100%;
     height: auto;
-    display: block;
 }
 
 .guide-preview-content {
