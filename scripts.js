@@ -60,34 +60,6 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 fadeSections.forEach((section) => fadeObserver.observe(section));
 
-// Section Scroll Effect
-document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll(".section");
-    let lastScrollY = 0;
-
-    window.addEventListener("scroll", () => {
-        const scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
-        lastScrollY = window.scrollY;
-
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-
-            if (isVisible) {
-                if (scrollDirection === "down") {
-                    section.style.transform = `translateY(${50 * (index + 1)}px) scale(0.9)`;
-                    section.style.opacity = 0.8;
-                    section.style.zIndex = index;
-                } else if (scrollDirection === "up") {
-                    section.style.transform = "translateY(0px) scale(1)";
-                    section.style.opacity = 1;
-                    section.style.zIndex = sections.length - index;
-                }
-            }
-        });
-    });
-});
-
 // Função para animar o contador
 function animateCounter(id, start, end, duration) {
     const element = document.getElementById(id);
