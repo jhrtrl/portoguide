@@ -633,15 +633,18 @@ header .button:hover {
 /* Section Styles */
 #photo-examples {
     text-align: center;
-    padding: 2rem 1rem;
+    position: relative;
+    padding: 2rem 0;
 }
 
 /* Phone Mockup Container */
 .phone-mockup {
-    position: relative;
-    width: 320px; /* Set the width of the phone mockup */
-    height: 640px; /* Set the height of the phone mockup */
-    margin: 0 auto; /* Center the mockup horizontally */
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para alinhar o centro do elemento */
+    max-width: 300px; /* Tamanho máximo para o mockup */
+    z-index: 2; /* Garante que o mockup fique acima do vídeo */
 }
 
 /* Phone Mockup Image */
@@ -663,10 +666,14 @@ header .button:hover {
 }
 
 /* Guide Preview Image */
-.guide-preview {
-    width: 100%; /* Match the container's width */
-    height: 100%; /* Match the container's height */
-    object-fit: cover; /* Ensures the webp scales properly */
+#guide-preview {
+    max-width: 100%;
+    width: 300px; /* Ajuste para corresponder ao tamanho do mockup */
+    height: auto;
+    position: relative;
+    z-index: 1; /* O vídeo ficará abaixo do mockup */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: block; /* Certifica-se de que o elemento é tratado como bloco */
 }
 
 /* Fade-in animation */
