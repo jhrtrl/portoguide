@@ -176,5 +176,5 @@ function typeLanguages() {
 // Start the animation
 if (typingElement) {
     typingElement.textContent = ""; // Ensure initial text is empty
-    typingElement.classList.add("typing-cursor"); // Add cursor effect
     typeLanguages();
+}

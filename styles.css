@@ -293,27 +293,25 @@ header .button:hover {
 }
 
 /* Language Flags Section */
-/* Cursor Effect */
-.typing-cursor::after {
-    content: "|";
-    display: inline-block;
-    margin-left: 5px;
-    animation: blink 0.7s steps(2, start) infinite;
-    color: #333; /* Ajuste conforme necessário */
+.typing-area {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    min-height: 50px; /* Define uma altura mínima para o texto */
+    white-space: nowrap; /* Garante que o texto não quebre linhas */
 }
 
-.cursor {
+.blinking-cursor {
     display: inline-block;
-    font-weight: bold;
-    font-size: inherit;
-    color: #333; /* Cor do cursor */
-    animation: blink 0.7s steps(1) infinite;
+    width: 10px;
+    height: 1em;
+    background-color: #333;
+    animation: blink 0.6s steps(2) infinite;
 }
 
 @keyframes blink {
-    50% {
-        opacity: 0;
-    }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .language-flags {
