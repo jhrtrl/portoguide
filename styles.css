@@ -645,10 +645,11 @@ header .button:hover {
 .guide-preview-container {
     position: relative;
     display: inline-block;
-    width: 300px; /* Ajuste conforme necessário */
+    width: 280px; /* Default size for mobile */
     height: auto;
 }
 
+/* Phone Mockup Styling */
 .phone-mockup {
     position: relative;
     width: 100%;
@@ -668,8 +669,27 @@ header .button:hover {
     width: 84%;
     height: 80%;
     object-fit: cover;
-    border-radius: 12px; /* Ajuste conforme necessário */
+    border-radius: 12px;
 }
+
+/* Adjustments for Larger Screens (Laptops) */
+@media (min-width: 768px) {
+    .guide-preview-container {
+        width: 350px; /* Slightly larger for laptops */
+    }
+
+    #guide-preview h2 {
+        font-size: 2.5rem; /* Increase title size on larger screens */
+    }
+}
+
+/* Adjustments for Very Large Screens (Desktops) */
+@media (min-width: 1024px) {
+    .guide-preview-container {
+        width: 400px; /* Larger mockup size for desktops */
+    }
+}
+
 
 /* Example Photos Section */
 .example-photos {
