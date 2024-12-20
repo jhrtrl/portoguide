@@ -126,51 +126,52 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Typing Animation with Cursor
-const languageTexts = [
-    "Languages Available",
-    "Idiomas Disponibles",
-    "Langues Disponibles",
-    "Idiomas Disponíveis",
-];
+document.addEventListener("DOMContentLoaded", () => {
+    // Typing Animation with Cursor
+    const languageTexts = [
+        "Languages Available",
+        "Idiomas Disponibles",
+        "Langues Disponibles",
+        "Idiomas Disponíveis",
+    ];
 
-const typingElement = document.querySelector(".typed-text");
-const cursorElement = document.querySelector(".cursor");
+    const typingElement = document.querySelector(".typed-text");
+    const cursorElement = document.querySelector(".cursor");
 
-let currentTextIndex = 0;
-let currentCharIndex = 0;
-let isDeleting = false;
-const typingSpeed = 70;
-const deletingSpeed = 20;
-const pauseBetweenTexts = 2000;
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 70; // Speed of typing
+    const deletingSpeed = 20; // Speed of deleting
+    const pauseBetweenTexts = 2000; // Pause between typing different texts
 
-function typeLanguages() {
-    if (!typingElement || !cursorElement) return; // Ensure elements exist
+    function typeLanguages() {
+        if (!typingElement || !cursorElement) return; // Ensure elements exist
 
-    const currentText = languageTexts[currentTextIndex];
+        const currentText = languageTexts[currentTextIndex];
 
-    if (isDeleting) {
-        typingElement.textContent = currentText.slice(0, currentCharIndex--);
-    } else {
-        typingElement.textContent = currentText.slice(0, currentCharIndex++);
+        if (isDeleting) {
+            typingElement.textContent = currentText.slice(0, currentCharIndex--);
+        } else {
+            typingElement.textContent = currentText.slice(0, currentCharIndex++);
+        }
+
+        if (!isDeleting && currentCharIndex === currentText.length) {
+            isDeleting = true;
+            setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
+            return;
+        }
+
+        if (isDeleting && currentCharIndex === 0) {
+            isDeleting = false;
+            currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Cycle to next text
+        }
+
+        const delay = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(typeLanguages, delay);
     }
 
-    if (!isDeleting && currentCharIndex === currentText.length) {
-        isDeleting = true;
-        setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
-        return;
-    }
-
-    if (isDeleting && currentCharIndex === 0) {
-        isDeleting = false;
-        currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Cycle to next text
-    }
-
-    const delay = isDeleting ? deletingSpeed : typingSpeed;
-    setTimeout(typeLanguages, delay);
-}
-
-// Start typing animation
-if (typingElement && cursorElement) {
+    // Start typing animation
     typeLanguages();
-}
+});
+
