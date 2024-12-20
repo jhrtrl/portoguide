@@ -127,52 +127,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Typing Animation
-document.addEventListener("DOMContentLoaded", function () {
-    const phrases = [
-        "Languages Available",
-        "Idiomas Disponibles",
-        "Langues Disponibles",
-        "Idiomas Disponíveis"
-    ];
-    const typingText = document.getElementById("typing-text");
-    const typingSpeed = 150; // Velocidade de digitação em ms
-    const backspaceSpeed = 100; // Velocidade de apagamento em ms
-    const delayAfterTyping = 1000; // Pausa após completar a frase
-    const delayAfterBackspace = 300; // Pausa antes de começar a apagar
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+.typing-area {
+    font-size: 2rem;
+    text-align: center;
+    color: #333;
+    min-height: 50px; /* Define uma altura mínima para o texto */
+    white-space: nowrap; /* Garante que o texto não quebre linhas */
+}
 
-    function typeEffect() {
-        const currentPhrase = phrases[phraseIndex];
-        if (!isDeleting) {
-            // Digitação
-            typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
+.blinking-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background-color: #333;
+    animation: blink 0.6s steps(2) infinite;
+}
 
-            if (charIndex === currentPhrase.length) {
-                // Pausa após digitar tudo
-                setTimeout(() => {
-                    isDeleting = true;
-                }, delayAfterTyping);
-            }
-        } else {
-            // Backspace
-            typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-
-            if (charIndex === 0) {
-                // Mudar para a próxima frase
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                isDeleting = false;
-                setTimeout(typeEffect, delayAfterBackspace);
-                return;
-            }
-        }
-
-        const delay = isDeleting ? backspaceSpeed : typingSpeed;
-        setTimeout(typeEffect, delay);
-    }
-
-    typeEffect();
-});
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
