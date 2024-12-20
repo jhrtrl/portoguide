@@ -656,8 +656,8 @@ header .button:hover {
     position: absolute;
     top: 5%; /* Move up/down within the mockup */
     left: 10%; /* Move left/right within the mockup */
-    width: 80%; /* Adjust the width of the screen */
-    height: 76%; /* Adjust the height of the screen */
+    width: 60%; /* Adjust the width of the screen */
+    height: 56%; /* Adjust the height of the screen */
     overflow: hidden;
     border-radius: 15px; /* Matches phone screen shape */
 }
