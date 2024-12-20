@@ -655,9 +655,9 @@ header .button:hover {
 .guide-preview-wrapper {
     position: absolute;
     top: 5%; /* Move up/down within the mockup */
-    left: 40%; /* Move left/right within the mockup */
-    width: 40%; /* Adjust the width of the screen */
-    height: 36%; /* Adjust the height of the screen */
+    left: 30%; /* Move left/right within the mockup */
+    width: 55%; /* Adjust the width of the screen */
+    height: 51%; /* Adjust the height of the screen */
     overflow: hidden;
     border-radius: 15px; /* Matches phone screen shape */
 }
