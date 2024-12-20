@@ -637,9 +637,12 @@ header .button:hover {
 
 .phone-mockup {
     position: relative;
-    width: 320px; /* Adjust based on mockup image dimensions */
+    width: 320px; /* Adjust based on your mockup's size */
+    height: 640px; /* Ensure consistent proportions */
     margin: 0 auto;
-    display: inline-block;
+    display: block;
+    background: url('images/phone-mockup.png') no-repeat center;
+    background-size: contain;
 }
 
 .mockup-image {
@@ -651,20 +654,19 @@ header .button:hover {
 
 .guide-preview-wrapper {
     position: absolute;
-    top: 15%; /* Adjust based on your mockup's screen position */
-    left: 11%; /* Adjust to horizontally center within mockup */
-    width: 78%; /* Scale to fit the screen size */
-    height: 70%; /* Match mockup screen size */
+    top: 16%; /* Fine-tune to fit the screen area */
+    left: 11%; /* Adjust to center horizontally */
+    width: 78%; /* Fit the screen width */
+    height: 68%; /* Match the screen's height */
     overflow: hidden;
-    border-radius: 12px; /* Rounded corners for the screen */
+    border-radius: 10px; /* Match the screen's rounded corners */
     z-index: 1;
 }
 
 .guide-preview {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the WebP scales correctly */
-    display: block;
+    object-fit: cover; /* Scale the WebP properly */
 }
 
 /* Fade-in animation */
