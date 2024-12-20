@@ -21,7 +21,7 @@ function startCountdown(endDate, elementId) {
 }
 
 // Initialize Countdown
-const customStartDate = new Date("2024-12-15T00:00:00");
+const customStartDate = new Date("2024-12-17T00:00:00");
 const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 * 1000).getTime();
 startCountdown(promotionEndDate, "main-countdown");
 startCountdown(promotionEndDate, "sticky-countdown");
