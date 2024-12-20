@@ -128,31 +128,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Typing Animation
 const languageTexts = [
-    "Languages Available", 
-    "Idiomas Disponibles", 
-    "Langues Disponibles", 
+    "Languages Available",
+    "Idiomas Disponibles",
+    "Langues Disponibles",
     "Idiomas Disponíveis"
 ];
 
-const typingElement = document.querySelector(".language-flags h2");
+const typedTextElement = document.querySelector(".typed-text");
+const cursorElement = document.querySelector(".cursor");
+
 let currentTextIndex = 0;
 let currentCharIndex = 0;
 let isDeleting = false;
-let typingSpeed = 70; // Speed of typing
-let deletingSpeed = 20; // Speed of deleting
-let pauseBetweenTexts = 1500; // Pause after fully typing a word
+let typingSpeed = 70; // Velocidade de digitação
+let deletingSpeed = 20; // Velocidade de apagar
+let pauseBetweenTexts = 1500; // Pausa antes de apagar o texto completo
 
 function typeLanguages() {
     const currentText = languageTexts[currentTextIndex];
 
     if (isDeleting) {
         // Remove one character
-        currentCharIndex--;
-        typingElement.textContent = currentText.slice(0, currentCharIndex);
+        typedTextElement.textContent = currentText.slice(0, currentCharIndex--);
     } else {
         // Add one character
-        typingElement.textContent = currentText.slice(0, currentCharIndex + 1);
-        currentCharIndex++;
+        typedTextElement.textContent = currentText.slice(0, currentCharIndex++);
     }
 
     // If the word is fully typed
@@ -174,7 +174,6 @@ function typeLanguages() {
 }
 
 // Start the animation
-if (typingElement) {
-    typingElement.textContent = ""; // Ensure initial text is empty
+if (typedTextElement) {
     typeLanguages();
 }
