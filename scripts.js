@@ -60,6 +60,28 @@ const fadeObserver = new IntersectionObserver((entries) => {
 
 fadeSections.forEach((section) => fadeObserver.observe(section));
 
+// Rotate Effect on Scroll
+const sections = document.querySelectorAll('.section');
+
+const rotateObserverOptions = {
+    root: null,
+    threshold: 0.5, // Trigger at the middle of the section
+};
+
+const rotateObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('rotate-visible');
+            entry.target.classList.remove('rotate-hidden');
+        } else {
+            entry.target.classList.remove('rotate-visible');
+            entry.target.classList.add('rotate-hidden');
+        }
+    });
+}, rotateObserverOptions);
+
+sections.forEach((section) => rotateObserver.observe(section));
+
 // Função para animar o contador
 function animateCounter(id, start, end, duration) {
     const element = document.getElementById(id);
