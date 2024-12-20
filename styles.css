@@ -644,9 +644,22 @@ header .button:hover {
 
 .guide-preview-container {
     position: relative;
-    display: inline-block;
-    width: 280px;
-    height: auto;
+    width: 100%; /* Ocupa a largura total */
+    height: auto; /* Ajusta automaticamente a altura */
+    display: flex; /* Alinha itens dentro do contêiner */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    overflow: hidden; /* Evita que elementos saiam do contêiner */
+    padding: 2rem 0; /* Espaçamento extra, opcional */
+}
+
+.guide-preview-content {
+    position: absolute;
+    width: 40%; /* Ajuste a largura para encaixar no mockup */
+    height: 82%; /* Ajuste a altura para encaixar no mockup */
+    object-fit: fill; /* Permite distorcer a imagem, ignorando proporções */
+    border-radius: 12px; /* Arredondar os cantos, se necessário */
+    z-index: 1; /* Certifica-se de que está visível dentro do mockup */
 }
 
 /* Phone Mockup Styling */
@@ -654,22 +667,12 @@ header .button:hover {
     position: relative;
     width: 100%;
     height: auto;
+    z-index: 2;
 }
 
 .phone-mockup-image {
     width: 100%;
     height: auto;
-}
-
-.guide-preview-content {
-    position: absolute;
-    top: 10%; /* Ajuste para posicionar verticalmente dentro do mockup */
-    left: 8%; /* Ajuste para posicionar horizontalmente dentro do mockup */
-    width: 40%; /* Ajuste a largura para encaixar no mockup */
-    height: 78%; /* Ajuste a altura para encaixar no mockup */
-    object-fit: fill; /* Permite distorcer a imagem, ignorando proporções */
-    border-radius: 12px; /* Arredondar os cantos, se necessário */
-    z-index: 1; /* Certifica-se de que está visível dentro do mockup */
 }
 
 /* Adjustments for Larger Screens (Laptops) */
