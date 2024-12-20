@@ -138,8 +138,8 @@ const typingElement = document.querySelector(".language-flags h2");
 let currentTextIndex = 0;
 let currentCharIndex = 0;
 let isDeleting = false;
-let typingSpeed = 150;
-let deletingSpeed = 80;
+let typingSpeed = 300;
+let deletingSpeed = 150;
 let pauseBetweenTexts = 2500;
 
 function typeLanguages() {
