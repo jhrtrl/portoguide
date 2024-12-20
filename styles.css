@@ -231,6 +231,11 @@ header .button:hover {
     transform: translateY(0); /* Posição final */
 }
 
+.fade-in.fade-out {
+    opacity: 0; /* Desaparece */
+    transform: translateY(-20px); /* Move ligeiramente para cima */
+}
+
 .fade-in-right {
     opacity: 0;
     transform: translateX(20px); /* Leve deslocamento horizontal */
@@ -242,9 +247,9 @@ header .button:hover {
     transform: translateX(0); /* Posição final */
 }
 
-.fade-in.fade-out {
-    opacity: 0; /* Desaparece */
-    transform: translateY(-20px); /* Move ligeiramente para cima */
+.fade-in-right.fade-out {
+    opacity: 0; /* Invisível novamente */
+    transform: translateX(50px); /* Move de volta para a direita */
 }
 
 /* Spot Counter Section */
