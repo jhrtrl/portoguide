@@ -294,15 +294,17 @@ header .button:hover {
 
 /* Language Flags Section */
 .cursor {
-    display: inline-block;
     font-weight: bold;
-    font-size: inherit;
-    color: #333; /* Ajuste a cor conforme necessário */
-    animation: blink 0.7s steps(1) infinite;
+    font-size: 1.2rem;
+    color: #333;
+    animation: blink 0.7s steps(2) infinite;
 }
 
 @keyframes blink {
-    50% {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
         opacity: 0;
     }
 }
