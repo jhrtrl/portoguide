@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTextIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
-    let typingSpeed = 100; // Velocidade de digitação
-    let deletingSpeed = 50; // Velocidade de apagar
-    let pauseBetweenTexts = 1500; // Pausa antes de apagar o texto completo
+    const typingSpeed = 70; // Velocidade de digitação
+    const deletingSpeed = 20; // Velocidade de apagar
+    const pauseBetweenTexts = 1500; // Pausa antes de apagar o texto completo
 
     function typeLanguages() {
         const currentText = languageTexts[currentTextIndex];
@@ -175,7 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Start the animation
-    if (typedTextElement) {
+    if (typedTextElement && cursorElement) {
+        cursorElement.style.display = "inline-block"; // Ensure the cursor is visible
         typeLanguages();
+    } else {
+        console.error("Typed text or cursor element not found. Check your HTML structure.");
     }
 });
