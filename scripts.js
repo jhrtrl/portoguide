@@ -21,7 +21,7 @@ function startCountdown(endDate, elementId) {
 }
 
 // Initialize Countdown
-const customStartDate = new Date("2024-12-17T00:00:00");
+const customStartDate = new Date("2024-12-15T00:00:00");
 const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 * 1000).getTime();
 startCountdown(promotionEndDate, "main-countdown");
 startCountdown(promotionEndDate, "sticky-countdown");
@@ -59,6 +59,55 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, fadeObserverOptions);
 
 fadeSections.forEach((section) => fadeObserver.observe(section));
+
+// Rotate Effect on Scroll
+const sections = document.querySelectorAll('.section');
+
+const rotateObserverOptions = {
+    root: null,
+    threshold: 0.5, // Trigger at the middle of the section
+};
+
+const rotateObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('rotate-visible');
+            entry.target.classList.remove('rotate-hidden');
+        } else {
+            entry.target.classList.remove('rotate-visible');
+            entry.target.classList.add('rotate-hidden');
+        }
+    });
+}, rotateObserverOptions);
+
+sections.forEach((section) => rotateObserver.observe(section));
+
+// Efeito de seções vindo por cima ao rolar o scroll
+document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".section");
+    let lastScrollY = 0;
+
+    window.addEventListener("scroll", () => {
+        const scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
+        lastScrollY = window.scrollY;
+
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                if (scrollDirection === "down") {
+                    section.style.zIndex = 1;
+                    section.style.transform = "translateY(0)";
+                    section.style.opacity = 1;
+                } else if (scrollDirection === "up") {
+                    section.style.zIndex = 0;
+                    section.style.transform = "translateY(50px)";
+                    section.style.opacity = 0.8;
+                }
+            }
+        });
+    });
+});
 
 // Função para animar o contador
 function animateCounter(id, start, end, duration) {
@@ -126,56 +175,53 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Typing Animation with Cursor
-    const languageTexts = [
-        "Languages Available",
-        "Idiomas Disponibles",
-        "Langues Disponibles",
-        "Idiomas Disponíveis",
-    ];
+// Typing Animation with Cursor
+const languageTexts = [
+    "Languages Available",
+    "Idiomas Disponibles",
+    "Langues Disponibles",
+    "Idiomas Disponíveis"
+];
 
-    const typingElement = document.querySelector(".typed-text");
-    const cursorElement = document.querySelector(".cursor");
+const typingElement = document.querySelector(".language-flags h2 .typing-text");
+const cursorElement = document.querySelector(".language-flags h2 .typing-cursor");
+let currentTextIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+let typingSpeed = 70;
+let deletingSpeed = 20;
+let pauseBetweenTexts = 2500;
 
-    let currentTextIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 70; // Speed of typing
-    const deletingSpeed = 20; // Speed of deleting
-    const pauseBetweenTexts = 2000; // Pause between typing different texts
+function typeLanguages() {
+    const currentText = languageTexts[currentTextIndex];
 
-    function typeLanguages() {
-        if (!typingElement || !cursorElement) return; // Ensure elements exist
-
-        const currentText = languageTexts[currentTextIndex];
-
-        if (isDeleting) {
-            typingElement.textContent = currentText.slice(0, currentCharIndex);
-            currentCharIndex--;
-        } else {
-            typingElement.textContent = currentText.slice(0, currentCharIndex + 1);
-            currentCharIndex++;
-        }
-
-        if (!isDeleting && currentCharIndex === currentText.length) {
-            // Pause at the end of the word
-            isDeleting = true;
-            setTimeout(typeLanguages, pauseBetweenTexts);
-            return;
-        }
-
-        if (isDeleting && currentCharIndex === 0) {
-            // Move to the next word
-            isDeleting = false;
-            currentTextIndex = (currentTextIndex + 1) % languageTexts.length;
-        }
-
-        const delay = isDeleting ? deletingSpeed : typingSpeed;
-        setTimeout(typeLanguages, delay);
+    if (isDeleting) {
+        // Remove one character
+        typingElement.textContent = currentText.slice(0, currentCharIndex--);
+    } else {
+        // Add one character
+        typingElement.textContent = currentText.slice(0, currentCharIndex++);
     }
 
-    // Start typing animation
-    typeLanguages();
-});
+    // If the word is fully typed
+    if (!isDeleting && currentCharIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeLanguages, pauseBetweenTexts); // Pause before deleting
+        return;
+    }
 
+    // If the word is fully deleted
+    if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+        currentTextIndex = (currentTextIndex + 1) % languageTexts.length; // Move to the next text
+    }
+
+    // Adjust speed for typing or deleting
+    const delay = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(typeLanguages, delay);
+}
+
+// Start the animation
+if (typingElement) {
+    typeLanguages();
+}
