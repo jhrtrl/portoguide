@@ -659,7 +659,7 @@ header .button:hover {
 .phone-mockup {
     position: relative;
     display: inline-block;
-    max-width: 300px; /* Adjust size as needed */
+    width: 300px; /* Adjust size as needed */
     aspect-ratio: 9 / 18; /* Keeps the mockup's proportion */
     overflow: hidden;
 }
@@ -667,17 +667,15 @@ header .button:hover {
 .phone-frame {
     width: 100%;
     height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     z-index: 2;
 }
 
 .phone-screen {
     position: absolute;
     top: 10%; /* Adjust based on mockup */
-    left: 7%; /* Adjust based on mockup */
-    width: 86%; /* Adjust based on mockup */
+    left: 10%; /* Adjust based on mockup */
+    width: 80%; /* Adjust based on mockup */
     height: 80%; /* Adjust based on mockup */
     overflow: hidden;
     z-index: 1;
