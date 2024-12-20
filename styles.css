@@ -349,7 +349,7 @@ header .button:hover {
     width: 60px;
     border: none;
     height: auto;
-    animation: smooth-pulse 2s infinite;
+    animation: smooth-pulse 4s infinite;
     background-color: transparent !important;
 }
 
@@ -371,20 +371,21 @@ header .button:hover {
     top: 50%;
     left: 2%;
     transform: translate(0, -50%);
-    animation-delay: 0.5s;
+    animation-delay: 1s;
 }
 
 .flag-item:nth-child(4) { /* Right */
     top: 50%;
     right: 2%;
     transform: translate(0, -50%);
-    animation-delay: 1.5s;
+    animation-delay: 2s;
 }
 
 .flag-item:nth-child(5) { /* Bottom */
     bottom: 2%;
     left: 50%;
     transform: translate(-50%, 0);
+    animation-delay: 3s;
 }
 
 /* Animações */
