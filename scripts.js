@@ -21,7 +21,7 @@ function startCountdown(endDate, elementId) {
 }
 
 // Initialize Countdown
-const customStartDate = new Date("2024-12-15T00:00:00");
+const customStartDate = new Date("2024-12-17T00:00:00");
 const promotionEndDate = new Date(customStartDate.getTime() + 5 * 24 * 60 * 60 * 1000).getTime();
 startCountdown(promotionEndDate, "main-countdown");
 startCountdown(promotionEndDate, "sticky-countdown");
@@ -59,40 +59,6 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, fadeObserverOptions);
 
 fadeSections.forEach((section) => fadeObserver.observe(section));
-
-// Lens Effect on Slide Transition
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    on: {
-        slideChangeTransitionStart: () => {
-            const overlay = document.querySelector('.lens-overlay');
-            overlay.classList.add('active'); // Trigger the "lens closing" animation
-            setTimeout(() => {
-                overlay.classList.remove('active'); // Trigger the "lens reopening" animation
-            }, 500); // Matches the duration of the closing animation
-        },
-    },
-});
-
-// Add lens overlay dynamically
-document.addEventListener('DOMContentLoaded', () => {
-    const carouselContainer = document.querySelector('.carousel-container');
-    const overlay = document.createElement('div');
-    overlay.className = 'lens-overlay';
-    carouselContainer.appendChild(overlay);
-});
 
 // Função para animar o contador
 function animateCounter(id, start, end, duration) {
@@ -159,3 +125,57 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Typing Animation with Cursor
+    const languageTexts = [
+        "Languages Available",
+        "Idiomas Disponibles",
+        "Langues Disponibles",
+        "Idiomas Disponíveis",
+    ];
+
+    const typingElement = document.querySelector(".typed-text");
+    const cursorElement = document.querySelector(".cursor");
+
+    let currentTextIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 70; // Speed of typing
+    const deletingSpeed = 20; // Speed of deleting
+    const pauseBetweenTexts = 2000; // Pause between typing different texts
+
+    function typeLanguages() {
+        if (!typingElement || !cursorElement) return; // Ensure elements exist
+
+        const currentText = languageTexts[currentTextIndex];
+
+        if (isDeleting) {
+            typingElement.textContent = currentText.slice(0, currentCharIndex);
+            currentCharIndex--;
+        } else {
+            typingElement.textContent = currentText.slice(0, currentCharIndex + 1);
+            currentCharIndex++;
+        }
+
+        if (!isDeleting && currentCharIndex === currentText.length) {
+            // Pause at the end of the word
+            isDeleting = true;
+            setTimeout(typeLanguages, pauseBetweenTexts);
+            return;
+        }
+
+        if (isDeleting && currentCharIndex === 0) {
+            // Move to the next word
+            isDeleting = false;
+            currentTextIndex = (currentTextIndex + 1) % languageTexts.length;
+        }
+
+        const delay = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(typeLanguages, delay);
+    }
+
+    // Start typing animation
+    typeLanguages();
+});
+
