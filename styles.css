@@ -659,7 +659,7 @@ header .button:hover {
     height: 71% !important; /* Ajuste a altura para encaixar no mockup */
     object-fit: fill; /* Permite distorcer a imagem, ignorando proporções */
     border-radius: 18px; /* Arredondar os cantos, se necessário */
-    z-index: 1 !important; /* Certifica-se de que está visível dentro do mockup */
+    z-index: 1; /* Certifica-se de que está visível dentro do mockup */
 }
 
 /* Phone Mockup Styling */
@@ -667,12 +667,12 @@ header .button:hover {
     position: relative;
     width: 100%;
     height: auto;
-    z-index: 2 !important;
 }
 
 .phone-mockup-image {
     width: 100%;
     height: auto;
+    z-index: 2;
 }
 
 /* Adjustments for Larger Screens (Laptops) */
