@@ -679,6 +679,8 @@ header .button:hover {
 @media (min-width: 768px) {
     .guide-preview-container {
         width: 350px; /* Slightly larger for laptops */
+        justify-content: center; /* Centraliza no laptop */
+        padding: 4rem 0; /* Aumenta o espaçamento */
     }
 
     #guide-preview h2 {
@@ -690,6 +692,8 @@ header .button:hover {
 @media (min-width: 1024px) {
     .guide-preview-container {
         width: 400px; /* Larger mockup size for desktops */
+        justify-content: center; /* Centraliza no laptop */
+        padding: 4rem 0; /* Aumenta o espaçamento */
     }
 }
 
