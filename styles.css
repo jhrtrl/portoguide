@@ -655,8 +655,8 @@ header .button:hover {
 
 .guide-preview-content {
     position: absolute;
-    width: 39%; /* Ajuste a largura para encaixar no mockup */
-    height: 71% !important; /* Ajuste a altura para encaixar no mockup */
+    width: 38%; /* Ajuste a largura para encaixar no mockup */
+    height: 72% !important; /* Ajuste a altura para encaixar no mockup */
     object-fit: fill; /* Permite distorcer a imagem, ignorando proporções */
     border-radius: 18px; /* Arredondar os cantos, se necessário */
     z-index: 1; /* Certifica-se de que está visível dentro do mockup */
